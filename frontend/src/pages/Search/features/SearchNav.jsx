@@ -9,8 +9,8 @@ const SearchNav = () => {
   return (
     <header
       id="top"
-      className="bg-[#151515]  text-[#bcbcbc] shadow-md py-3 px-4 md:pr-10">
-      <div className="flex justify-between items-center">
+      className="bg-[#151515] text-[#bcbcbc] shadow-md py-3 px-4 md:pr-10">
+      <div className="flex flex-col md:flex-row justify-between items-center">
         <div>
           <img
             src={logo}
@@ -20,7 +20,7 @@ const SearchNav = () => {
           />
         </div>
 
-        <div className="bg-[#222222] flex justify-center px-4 py-2 rounded-lg  gap-2 items-center w-6/12 cursor-pointer">
+        <div className="bg-[#222222] flex justify-center px-4 py-2 md:mt-0 mt-3 rounded-lg gap-2 items-center w-full md:w-4/12 mx-auto">
           <CiSearch className="text-gray-400 text-lg" />
           <input
             type="text"
