@@ -3,8 +3,11 @@ import logo from "../images/logo.png";
 import { IoIosArrowUp } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-[#151515] pb-8 px-4 md:px-12">
       <div className="grid grid-cols-1 md:grid-cols-12 pt-12 pb-8 md:pb-14 gap-4">
@@ -29,8 +32,8 @@ const Footer = () => {
             <p className="whitespace-nowrap">Contact Us</p>
           </div>
         </div>
-        <div className="col-span-1 md:col-span-3 flex justify-center md:justify-end gap-2 md:gap-3 text-gray-400 mt-4 md:mt-0">
-          <p className="font-semibold text-sm md:text-xl whitespace-nowrap">
+        <div className="col-span-1 md:col-span-3 flex justify-center md:justify-end gap-2 md:gap-3 text-gray-400 mt-4 md:mt-0 cursor-pointer">
+          <p className="font-semibold text-sm md:text-xl whitespace-nowrap ">
             Back to the top
           </p>
           <IoIosArrowUp className="text-lg md:text-xl" />
