@@ -1,19 +1,21 @@
-import React from "react";
-import Home from "./pages/Home/Home";
-
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Search from "./pages/Search/Search";
+
+const Home = lazy(() => import("./pages/Home/Home"));
+const Search = lazy(() => import("./pages/Search/Search"));
 
 const App = () => {
   return (
-    <>
+    <div>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </Suspense>
       </Router>
-    </>
+    </div>
   );
 };
 

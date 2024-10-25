@@ -6,7 +6,7 @@ import TrophyCard from "./TrophyCard";
 const Trophies = () => {
   const [page, setPage] = useState(1);
 
-  const [trophiesPerPage, setTrophiesPerPage] = useState(4);
+  const [trophiesPerPage, setTrophiesPerPage] = useState(5);
 
   const nextPageHandler = () => {
     if (data?.trophies?.length > page * trophiesPerPage) {
@@ -22,7 +22,7 @@ const Trophies = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setTrophiesPerPage(window.innerWidth < 640 ? 2 : 4);
+      setTrophiesPerPage(window.innerWidth < 640 ? 2 : 5);
       setPage(1);
     };
 
@@ -49,7 +49,7 @@ const Trophies = () => {
           />
         </div>
       </div>
-      <div className="my-4 mx-0 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="my-4 mx-0 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
         {data?.trophies &&
           data.trophies
             .slice((page - 1) * trophiesPerPage, page * trophiesPerPage)
