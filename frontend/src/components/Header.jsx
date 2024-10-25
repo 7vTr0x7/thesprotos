@@ -23,7 +23,7 @@ const Header = () => {
           <img
             src={logo}
             alt="logo"
-            className="md:h-16 h-14 px-6 "
+            className="md:h-16 h-14 px-6 cursor-pointer"
             onClick={() => navigate("/")}
           />
         </div>
@@ -85,9 +85,9 @@ const Header = () => {
         </ul>
 
         <div
-          className="bg-[#222222] px-4 py-2 rounded-lg flex gap-2 items-center w-full"
+          className="bg-[#222222] px-4 py-2 rounded-lg flex gap-2 items-center w-full cursor-pointer"
           onClick={() => navigate("/search")}>
-          <CiSearch className="text-gray-400 text-lg" />
+          <CiSearch className="text-gray-400 text-lg cursor-pointer" />
           <input
             type="text"
             placeholder="Search league, clubs, news"
