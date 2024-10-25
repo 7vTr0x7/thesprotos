@@ -4,6 +4,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import BackToTop from "./BackToTop";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -32,12 +33,7 @@ const Footer = () => {
             <p className="whitespace-nowrap">Contact Us</p>
           </div>
         </div>
-        <div className="col-span-1 md:col-span-3 flex justify-center md:justify-end gap-2 md:gap-3 text-gray-400 mt-4 md:mt-0 cursor-pointer">
-          <p className="font-semibold text-sm md:text-xl whitespace-nowrap ">
-            Back to the top
-          </p>
-          <IoIosArrowUp className="text-lg md:text-xl" />
-        </div>
+        <BackToTop />
       </div>
 
       <hr className="h-[1px] bg-gray-500 border-0 my-2 dark:bg-gray-50" />
