@@ -40,9 +40,9 @@ const Standings = () => {
             className={`grid grid-cols-12 py-3 px-3 md:px-5 mt-3 text-gray-50 rounded-lg ${
               index % 2 === 0 && "bg-[#151515]"
             }`}>
-            <p className="col-span-5 text-gray-50 flex gap-3 font-medium text-sm md:text-base">
+            <div className="col-span-5 text-gray-50 flex gap-3 font-medium text-sm md:text-base">
               <p> {stat.position}</p> <p>{stat.club}</p>
-            </p>
+            </div>
             <div className="col-span-7 flex justify-between items-center space-x-2 text-xs md:text-sm">
               <p>{stat.P}</p>
               <p>{stat.W}</p>
