@@ -8,13 +8,11 @@ const Breadcrumbs = () => {
   let breadcrumbPath = "";
 
   return (
-    <div className="text-gray-50 text-lg">
+    <div className="text-gray-50 text-sm sm:text-lg">
       {pathnames.length > 0 && <Link to="/">Home</Link>}
-
       {pathnames &&
         pathnames.map((path, index) => {
           breadcrumbPath += `/${path}`;
-
           const isLast = index === pathnames.length - 1;
           return isLast ? (
             <span key={breadcrumbPath}>

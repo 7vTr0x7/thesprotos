@@ -5,31 +5,27 @@
       {
         "date": "Sat 28 Sep 2024",
         "time": "19:00 PM",
-        "teams": [
-          {
-            "name": "Thesprotos",
-            "logo": "Thesprotos logo"
-          },
-          {
-            "name": "Atletico",
-            "logo": "Atletico logo"
-          }
-        ],
+        "team1": {
+          "name": "Real Madrid",
+          "logo": "Real Madrid logo"
+        },
+        "team2": {
+          "name": "Juventus",
+          "logo": "Juventus logo"
+        },
         "venue": "Bloomfield Road"
       },
       {
         "date": "Sat 28 Sep 2024",
         "time": "17:00 PM",
-        "teams": [
-          {
-            "name": "Arsenal",
-            "logo": "Arsenal logo"
-          },
-          {
-            "name": "Atletico",
-            "logo": "Atletico logo"
-          }
-        ],
+        "team1": {
+          "name": "Barcelona",
+          "logo": "Barcelona logo"
+        },
+        "team2": {
+          "name": "Liverpool",
+          "logo": "Liverpool logo"
+        },
         "venue": "St. James' Park, Newcastle"
       }
     ]
@@ -40,32 +36,28 @@
       {
         "date": "Sat 28 Aug 2024",
         "time": "16:00 PM",
-        "teams": [
-          {
-            "name": "Arsenal",
-            "logo": "Arsenal logo"
-          },
-          {
-            "name": "Atletico",
-            "logo": "Atletico logo"
-          }
-        ],
-        "venue": "St. James' Park, Newcastle"
+        "team1": {
+          "name": "PSG",
+          "logo": "PSG logo"
+        },
+        "team2": {
+          "name": "Bayern Munich",
+          "logo": "Bayern Munich logo"
+        },
+        "venue": "Stamford Bridge"
       },
       {
         "date": "Sat 28 Aug 2024",
         "time": "15:00 PM",
-        "teams": [
-          {
-            "name": "Arsenal",
-            "logo": "Arsenal logo"
-          },
-          {
-            "name": "Atletico",
-            "logo": "Atletico logo"
-          }
-        ],
-        "venue": "St. James' Park, Newcastle"
+        "team1": {
+          "name": "Chelsea",
+          "logo": "Chelsea logo"
+        },
+        "team2": {
+          "name": "Inter Milan",
+          "logo": "Inter Milan logo"
+        },
+        "venue": "Anfield"
       }
     ]
   }

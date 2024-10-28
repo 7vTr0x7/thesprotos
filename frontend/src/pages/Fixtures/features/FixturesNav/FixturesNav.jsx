@@ -3,36 +3,32 @@ import React from "react";
 const FixturesNav = ({ activeTab, setActiveTab }) => {
   return (
     <>
-      <ul className="flex gap-3 items-center">
+      <ul className="flex flex-wrap gap-3 items-center justify-start">
         <li
-          className={` px-3 py-1 rounded-md cursor-pointer ${
+          className={`px-3 py-1 rounded-md cursor-pointer ${
             activeTab === "fixtures"
               ? "bg-yellow-400"
               : "bg-[#222222] text-gray-500"
-          } `}
-          onClick={
-            activeTab !== "fixtures" && (() => setActiveTab("fixtures"))
-          }>
+          }`}
+          onClick={() => setActiveTab("fixtures")}>
           Fixtures
         </li>
         <li
-          className={` px-3 py-1 rounded-md cursor-pointer ${
+          className={`px-3 py-1 rounded-md cursor-pointer ${
             activeTab === "results"
               ? "bg-yellow-400"
               : "bg-[#222222] text-gray-500"
-          } `}
-          onClick={activeTab !== "results" && (() => setActiveTab("results"))}>
+          }`}
+          onClick={() => setActiveTab("results")}>
           Results
         </li>
         <li
-          className={` px-3 py-1 rounded-md cursor-pointer ${
+          className={`px-3 py-1 rounded-md cursor-pointer ${
             activeTab === "standings"
               ? "bg-yellow-400"
               : "bg-[#222222] text-gray-500"
-          } `}
-          onClick={
-            activeTab !== "standings" && (() => setActiveTab("standings"))
-          }>
+          }`}
+          onClick={() => setActiveTab("standings")}>
           Standings
         </li>
       </ul>
