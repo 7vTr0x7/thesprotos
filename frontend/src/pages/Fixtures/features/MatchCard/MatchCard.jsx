@@ -18,9 +18,9 @@ const MatchCard = ({ match }) => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row items-center text-gray-50 mt-3 gap-4 sm:gap-8">
+      <div className="flex flex-row items-center text-gray-50 mt-3 gap-4 sm:gap-8">
         <div className="flex items-center gap-2 flex-1 justify-center sm:justify-end">
-          <p className="text-xs sm:text-sm md:text-2xl font-semibold text-center max-w-[6rem] truncate">
+          <p className="text-sm md:text-2xl font-semibold text-center ">
             {match?.team1?.name || match?.team1}
           </p>
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
@@ -33,7 +33,7 @@ const MatchCard = ({ match }) => {
         </div>
 
         {match?.time ? (
-          <p className="text-lg sm:text-xl font-semibold text-center flex-shrink-0">
+          <p className="text-sm sm:text-xl font-semibold text-center flex-shrink-0">
             {match?.time}
           </p>
         ) : (
@@ -44,7 +44,7 @@ const MatchCard = ({ match }) => {
           </div>
         )}
 
-        <div className="flex items-center gap-2 flex-1 justify-center sm:justify-start">
+        <div className="flex  items-center gap-2 flex-1 justify-center sm:justify-start">
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
             <img
               alt={match?.team2?.name}
@@ -52,7 +52,7 @@ const MatchCard = ({ match }) => {
               className="h-8 sm:h-10 md:h-16 max-w-[2.5rem] md:max-w-none"
             />
           </div>
-          <p className="text-xs sm:text-sm md:text-2xl font-semibold text-center max-w-[6rem] truncate">
+          <p className="text-sm sm:text-sm md:text-2xl font-semibold text-center ">
             {match?.team2?.name || match?.team2}
           </p>
         </div>

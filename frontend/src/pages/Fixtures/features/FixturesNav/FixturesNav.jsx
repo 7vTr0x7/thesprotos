@@ -3,7 +3,7 @@ import React from "react";
 const FixturesNav = ({ activeTab, setActiveTab }) => {
   return (
     <>
-      <ul className="flex flex-wrap gap-3 items-center justify-start">
+      <ul className="flex flex-wrap gap-3 mb-5 items-center justify-start select-none">
         <li
           className={`px-3 py-1 rounded-md cursor-pointer ${
             activeTab === "fixtures"

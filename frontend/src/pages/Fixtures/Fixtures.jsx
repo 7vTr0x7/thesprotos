@@ -21,15 +21,17 @@ const Fixtures = () => {
           <Breadcrumbs />
         </div>
         <div
-          className={`px-4 sm:px-8 md:px-16 lg:px-32 p-3 bg-black ${
+          className={` px-4 sm:px-8 md:px-16 lg:px-32 p-3 bg-black ${
             activeTab === "standings" && "flex items-center justify-between"
           }`}>
           <FixturesNav activeTab={activeTab} setActiveTab={setActiveTab} />
-          <CustomDropdown
-            setLeague={setLeague}
-            league={league}
-            options={standings?.leagues?.leagues || []}
-          />
+          {activeTab === "standings" && (
+            <CustomDropdown
+              setLeague={setLeague}
+              league={league}
+              options={standings?.leagues?.leagues || []}
+            />
+          )}
         </div>
         <div className="relative px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <RenderContent activeTab={activeTab} league={league} />

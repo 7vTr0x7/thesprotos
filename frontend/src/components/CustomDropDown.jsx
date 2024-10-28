@@ -12,7 +12,7 @@ const CustomDropdown = ({ options, setLeague, league }) => {
   };
 
   return (
-    <div className="relative  w-4/12 text-sm max-w-xs md:max-w-[20%] lg:max-w-[15%]">
+    <div className="relative md:m-0 mb-4 w-4/12 text-sm max-w-xs md:max-w-[20%] lg:max-w-[25%]">
       <button
         onClick={toggleDropdown}
         className="bg-[#151515] text-gray-100 py-2 px-4 rounded-lg shadow-lg w-full flex justify-between items-center focus:outline-none">
