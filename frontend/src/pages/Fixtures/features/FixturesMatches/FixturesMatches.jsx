@@ -3,7 +3,6 @@ import matches from "../../../../utils/fixtures.json";
 import MatchCard from "../MatchCard/MatchCard";
 
 const FixturesMatches = () => {
-  console.log(matches);
   return (
     <>
       {matches &&

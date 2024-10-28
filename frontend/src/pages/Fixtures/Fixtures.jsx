@@ -4,9 +4,11 @@ import Footer from "../../components/Footer";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import FixturesNav from "./features/FixturesNav/FixturesNav";
 import RenderContent from "./features/RenderContent/RenderContent";
-
+import CustomDropdown from "../../components/CustomDropDown";
+import standings from "../../utils/standings.json";
 const Fixtures = () => {
   const [activeTab, setActiveTab] = useState("fixtures");
+  const [league, setLeague] = useState(standings?.leagues?.leagues[0]);
 
   return (
     <>
@@ -18,11 +20,19 @@ const Fixtures = () => {
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <Breadcrumbs />
         </div>
-        <div className="px-4 sm:px-8 md:px-16 lg:px-32 pt-3 bg-black">
+        <div
+          className={`px-4 sm:px-8 md:px-16 lg:px-32 p-3 bg-black ${
+            activeTab === "standings" && "flex items-center justify-between"
+          }`}>
           <FixturesNav activeTab={activeTab} setActiveTab={setActiveTab} />
+          <CustomDropdown
+            setLeague={setLeague}
+            league={league}
+            options={standings?.leagues?.leagues || []}
+          />
         </div>
-        <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
-          <RenderContent activeTab={activeTab} />
+        <div className="relative px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+          <RenderContent activeTab={activeTab} league={league} />
         </div>
       </div>
       <Footer />
