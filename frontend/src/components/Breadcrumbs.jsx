@@ -10,24 +10,24 @@ const Breadcrumbs = () => {
   return (
     <div className="text-gray-50 text-sm sm:text-lg">
       {pathnames.length > 0 && <Link to="/">Home</Link>}
-      {pathnames &&
-        pathnames.map((path, index) => {
-          breadcrumbPath += `/${path}`;
-          const isLast = index === pathnames.length - 1;
-          return isLast ? (
-            <span key={breadcrumbPath}>
-              {" "}
-              /{" "}
-              <span className="font-semibold">
-                {`${path.charAt(0).toUpperCase()}${path.slice(1)}`}
-              </span>
-            </span>
-          ) : (
-            <span key={breadcrumbPath}>
-              <Link to={breadcrumbPath}>{path}</Link>
-            </span>
-          );
-        })}
+      {pathnames.map((path, index) => {
+        breadcrumbPath += `/${path}`;
+        const isLast = index === pathnames.length - 1;
+
+        const formattedPath = path.replace(/-/g, " ");
+
+        return isLast ? (
+          <span key={breadcrumbPath}>
+            {" "}
+            / <span className="font-semibold">{formattedPath}</span>
+          </span>
+        ) : (
+          <span key={breadcrumbPath}>
+            {" "}
+            / <Link to={breadcrumbPath}>{formattedPath}</Link>
+          </span>
+        );
+      })}
     </div>
   );
 };

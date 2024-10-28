@@ -13,7 +13,7 @@ const Fixtures = () => {
   return (
     <>
       <Header />
-      <div>
+      <>
         <div className="bg-gradient-to-r from-yellow-200 to-yellow-300 text-center text-gray-900 font-semibold h-32 sm:h-48 flex justify-center items-center text-2xl sm:text-4xl">
           Fixtures
         </div>
@@ -36,7 +36,7 @@ const Fixtures = () => {
         <div className="relative px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <RenderContent activeTab={activeTab} league={league} />
         </div>
-      </div>
+      </>
       <Footer />
     </>
   );

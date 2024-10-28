@@ -3,6 +3,7 @@ import league from "../../../../images/league.png";
 import manCity from "../../../../images/Club.png"; // Replace with Real Madrid logo
 import manUnited from "../../../../images/Club4.png"; // Replace with Juventus logo
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const MatchCard = ({ match }) => {
   return (
@@ -63,7 +64,21 @@ const MatchCard = ({ match }) => {
         </div>
       )}
       <div className="flex justify-center items-center gap-1 mt-3 text-gray-500 cursor-pointer">
-        <p className="text-xs sm:text-sm">View Match</p>
+        <p className="text-xs sm:text-sm">
+          <Link
+            to={`/fixtures/${encodeURIComponent(
+              `${(match?.team1?.name || match?.team1).replace(
+                /\s+/g,
+                "-"
+              )}-vs-${(match?.team2?.name || match?.team2).replace(
+                /\s+/g,
+                "-"
+              )}`
+            )}`}>
+            View Match
+          </Link>
+        </p>
+
         <MdKeyboardArrowRight />
       </div>
     </div>
