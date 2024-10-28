@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
   let breadcrumbPath = "";
 
   return (
-    <div className="text-gray-50">
+    <div className="text-gray-50 text-lg">
       {pathnames.length > 0 && <Link to="/">Home</Link>}
 
       {pathnames &&
