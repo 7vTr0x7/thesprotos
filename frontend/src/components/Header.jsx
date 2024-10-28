@@ -3,15 +3,18 @@ import logo from "../images/logo.png";
 import { CiSearch } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="bg-[#151515] text-[#bcbcbc] shadow-md py-3 px-4 md:pr-10">
@@ -34,30 +37,44 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-16">
           <ul className="flex gap-8 font-semibold text-gray-400 text-lg cursor-pointer">
             <li
-              className="text-gray-50 hover:text-white"
+              className={`${
+                isActive("/") ? "text-gray-50" : ""
+              } hover:text-white`}
               onClick={() => navigate("/")}>
               Home
             </li>
             <li
-              className="hover:text-white"
+              className={`${
+                isActive("/fixtures") ? "text-gray-50" : ""
+              } hover:text-white`}
               onClick={() => navigate("/fixtures")}>
               Fixtures
             </li>
             <li
-              className="hover:text-white"
+              className={`${
+                isActive("/players") ? "text-gray-50" : ""
+              } hover:text-white`}
               onClick={() => navigate("/players")}>
               Players
             </li>
             <li
-              className="hover:text-white"
+              className={`${
+                isActive("/league") ? "text-gray-50" : ""
+              } hover:text-white`}
               onClick={() => navigate("/league")}>
               League
             </li>
-            <li className="hover:text-white" onClick={() => navigate("/news")}>
+            <li
+              className={`${
+                isActive("/news") ? "text-gray-50" : ""
+              } hover:text-white`}
+              onClick={() => navigate("/news")}>
               News
             </li>
             <li
-              className="whitespace-nowrap hover:text-white"
+              className={`${
+                isActive("/contact-us") ? "text-gray-50" : ""
+              } hover:text-white`}
               onClick={() => navigate("/contact-us")}>
               Contact Us
             </li>
@@ -82,26 +99,44 @@ const Header = () => {
         } mt-4 md:hidden w-full flex flex-col px-8 items-start gap-4`}>
         <ul className="flex flex-col gap-4 cursor-pointer font-semibold text-gray-400 text-sm w-full">
           <li
-            className="text-gray-50 hover:text-white"
+            className={`${
+              isActive("/") ? "text-gray-50" : ""
+            } hover:text-white`}
             onClick={() => navigate("/")}>
             Home
           </li>
           <li
-            className="hover:text-white"
+            className={`${
+              isActive("/fixtures") ? "text-gray-50" : ""
+            } hover:text-white`}
             onClick={() => navigate("/fixtures")}>
             Fixtures
           </li>
-          <li className="hover:text-white" onClick={() => navigate("/players")}>
+          <li
+            className={`${
+              isActive("/players") ? "text-gray-50" : ""
+            } hover:text-white`}
+            onClick={() => navigate("/players")}>
             Players
           </li>
-          <li className="hover:text-white" onClick={() => navigate("/league")}>
+          <li
+            className={`${
+              isActive("/league") ? "text-gray-50" : ""
+            } hover:text-white`}
+            onClick={() => navigate("/league")}>
             League
           </li>
-          <li className="hover:text-white" onClick={() => navigate("/news")}>
+          <li
+            className={`${
+              isActive("/news") ? "text-gray-50" : ""
+            } hover:text-white`}
+            onClick={() => navigate("/news")}>
             News
           </li>
           <li
-            className="whitespace-nowrap hover:text-white"
+            className={`${
+              isActive("/contact-us") ? "text-gray-50" : ""
+            } hover:text-white`}
             onClick={() => navigate("/contact-us")}>
             Contact Us
           </li>
