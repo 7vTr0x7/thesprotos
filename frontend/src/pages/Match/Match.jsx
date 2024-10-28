@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { useLocation } from "react-router-dom";
+import MatchCard from "../Fixtures/features/MatchCard/MatchCard";
+import MatchNav from "./features/MatchNav/MatchNav";
 
 const Match = () => {
+  const [activeTab, setActiveTab] = useState("teamLineup");
+
   const location = useLocation();
-  console.log(location.state);
+  const match = location?.state?.match;
 
   return (
     <>
@@ -17,6 +21,12 @@ const Match = () => {
         </div>
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <Breadcrumbs />
+        </div>
+        <div className="md:px-32 px-3 pt-5 pb-5 bg-black">
+          <MatchCard match={match} view={true} />
+        </div>
+        <div className={` px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black`}>
+          <MatchNav setActiveTab={setActiveTab} activeTab={activeTab} />
         </div>
       </>
       <Footer />

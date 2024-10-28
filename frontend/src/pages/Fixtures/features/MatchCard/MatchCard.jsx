@@ -5,7 +5,7 @@ import manUnited from "../../../../images/Club4.png"; // Replace with Juventus l
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const MatchCard = ({ match }) => {
+const MatchCard = ({ match, view }) => {
   return (
     <div className="relative rounded-lg mb-3 md:py-8 py-5 bg-[#151515] px-3">
       <div className="absolute left-5 top-5">
@@ -19,8 +19,16 @@ const MatchCard = ({ match }) => {
           </p>
         </div>
       </div>
-      <div className="flex flex-row items-center text-gray-50 mt-3 gap-4 sm:gap-8">
-        <div className="flex items-center gap-2 flex-1 justify-center sm:justify-end">
+      <div
+        className={`flex flex-row items-center text-gray-50 mt-3 gap-4 ${
+          view ? "md:gap-14" : "md:gap-8"
+        }`}>
+        <div
+          className={`flex gap-2 flex-1 items-center justify-center ${
+            view
+              ? "md:flex-col-reverse md:justify-end md:items-end"
+              : "md:items-center md:justify-end"
+          }`}>
           <p className="text-sm md:text-2xl font-semibold text-center ">
             {match?.team1?.name || match?.team1}
           </p>
@@ -45,7 +53,12 @@ const MatchCard = ({ match }) => {
           </div>
         )}
 
-        <div className="flex  items-center gap-2 flex-1 justify-center sm:justify-start">
+        <div
+          className={`flex gap-2 flex-1 items-center justify-center ${
+            view
+              ? "md:flex-col md:justify-start md:items-start"
+              : "md:items-center md:justify-start"
+          }`}>
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
             <img
               alt={match?.team2?.name}
@@ -58,29 +71,32 @@ const MatchCard = ({ match }) => {
           </p>
         </div>
       </div>
-      {match?.penalty && (
+      {!view && match?.penalty && (
         <div className="flex justify-center items-center gap-1 mt-2 text-gray-100 cursor-pointer">
           <p className="text-sm md:text-lg">PENS {match?.penalty}</p>
         </div>
       )}
-      <div className="flex justify-center items-center gap-1 mt-3 text-gray-500 cursor-pointer">
-        <p className="text-xs sm:text-sm">
-          <Link
-            to={`/fixtures/${encodeURIComponent(
-              `${(match?.team1?.name || match?.team1).replace(
-                /\s+/g,
-                "-"
-              )}-vs-${(match?.team2?.name || match?.team2).replace(
-                /\s+/g,
-                "-"
-              )}`
-            )}`}>
-            View Match
-          </Link>
-        </p>
+      {!view && (
+        <div className="flex justify-center items-center gap-1 mt-3 text-gray-500 cursor-pointer">
+          <p className="text-xs sm:text-sm">
+            <Link
+              state={{ match }}
+              to={`/fixtures/${encodeURIComponent(
+                `${(match?.team1?.name || match?.team1).replace(
+                  /\s+/g,
+                  "-"
+                )}-vs-${(match?.team2?.name || match?.team2).replace(
+                  /\s+/g,
+                  "-"
+                )}`
+              )}`}>
+              View Match
+            </Link>
+          </p>
 
-        <MdKeyboardArrowRight />
-      </div>
+          <MdKeyboardArrowRight />
+        </div>
+      )}
     </div>
   );
 };
