@@ -18,7 +18,7 @@ const Fixtures = () => {
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <Breadcrumbs />
         </div>
-        <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+        <div className="px-4 sm:px-8 md:px-16 lg:px-32 pt-3 bg-black">
           <FixturesNav activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">

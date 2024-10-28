@@ -3,18 +3,20 @@ import matches from "../../../../utils/fixtures.json";
 import MatchCard from "../MatchCard/MatchCard";
 
 const FixturesMatches = () => {
+  console.log(matches);
   return (
     <>
-      {matches.map((event) => (
-        <div key={event?.id}>
-          <p className="text-gray-50 text-lg sm:text-xl my-2 sm:my-4">
-            {event?.month}
-          </p>
-          {event?.matches?.map((match) => (
-            <MatchCard match={match} key={match.id} />
-          ))}
-        </div>
-      ))}
+      {matches &&
+        matches.map((event) => (
+          <div key={event?.id}>
+            <p className="text-gray-50 text-lg sm:text-xl my-2 sm:my-4">
+              {event?.month}
+            </p>
+            {event?.matches.map((match) => (
+              <MatchCard match={match} key={match.id} />
+            ))}
+          </div>
+        ))}
     </>
   );
 };
