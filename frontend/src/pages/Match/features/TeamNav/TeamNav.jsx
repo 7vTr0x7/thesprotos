@@ -8,20 +8,20 @@ const TeamNav = ({ activeTeam, setActiveTeam, match }) => {
       <ul className="flex flex-wrap gap-3 items-center justify-start select-none relative">
         <li
           className={`px-3 py-1 cursor-pointer border-b-2 ${
-            activeTeam === (match?.team1?.name || match?.team1)
+            activeTeam === "Real Madrid"
               ? "border-b-yellow-400 text-white"
               : "border-b-transparent text-gray-500"
           }`}
-          onClick={() => setActiveTeam(match?.team1?.name || match?.team1)}>
+          onClick={() => setActiveTeam("Real Madrid")}>
           {match?.team1?.name || match?.team1}
         </li>
         <li
           className={`px-3 py-1 cursor-pointer border-b-2 ${
-            activeTeam === (match?.team2?.name || match?.team2)
+            activeTeam === "Atletico"
               ? "border-b-yellow-400 text-white"
               : "border-b-transparent text-gray-500"
           }`}
-          onClick={() => setActiveTeam(match?.team2?.name || match?.team2)}>
+          onClick={() => setActiveTeam("Atletico")}>
           {match?.team2?.name || match?.team2}
         </li>
       </ul>

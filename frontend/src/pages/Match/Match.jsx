@@ -10,16 +10,10 @@ import RenderMatchInfo from "./features/RenderMatchInfo/RenderMatchInfo";
 
 const Match = () => {
   const [activeTab, setActiveTab] = useState("teamLineup");
-  const [activeTeam, setActiveTeam] = useState("");
+  const [activeTeam, setActiveTeam] = useState("Real Madrid");
 
   const location = useLocation();
   const match = location?.state?.match;
-
-  useEffect(() => {
-    if (match.team1 || match.team1.name) {
-      setActiveTeam(match.team1.name || match.team1);
-    }
-  }, [match.team1]);
 
   return (
     <>
