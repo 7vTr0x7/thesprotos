@@ -15,7 +15,8 @@
               "team1_score": 5,
               "team2": "Atletico",
               "team2_score": 1,
-              "penalty": "3-4"
+              "penalty": "3-4",
+              "status": "live"
             },
             {
               "id": "2",
@@ -24,7 +25,8 @@
               "team1": "Arsenal",
               "team1_score": 1,
               "team2": "Atletico",
-              "team2_score": 5
+              "team2_score": 5,
+              "status": "complete"
             }
           ]
         },
@@ -39,7 +41,8 @@
               "team1": "Arsenal",
               "team1_score": 2,
               "team2": "Atletico",
-              "team2_score": 3
+              "team2_score": 3,
+              "status": "complete"
             },
             {
               "id": "6",
@@ -49,7 +52,8 @@
               "team1_score": 3,
               "team2": "Atletico",
               "team2_score": 2,
-              "penalty": "3-4"
+              "penalty": "3-4",
+              "status": "complete"
             }
           ]
         }
@@ -69,7 +73,8 @@
               "team1": "Bayern Munich",
               "team1_score": 4,
               "team2": "Manchester United",
-              "team2_score": 1
+              "team2_score": 1,
+              "status": "complete"
             },
             {
               "id": "10",
@@ -79,7 +84,8 @@
               "team1_score": 2,
               "team2": "Paris Saint-Germain",
               "team2_score": 2,
-              "penalty": "4-3"
+              "penalty": "4-3",
+              "status": "complete"
             }
           ]
         },
@@ -94,7 +100,8 @@
               "team1": "Manchester United",
               "team1_score": 2,
               "team2": "Paris Saint-Germain",
-              "team2_score": 2
+              "team2_score": 2,
+              "status": "complete"
             },
             {
               "id": "14",
@@ -103,7 +110,8 @@
               "team1": "Real Madrid",
               "team1_score": 1,
               "team2": "Bayern Munich",
-              "team2_score": 2
+              "team2_score": 2,
+              "status": "complete"
             }
           ]
         }

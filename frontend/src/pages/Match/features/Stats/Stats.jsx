@@ -1,58 +1,18 @@
 import React from "react";
+import FeaturedPlayerCard from "../../../../components/FeaturedPlayerCard";
+import Goals from "./Goals";
+import PreviousStats from "./PreviousStats";
 
-const Stats = ({ match }) => {
+import data from "../../../../utils/featuredPlayer.json";
+
+const Stats = ({ match, status }) => {
   return (
-    <div className=" text-gray-50 md:w-4/12 mx-4 bg-[#151515] p-3 my-8 rounded-lg">
-      <h3 className="text-center font-semibold text-sm my-3 mb-2">
-        Head-to-Head
-      </h3>
-      <div className="flex justify-between text-xs font-semibold mt-3">
-        <p> Wins</p>
-        <p>Played</p>
-        <p>Wins</p>
-      </div>
-      <div className="flex justify-between text-center text-xs font-semibold mt-3 px-2">
-        <p>{match.headToHead.wins.team1} </p>
-        <p>{match.headToHead.played} </p>
-        <p>{match.headToHead.wins.team2} </p>
-      </div>
-      <hr className="h-[1px] bg-gray-50 border-0 mt-1 dark:bg-gray-50" />
-
-      <div className="flex justify-between text-center text-xs font-bold mt-1 px-2">
-        <p>{match.headToHead.homeWins.team1} </p>
-        <p> Home</p>
-        <p>{match.headToHead.homeWins.team2} </p>
-      </div>
-      <hr className="h-[1px] bg-gray-50 border-0 mt-1 dark:bg-gray-50" />
-
-      <div className="flex justify-between text-xs font-bold mt-1 px-2">
-        <p>{match.headToHead.awayWins.team1} </p>
-        <p> Away </p>
-        <p>{match.headToHead.awayWins.team2} </p>
-      </div>
-      <div className="mt-4">
-        <p className="text-center  font-semibold">Previous Result</p>
-        <div className="flex justify-between mt-2 text-sm">
-          <p>{match.previousResult.team1.name}</p>
-          <div className="flex justify-center gap-2 mr-4">
-            <p> {match.previousResult.team1.score}</p>
-            <div className="h-6 w-[1px] bg-gray-600" />
-
-            <p>{match.previousResult.team2.score}</p>
-          </div>
-          <p>{match.previousResult.team2.name} </p>
-        </div>
-        <div className="flex justify-between mt-2 text-sm">
-          <p>{match.previousResult.team1.name}</p>
-          <div className="flex justify-center gap-2 mr-4">
-            <p> {match.previousResult.team1.score}</p>
-            <div className="h-6 w-[1px] bg-gray-600" />
-
-            <p>{match.previousResult.team2.score}</p>
-          </div>
-          <p>{match.previousResult.team2.name} </p>
-        </div>
-      </div>
+    <div className="flex flex-col md:flex-row md:gap-4 mx-6 my-6 gap-3 ">
+      <PreviousStats match={match} status={status} />
+      {(status === "live" || status === "complete") && (
+        <Goals status={status} />
+      )}
+      {status === "complete" && <FeaturedPlayerCard data={data} />}
     </div>
   );
 };

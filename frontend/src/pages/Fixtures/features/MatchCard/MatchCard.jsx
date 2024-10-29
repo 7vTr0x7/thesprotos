@@ -11,6 +11,11 @@ const MatchCard = ({ match, view }) => {
       <div className="absolute left-5 top-5">
         <img alt="league" src={league} className="h-10 md:h-14" />
       </div>
+      {match?.status === "live" && (
+        <p className="absolute right-3 top-3 px-3 rounded-xl bg-red-700  text-gray-50 ">
+          • live
+        </p>
+      )}
       <div className="flex justify-center text-gray-50 mb-3">
         <div className="text-center">
           <p className="md:text-[1rem] text-sm">{match?.date}</p>

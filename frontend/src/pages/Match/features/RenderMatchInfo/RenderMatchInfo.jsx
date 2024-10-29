@@ -13,7 +13,9 @@ const RenderMatchInfo = ({ activeTab, activeTeam, setActiveTeam, match }) => {
           match={match}
         />
       )}
-      {activeTab === "stats" && <Stats match={matchData} />}
+      {activeTab === "stats" && (
+        <Stats match={matchData} status={match.status} />
+      )}
     </>
   );
 };
