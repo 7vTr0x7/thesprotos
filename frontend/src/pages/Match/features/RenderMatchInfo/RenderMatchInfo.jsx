@@ -2,10 +2,16 @@ import React from "react";
 import Stats from "../Stats/Stats";
 import TeamLineup from "../TeamLineup/TeamLineup";
 
-const RenderMatchInfo = ({ activeTab }) => {
+const RenderMatchInfo = ({ activeTab, activeTeam, setActiveTeam, match }) => {
   return (
     <>
-      {activeTab === "teamLine" && <TeamLineup />}
+      {activeTab === "teamLineup" && (
+        <TeamLineup
+          activeTeam={activeTeam}
+          setActiveTeam={setActiveTeam}
+          match={match}
+        />
+      )}
       {activeTab === "stats" && <Stats />}
     </>
   );

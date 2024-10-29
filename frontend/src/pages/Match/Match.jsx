@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { useLocation } from "react-router-dom";
 import MatchCard from "../Fixtures/features/MatchCard/MatchCard";
 import MatchNav from "./features/MatchNav/MatchNav";
+import TeamNav from "./features/TeamNav/TeamNav";
+import RenderMatchInfo from "./features/RenderMatchInfo/RenderMatchInfo";
 
 const Match = () => {
   const [activeTab, setActiveTab] = useState("teamLineup");
+  const [activeTeam, setActiveTeam] = useState("");
 
   const location = useLocation();
   const match = location?.state?.match;
+
+  useEffect(() => {
+    if (match.team1 || match.team1.name) {
+      setActiveTeam(match.team1.name || match.team1);
+    }
+  }, [match.team1]);
 
   return (
     <>
@@ -25,8 +34,16 @@ const Match = () => {
         <div className="md:px-32 px-3 pt-5 pb-5 bg-black">
           <MatchCard match={match} view={true} />
         </div>
-        <div className={` px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black`}>
+        <div className={` px-4 sm:px-8 md:px-16 lg:px-32 pt-3 bg-black`}>
           <MatchNav setActiveTab={setActiveTab} activeTab={activeTab} />
+        </div>
+        <div className={`md:px-28  py-3 bg-black`}>
+          <RenderMatchInfo
+            activeTab={activeTab}
+            activeTeam={activeTeam}
+            setActiveTeam={setActiveTeam}
+            match={match}
+          />
         </div>
       </>
       <Footer />
