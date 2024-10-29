@@ -1,6 +1,7 @@
 import React from "react";
 import Stats from "../Stats/Stats";
 import TeamLineup from "../TeamLineup/TeamLineup";
+import matchData from "../../../../utils/nextMatch.json";
 
 const RenderMatchInfo = ({ activeTab, activeTeam, setActiveTeam, match }) => {
   return (
@@ -12,7 +13,7 @@ const RenderMatchInfo = ({ activeTab, activeTeam, setActiveTeam, match }) => {
           match={match}
         />
       )}
-      {activeTab === "stats" && <Stats />}
+      {activeTab === "stats" && <Stats match={matchData} />}
     </>
   );
 };
