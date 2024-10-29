@@ -12,7 +12,9 @@ const Stats = ({ match, status }) => {
       {(status === "live" || status === "complete") && (
         <Goals status={status} />
       )}
-      {status === "complete" && <FeaturedPlayerCard data={data} />}
+      {status === "complete" && (
+        <FeaturedPlayerCard data={data} status={status} />
+      )}
     </div>
   );
 };

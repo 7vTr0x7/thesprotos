@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 import { IoIosArrowUp } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackToTop from "./BackToTop";
 
 const Footer = () => {
@@ -22,15 +22,29 @@ const Footer = () => {
             <FaFacebook className="text-gray-50 text-[20px] md:text-[25px]" />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm md:text-lg font-semibold text-gray-100 mt-4 md:mt-16">
-            <p>Fixtures</p>
+            <p>
+              <Link to="/fixtures">Fixtures</Link>
+            </p>
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
-            <p>Players</p>
+            <p>
+              <Link to="/players">Players</Link>
+            </p>
+
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
-            <p>League</p>
+            <p>
+              <Link to="/league">League</Link>
+            </p>
+
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
-            <p>News</p>
+            <p>
+              <p>
+                <Link to="/news">News</Link>
+              </p>
+            </p>
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
-            <p className="whitespace-nowrap">Contact Us</p>
+            <p className="whitespace-nowrap">
+              <Link to="/news"> Contact Us</Link>
+            </p>
           </div>
         </div>
         <BackToTop />

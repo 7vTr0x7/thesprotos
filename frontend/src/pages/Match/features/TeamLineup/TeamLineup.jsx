@@ -19,7 +19,7 @@ const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
       </div>
       <div className="absolute right-2 top-16 flex items-center text-gray-500 cursor-pointer">
         <p className="text-sm">
-          <Link to="/">View Match</Link>
+          <Link to="/">View Team</Link>
         </p>
 
         <MdKeyboardArrowRight />

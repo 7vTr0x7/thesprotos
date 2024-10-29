@@ -1,11 +1,12 @@
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-const FeaturedPlayerCard = ({ data }) => {
+const FeaturedPlayerCard = ({ data, status }) => {
   return (
-    <div className=" bg-[#151515] text-gray-50 rounded-lg shadow-lg pt-5 pb-3  w-full ">
-      {" "}
-      {/* Adjust the width here */}
+    <div
+      className={` bg-[#151515] text-gray-50 rounded-lg shadow-lg pt-5 pb-3 w-full ${
+        status ? "md:w-9/12" : "md:w-full"
+      }`}>
       <div className="flex justify-center">
         <img
           className="rounded-full h-[110px] w-[110px] sm:h-[100px] sm:w-[100px] md:h-[110px] md:w-[110px]"
