@@ -18,6 +18,7 @@ const App = () => {
             <Route path="/fixtures" element={<Fixtures />} />
             <Route path="/fixtures/:match" element={<Match />} />
             <Route path="/league" element={<League />} />
+            <Route path="/league/:league" element={<League />} />
           </Routes>
         </Suspense>
       </Router>
