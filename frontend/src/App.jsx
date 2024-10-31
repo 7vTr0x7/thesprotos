@@ -4,6 +4,7 @@ import Fixtures from "./pages/Fixtures/Fixtures";
 import Match from "./pages/Match/Match";
 import League from "./pages/League/League";
 import LeaguePage from "./pages/League/features/LeaguePage/LeaguePage";
+import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Suspense fallback={<p>Loading..</p>}>
+        <Suspense fallback={<ShimmerUI />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
