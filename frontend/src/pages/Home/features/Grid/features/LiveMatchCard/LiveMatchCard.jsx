@@ -18,7 +18,7 @@ const LiveMatchCard = ({ match }) => {
 
       <div className="col-span-4 flex flex-col items-center justify-center font-semibold pt-6">
         <p>{match?.FT && "FT"}</p>
-        <div className="flex gap-10 pt-3">
+        <div className="flex gap-5 pt-3">
           <p className="text-xl ">{match?.score?.team1}</p>
           <p className="text-xl ">-</p>
           <p className="text-xl ">{match?.score?.team2}</p>
