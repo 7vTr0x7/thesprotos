@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 import data from "../../utils/leagues.json";
 import LeagueCard from "./features/LeagueCard/LeagueCard";

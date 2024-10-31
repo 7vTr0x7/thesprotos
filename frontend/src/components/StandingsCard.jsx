@@ -20,7 +20,7 @@ const StandingsCard = ({ stats }) => {
         stats.map((stat, index) => (
           <div
             key={stat.club}
-            className={`grid grid-cols-12 py-3 px-3 md:px-5 mt-3 text-gray-50 rounded-lg ${
+            className={`grid grid-cols-12 py-3 px-3 md:px-5 mt-3 text-gray-50  ${
               index % 2 === 0 && "bg-[#151515]"
             }`}>
             <div className="col-span-5 text-gray-50 flex gap-3 font-medium text-sm md:text-base">

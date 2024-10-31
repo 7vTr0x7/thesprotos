@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import Breadcrumbs from "../../../../components/Breadcrumbs";
@@ -6,8 +6,12 @@ import { useLocation } from "react-router-dom";
 
 import leagueImg from "../../../../images/arsenal.png";
 import OngoingMatchCard from "../OngoingMatch/OngoingMatchCard";
+import LeagueStats from "../LeagueStats/LeagueStats";
+import RenderLeagueStats from "../RenderLagueStats/RenderLeagueStats";
 
 const LeaguePage = () => {
+  const [activeTab, setActiveTab] = useState("standings");
+
   const location = useLocation();
 
   const { league } = location.state;
@@ -32,6 +36,12 @@ const LeaguePage = () => {
             </div>
           </div>
           <OngoingMatchCard />
+        </div>
+        <div className="relative px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+          <LeagueStats activeTab={activeTab} setActiveTab={setActiveTab} />
+        </div>
+        <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3  bg-black">
+          <RenderLeagueStats activeTab={activeTab} league={"Premier League"} />
         </div>
       </>
       <Footer />
