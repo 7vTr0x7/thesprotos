@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Goalkeeper",
+    "players": [
+      {
+        "name": "Altay Bayindir",
+        "number": 12
+      },
+      {
+        "name": "Tom Heaton",
+        "number": 12
+      },
+      {
+        "name": "Andre Onana",
+        "number": 12
+      }
+    ]
+  },
+  {
+    "name": "Defender",
+    "players": [
+      {
+        "name": "Victor Lindelof",
+        "number": 12
+      },
+      {
+        "name": "Noussair Mazraoui",
+        "number": 12
+      },
+      {
+        "name": "Matthijs De Ligt",
+        "number": 12
+      },
+      {
+        "name": "Harry Maguire",
+        "number": 12
+      },
+      {
+        "name": "Lisandro Martinez",
+        "number": 12
+      },
+      {
+        "name": "Tyrell Malacia",
+        "number": 12
+      },
+      {
+        "name": "Leny Yoro",
+        "number": 12
+      },
+      {
+        "name": "Diego Dalot",
+        "number": 12
+      },
+      {
+        "name": "Luke Shaw",
+        "number": 12
+      },
+      {
+        "name": "Jonny Evans",
+        "number": 12
+      },
+      {
+        "name": "Harry Amass",
+        "number": 12
+      }
+    ]
+  },
+  {
+    "name": "Midfielder",
+    "players": [
+      {
+        "name": "Mason Mount",
+        "number": 12
+      },
+      {
+        "name": "Bruno Fernandes",
+        "number": 12
+      },
+      {
+        "name": "Christian Eriksen",
+        "number": 12
+      }
+    ]
+  },
+  {
+    "name": "Forward",
+    "players": [
+      {
+        "name": "Rasmus Hojlund",
+        "number": 12
+      },
+      {
+        "name": "Marcus Rashford",
+        "number": 12
+      },
+      {
+        "name": "Toby Collyer",
+        "number": 12
+      },
+      {
+        "name": "Ethan Wheatley",
+        "number": 12
+      },
+      {
+        "name": "Jadon Sancho",
+        "number": 12
+      }
+    ]
+  }
+]

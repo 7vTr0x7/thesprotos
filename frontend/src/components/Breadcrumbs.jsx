@@ -19,7 +19,10 @@ const Breadcrumbs = () => {
         return isLast ? (
           <span key={breadcrumbPath}>
             {" "}
-            / <span className="font-semibold">{formattedPath}</span>
+            /{" "}
+            <span className="font-semibold">{`${formattedPath
+              .charAt(0)
+              .toUpperCase()}${formattedPath.slice(1)}`}</span>
           </span>
         ) : (
           <span key={breadcrumbPath}>
