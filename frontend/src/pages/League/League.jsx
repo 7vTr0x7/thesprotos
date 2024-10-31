@@ -23,8 +23,8 @@ const League = () => {
 
           <div className="md:grid md:grid-cols-4 gap-5 flex flex-wrap px-4 sm:px-8 md:px-16 lg:px-32 py-3">
             {leagues &&
-              leagues.map((league) => (
-                <LeagueCard key={league.league} league={league} />
+              leagues.map((league, index) => (
+                <LeagueCard key={index} league={league} />
               ))}
           </div>
         </div>

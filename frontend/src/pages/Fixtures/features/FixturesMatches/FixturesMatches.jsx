@@ -8,7 +8,7 @@ const FixturesMatches = () => {
       {matches &&
         matches.map((event) => (
           <div key={event?.id}>
-            <p className="text-gray-50 text-lg sm:text-xl my-2 sm:my-4">
+            <p className="text-gray-50 text-lg sm:text-xl mb-2 md:mb-4">
               {event?.month}
             </p>
             {event?.matches.map((match) => (

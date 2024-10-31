@@ -36,11 +36,11 @@ const Footer = () => {
             </p>
 
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
+
             <p>
-              <p>
-                <Link to="/news">News</Link>
-              </p>
+              <Link to="/news">News</Link>
             </p>
+
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
             <p className="whitespace-nowrap">
               <Link to="/news"> Contact Us</Link>
