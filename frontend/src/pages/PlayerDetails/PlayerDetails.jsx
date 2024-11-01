@@ -1,7 +1,31 @@
 import React from "react";
+import Footer from "../../components/Footer";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import Header from "../../components/Header";
+import PlayerProfile from "./features/PlayerProfile/PlayerProfile";
+import { useLocation } from "react-router-dom";
 
 const PlayerDetails = () => {
-  return <div></div>;
+  const location = useLocation();
+  const player = location.state.player;
+
+  return (
+    <>
+      <Header />
+      <>
+        <div className="bg-gradient-to-r from-yellow-200 to-yellow-300 text-center text-gray-900 font-semibold h-32 sm:h-48 flex justify-center items-center text-2xl sm:text-4xl">
+          Players
+        </div>
+        <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+          <Breadcrumbs />
+        </div>
+        <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+          <PlayerProfile player={player} />
+        </div>
+      </>
+      <Footer />
+    </>
+  );
 };
 
 export default PlayerDetails;

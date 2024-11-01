@@ -1,9 +1,21 @@
 import React from "react";
 import image from "../../../images/image.png";
+import { useNavigate } from "react-router-dom";
 
 const PlayerCard = ({ player }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="rounded-lg mb-5 bg-[#151515] md:w-10/12">
+    <div
+      className="rounded-lg mb-5 bg-[#151515] md:w-10/12 cursor-pointer"
+      onClick={() =>
+        navigate(
+          `/players/${encodeURIComponent(
+            `${player.name.replace(/\s+/g, "-")}`
+          )}`,
+          { state: { player } }
+        )
+      }>
       <img alt={player.name} src={image} className="rounded-t-lg w-full" />
       <div className="flex justify-between items-center px-4 py-2">
         <div>

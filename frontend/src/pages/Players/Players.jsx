@@ -1,7 +1,7 @@
 import React from "react";
 import Breadcrumbs from "./../../components/Breadcrumbs";
-import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
+import Header from "./../../components/Header";
 
 import data from "../../utils/playersData.json"; // Your updated data
 import PlayerCard from "./PlayerCard/PlayerCard";

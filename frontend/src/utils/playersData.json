@@ -4,18 +4,102 @@
     "players": [
       {
         "name": "Altay Bayindir",
-        "number": 12,
-        "country": "india"
+        "number": 1,
+        "country": "Turkey",
+        "playerProfile": {
+          "dateOfBirth": "14 March 1998",
+          "preferredFoot": "Right",
+          "location": "Istanbul",
+          "preferredPosition": "GK"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Fenerbahçe",
+            "startDate": "01 July, 2019",
+            "stats": {
+              "played": 100,
+              "won": 55,
+              "drawn": 20,
+              "lost": 25
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "15 August, 2023",
+            "stats": {
+              "played": 15,
+              "won": 9,
+              "drawn": 3,
+              "lost": 3
+            }
+          }
+        ]
       },
       {
         "name": "Tom Heaton",
-        "number": 12,
-        "country": "india"
+        "number": 22,
+        "country": "England",
+        "playerProfile": {
+          "dateOfBirth": "15 April 1986",
+          "preferredFoot": "Right",
+          "location": "Chester",
+          "preferredPosition": "GK"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Burnley",
+            "startDate": "01 July, 2013",
+            "stats": {
+              "played": 188,
+              "won": 60,
+              "drawn": 50,
+              "lost": 78
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "16 July, 2021",
+            "stats": {
+              "played": 8,
+              "won": 5,
+              "drawn": 1,
+              "lost": 2
+            }
+          }
+        ]
       },
       {
         "name": "Andre Onana",
-        "number": 12,
-        "country": "india"
+        "number": 24,
+        "country": "Cameroon",
+        "playerProfile": {
+          "dateOfBirth": "02 April 1996",
+          "preferredFoot": "Right",
+          "location": "Yaoundé",
+          "preferredPosition": "GK"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Ajax",
+            "startDate": "01 July, 2015",
+            "stats": {
+              "played": 214,
+              "won": 140,
+              "drawn": 40,
+              "lost": 34
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "01 July, 2023",
+            "stats": {
+              "played": 10,
+              "won": 6,
+              "drawn": 2,
+              "lost": 2
+            }
+          }
+        ]
       }
     ]
   },
@@ -24,58 +108,135 @@
     "players": [
       {
         "name": "Victor Lindelof",
-        "number": 12,
-        "country": "india"
+        "number": 2,
+        "country": "Sweden",
+        "playerProfile": {
+          "dateOfBirth": "17 July 1994",
+          "preferredFoot": "Right",
+          "location": "Västerås",
+          "preferredPosition": "CB"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Benfica",
+            "startDate": "01 July, 2013",
+            "stats": {
+              "played": 48,
+              "won": 30,
+              "drawn": 10,
+              "lost": 8
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "10 July, 2017",
+            "stats": {
+              "played": 220,
+              "won": 120,
+              "drawn": 50,
+              "lost": 50
+            }
+          }
+        ]
       },
       {
         "name": "Noussair Mazraoui",
-        "number": 12,
-        "country": "india"
+        "number": 6,
+        "country": "Morocco",
+        "playerProfile": {
+          "dateOfBirth": "14 November 1997",
+          "preferredFoot": "Right",
+          "location": "Lalden",
+          "preferredPosition": "RB"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Ajax",
+            "startDate": "01 July, 2018",
+            "stats": {
+              "played": 94,
+              "won": 60,
+              "drawn": 20,
+              "lost": 14
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "15 July, 2023",
+            "stats": {
+              "played": 8,
+              "won": 5,
+              "drawn": 2,
+              "lost": 1
+            }
+          }
+        ]
       },
       {
         "name": "Matthijs De Ligt",
-        "number": 12,
-        "country": "india"
+        "number": 4,
+        "country": "Netherlands",
+        "playerProfile": {
+          "dateOfBirth": "12 August 1999",
+          "preferredFoot": "Right",
+          "location": "Leiden",
+          "preferredPosition": "CB"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Ajax",
+            "startDate": "01 July, 2017",
+            "stats": {
+              "played": 77,
+              "won": 50,
+              "drawn": 18,
+              "lost": 9
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "20 July, 2023",
+            "stats": {
+              "played": 5,
+              "won": 3,
+              "drawn": 1,
+              "lost": 1
+            }
+          }
+        ]
       },
       {
         "name": "Harry Maguire",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Lisandro Martinez",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Tyrell Malacia",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Leny Yoro",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Diego Dalot",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Luke Shaw",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Jonny Evans",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Harry Amass",
-        "number": 12,
-        "country": "india"
+        "number": 5,
+        "country": "England",
+        "playerProfile": {
+          "dateOfBirth": "05 March 1993",
+          "preferredFoot": "Right",
+          "location": "Sheffield",
+          "preferredPosition": "CB"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Leicester City",
+            "startDate": "01 July, 2017",
+            "stats": {
+              "played": 69,
+              "won": 30,
+              "drawn": 20,
+              "lost": 19
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "05 August, 2019",
+            "stats": {
+              "played": 148,
+              "won": 85,
+              "drawn": 30,
+              "lost": 33
+            }
+          }
+        ]
       }
     ]
   },
@@ -84,18 +245,69 @@
     "players": [
       {
         "name": "Mason Mount",
-        "number": 12,
-        "country": "india"
+        "number": 19,
+        "country": "England",
+        "playerProfile": {
+          "dateOfBirth": "10 January 1999",
+          "preferredFoot": "Right",
+          "location": "Portsmouth",
+          "preferredPosition": "CM"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Chelsea",
+            "startDate": "01 July, 2019",
+            "stats": {
+              "played": 129,
+              "won": 65,
+              "drawn": 35,
+              "lost": 29
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "01 July, 2023",
+            "stats": {
+              "played": 5,
+              "won": 3,
+              "drawn": 1,
+              "lost": 1
+            }
+          }
+        ]
       },
       {
         "name": "Bruno Fernandes",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Christian Eriksen",
-        "number": 12,
-        "country": "india"
+        "number": 8,
+        "country": "Portugal",
+        "playerProfile": {
+          "dateOfBirth": "08 September 1994",
+          "preferredFoot": "Right",
+          "location": "Maia",
+          "preferredPosition": "AMF"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Sporting CP",
+            "startDate": "01 July, 2017",
+            "stats": {
+              "played": 137,
+              "won": 80,
+              "drawn": 30,
+              "lost": 27
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "29 January, 2020",
+            "stats": {
+              "played": 145,
+              "won": 80,
+              "drawn": 35,
+              "lost": 30
+            }
+          }
+        ]
       }
     ]
   },
@@ -105,27 +317,58 @@
       {
         "name": "Rasmus Hojlund",
         "number": 12,
-        "country": "india"
+        "country": "Denmark",
+        "playerProfile": {
+          "dateOfBirth": "05 February 2003",
+          "preferredFoot": "Right",
+          "location": "Copenhagen",
+          "preferredPosition": "ST"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Atalanta",
+            "startDate": "01 August, 2022",
+            "stats": {
+              "played": 34,
+              "won": 15,
+              "drawn": 10,
+              "lost": 9
+            }
+          },
+          {
+            "teamName": "Manchester United",
+            "startDate": "10 August, 2023",
+            "stats": {
+              "played": 8,
+              "won": 5,
+              "drawn": 2,
+              "lost": 1
+            }
+          }
+        ]
       },
       {
         "name": "Marcus Rashford",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Toby Collyer",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Ethan Wheatley",
-        "number": 12,
-        "country": "india"
-      },
-      {
-        "name": "Jadon Sancho",
-        "number": 12,
-        "country": "india"
+        "number": 10,
+        "country": "England",
+        "playerProfile": {
+          "dateOfBirth": "31 October 1997",
+          "preferredFoot": "Right",
+          "location": "Manchester",
+          "preferredPosition": "LW, ST"
+        },
+        "teamsPlayedFor": [
+          {
+            "teamName": "Manchester United",
+            "startDate": "01 January, 2016",
+            "stats": {
+              "played": 237,
+              "won": 130,
+              "drawn": 50,
+              "lost": 57
+            }
+          }
+        ]
       }
     ]
   }
