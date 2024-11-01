@@ -4,11 +4,12 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import Header from "../../components/Header";
 import PlayerProfile from "./features/PlayerProfile/PlayerProfile";
 import { useLocation } from "react-router-dom";
+import PlayerInformation from "./features/PlayerInformation/PlayerInformation";
+import TeamPlayedFor from "./features/TeamPlayedFor/TeamPlayedFor";
 
 const PlayerDetails = () => {
   const location = useLocation();
   const player = location.state.player;
-
   return (
     <>
       <Header />
@@ -21,6 +22,10 @@ const PlayerDetails = () => {
         </div>
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <PlayerProfile player={player} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
+          <PlayerInformation player={player} />
+          <TeamPlayedFor player={player} />
         </div>
       </>
       <Footer />
