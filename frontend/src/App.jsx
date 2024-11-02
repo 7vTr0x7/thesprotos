@@ -7,6 +7,7 @@ import LeaguePage from "./pages/League/features/LeaguePage/LeaguePage";
 import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
 import Players from "./pages/Players/Players";
 import PlayerDetails from "./pages/PlayerDetails/PlayerDetails";
+import ContactUs from "./pages/ContactUs/ContactUs";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/league/:league" element={<LeaguePage />} />
             <Route path="/players" element={<Players />} />
             <Route path="/players/:player" element={<PlayerDetails />} />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </Suspense>
       </Router>
