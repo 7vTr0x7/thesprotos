@@ -8,6 +8,7 @@ import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
 import Players from "./pages/Players/Players";
 import PlayerDetails from "./pages/PlayerDetails/PlayerDetails";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import News from "./pages/News/News";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/players" element={<Players />} />
             <Route path="/players/:player" element={<PlayerDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/news" element={<News />} />
           </Routes>
         </Suspense>
       </Router>

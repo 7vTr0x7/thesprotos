@@ -43,7 +43,7 @@ const Footer = () => {
 
             <div className="h-5 md:h-6 w-[1px] bg-gray-600" />
             <p className="whitespace-nowrap">
-              <Link to="/news"> Contact Us</Link>
+              <Link to="/contact-us"> Contact Us</Link>
             </p>
           </div>
         </div>
