@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Footer from "../../components/Footer";
+import NewsGrid from "./features/NewsGrid/NewsGrid";
 
 const News = () => {
   return (
@@ -14,7 +15,9 @@ const News = () => {
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <Breadcrumbs />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-0 gap-4 px-4 sm:px-8 md:px-16 lg:px-32 pt-8 pb-20 bg-black"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-0 gap-4 px-4 sm:px-8 md:px-16 lg:px-32 pt-8 pb-20 bg-black w-full">
+          <NewsGrid />
+        </div>
       </>
       <Footer />
     </>
