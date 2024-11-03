@@ -1,15 +1,14 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import ContactUs from "./pages/ContactUs/ContactUs";
 import Fixtures from "./pages/Fixtures/Fixtures";
-import Match from "./pages/Match/Match";
 import League from "./pages/League/League";
 import LeaguePage from "./pages/League/features/LeaguePage/LeaguePage";
-import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
-import Players from "./pages/Players/Players";
+import Match from "./pages/Match/Match";
+import NewsPage from "./pages/News/NewsPage";
 import PlayerDetails from "./pages/PlayerDetails/PlayerDetails";
-import ContactUs from "./pages/ContactUs/ContactUs";
-import News from "./pages/News/News";
-
+import Players from "./pages/Players/Players";
+import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
@@ -28,7 +27,7 @@ const App = () => {
             <Route path="/players" element={<Players />} />
             <Route path="/players/:player" element={<PlayerDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/news" element={<News />} />
+            <Route path="/news" element={<NewsPage />} />
           </Routes>
         </Suspense>
       </Router>
