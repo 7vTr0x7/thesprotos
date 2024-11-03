@@ -7,14 +7,13 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 function NewsGrid() {
   const { latest_news } = data;
   const [page, setPage] = useState(1);
-  const [isMobileView, setIsMobileView] = useState(false);
-  const [newsPages, setNewsPages] = useState(latest_news.length);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 640);
+  const itemsPerPage = isMobileView ? 1 : latest_news.length;
 
   useEffect(() => {
     const handleResize = () => {
-      setNewsPages(window.innerWidth < 640 ? 1 : latest_news.length);
-      setPage(1);
-      setIsMobileView(true);
+      setIsMobileView(window.matchMedia("(max-width: 640px)").matches);
+      setPage(1); // Reset to the first page on resize
     };
 
     handleResize();
@@ -24,7 +23,7 @@ function NewsGrid() {
   }, []);
 
   const nextPageHandler = () => {
-    if (data?.latest_news?.length > page * newsPages) {
+    if (latest_news.length > page * itemsPerPage) {
       setPage((prev) => prev + 1);
     }
   };
@@ -36,11 +35,11 @@ function NewsGrid() {
   };
 
   return (
-    <div className="bg-black w-full">
+    <div className="bg-black w-full select-none">
       <div className="w-full">
         <h1 className="text-white text-xl sm:text-2xl mb-6">Latest News</h1>
         {isMobileView && (
-          <div className="text-gray-300 flex gap-3 text-[18px] sm:text-[20px]">
+          <div className="flex justify-end text-gray-300 gap-3 my-3 text-[18px] sm:text-[20px]">
             <FiArrowLeft onClick={prevPageHandler} className="cursor-pointer" />
             <FiArrowRight
               onClick={nextPageHandler}
@@ -49,26 +48,23 @@ function NewsGrid() {
           </div>
         )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
-          {latest_news &&
-            latest_news
-              .slice((page - 1) * newsPages, page * newsPages)
-              .map((news, index) => (
-                <div
-                  key={index}
-                  className={`${
-                    index % 6 === 0
-                      ? "col-span-12 lg:col-span-8 "
-                      : "col-span-12 md:col-span-12 lg:col-span-4"
-                  } mb-4 `}>
-                  {index % 6 === 0 ? (
-                    <NewsBanner news={news} />
-                  ) : (
-                    <div>
-                      <NewsCard news={news} newsPage={true} />
-                    </div>
-                  )}
-                </div>
-              ))}
+          {latest_news
+            .slice((page - 1) * itemsPerPage, page * itemsPerPage)
+            .map((news, index) => (
+              <div
+                key={index}
+                className={`flex flex-row  lg:h-[430px] ${
+                  index % 6 === 0
+                    ? "col-span-12  lg:col-span-8 md:col-span-8"
+                    : "col-span-12  lg:col-span-4 md:col-span-4"
+                }`}>
+                {index % 6 === 0 ? (
+                  <NewsBanner news={news} />
+                ) : (
+                  <NewsCard news={news} newsPage={true} />
+                )}
+              </div>
+            ))}
         </div>
       </div>
     </div>

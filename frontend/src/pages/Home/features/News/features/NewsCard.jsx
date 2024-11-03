@@ -2,7 +2,8 @@ import React from "react";
 
 const NewsCard = ({ news, newsPage }) => {
   return (
-    <div className={`${newsPage ? "bg-[#222222] rounded-lg " : "p-4"}`}>
+    <div
+      className={`${newsPage ? "bg-[#222222] rounded-lg shadow-lg " : "p-4"}`}>
       <div>
         <img
           alt={news.category}
