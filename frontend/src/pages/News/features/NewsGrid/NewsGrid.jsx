@@ -3,12 +3,15 @@ import data from "../../../../utils/news.json";
 import NewsCard from "../../../Home/features/News/features/NewsCard";
 import NewsBanner from "../NewsBanner/NewsBanner";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function NewsGrid() {
   const { latest_news } = data;
   const [page, setPage] = useState(1);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 640);
   const itemsPerPage = isMobileView ? 1 : latest_news.length;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,12 +55,15 @@ function NewsGrid() {
             .slice((page - 1) * itemsPerPage, page * itemsPerPage)
             .map((news, index) => (
               <div
-                key={index}
-                className={`flex flex-row  lg:h-[430px] ${
+                key={news._id}
+                className={`flex flex-row cursor-pointer  lg:h-[430px] ${
                   index % 6 === 0
                     ? "col-span-12  lg:col-span-8 md:col-span-8"
                     : "col-span-12  lg:col-span-4 md:col-span-4"
-                }`}>
+                }`}
+                onClick={() =>
+                  navigate(`/news/${news.category}`, { state: { news } })
+                }>
                 {index % 6 === 0 ? (
                   <NewsBanner news={news} />
                 ) : (
