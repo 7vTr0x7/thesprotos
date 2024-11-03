@@ -6,7 +6,7 @@ const FeaturedPlayer = () => {
   return (
     <div className="py-4">
       <p className="text-[28px]  mb-4 text-gray-50">Featured Player</p>
-      <FeaturedPlayerCard data={data} />
+      <FeaturedPlayerCard player={data} />
     </div>
   );
 };

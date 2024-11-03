@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewsCard = ({ news, newsPage }) => {
+  const navigate = useNavigate();
+
   return (
     <div
-      className={`${newsPage ? "bg-[#222222] rounded-lg shadow-lg " : "p-4"}`}>
+      className={`${
+        newsPage ? "bg-[#222222] rounded-lg shadow-lg " : "p-4"
+      }  cursor-pointer`}
+      onClick={() => navigate(`/news/${news.category}`, { state: { news } })}>
       <div>
         <img
           alt={news.category}

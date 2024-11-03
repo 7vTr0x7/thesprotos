@@ -34,10 +34,7 @@ const MatchCard = ({ match, view }) => {
               ? "md:flex-col-reverse md:justify-end md:items-end"
               : "md:items-center md:justify-end"
           }`}>
-          <p
-            className={`text-sm md:text-2xl font-semibold text-center ${
-              view && "md:mr-5"
-            }`}>
+          <p className={`text-sm md:text-2xl font-semibold text-center `}>
             {match?.team1?.name || match?.team1}
           </p>
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
@@ -74,7 +71,8 @@ const MatchCard = ({ match, view }) => {
               className="h-10 sm:h-10 md:h-16 max-w-[2.5rem] md:max-w-none"
             />
           </div>
-          <p className="text-sm sm:text-sm md:text-2xl font-semibold text-center ">
+          <p
+            className={`text-sm sm:text-sm md:text-2xl font-semibold text-center `}>
             {match?.team2?.name || match?.team2}
           </p>
         </div>

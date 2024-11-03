@@ -2,8 +2,11 @@ import React from "react";
 import { league } from "../../../../images";
 import { HiArrowLongRight } from "react-icons/hi2";
 import MatchCard from "../../../../components/matchCard";
+import { useNavigate } from "react-router-dom";
 
 const UpcomingMatchCard = ({ match }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#151515] text-gray-300 rounded-lg mb-4 p-4 md:p-6 shadow-lg">
       <div className="flex justify-center py-4">
@@ -18,7 +21,24 @@ const UpcomingMatchCard = ({ match }) => {
       </div>
       {match?.status === "Complete" && (
         <div className="flex gap-2 justify-center items-center text-gray-700 text-center text-xs whitespace-nowrap ">
-          <p className="cursor-pointer pl-5">View Match</p>
+          <p
+            className="cursor-pointer pl-5"
+            onClick={() =>
+              navigate(
+                `/fixtures/${encodeURIComponent(
+                  `${(match?.team1?.name || match?.team1).replace(
+                    /\s+/g,
+                    "-"
+                  )}-vs-${(match?.team2?.name || match?.team2).replace(
+                    /\s+/g,
+                    "-"
+                  )}`
+                )}`,
+                { state: { match } }
+              )
+            }>
+            View Match
+          </p>
           <HiArrowLongRight className="text-lg mt-1 cursor-pointer" />
         </div>
       )}
