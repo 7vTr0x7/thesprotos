@@ -1,7 +1,7 @@
 import React from "react";
 import { league } from "../../../../images";
 import { HiArrowLongRight } from "react-icons/hi2";
-import MatchCard from "../../../../components/matchCard";
+import MatchCard from "../../../../components/MatchCard";
 import { useNavigate } from "react-router-dom";
 
 const UpcomingMatchCard = ({ match }) => {
