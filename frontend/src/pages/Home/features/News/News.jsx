@@ -6,6 +6,7 @@ import NewsCard from "./features/NewsCard";
 const News = () => {
   const [page, setPage] = useState(1);
   const [newsPages, setNewsPages] = useState(3);
+  const [fadeClass, setFadeClass] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,14 +21,22 @@ const News = () => {
   }, []);
 
   const nextPageHandler = () => {
-    if (data?.latest_news?.length > page * newsPages) {
-      setPage((prev) => prev + 1);
+    if (data?.latest_news.length > page * newsPages) {
+      setFadeClass("fade-in-right");
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        setFadeClass("fade-out-left");
+      }, 300);
     }
   };
 
   const prevPageHandler = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
+      setFadeClass("fade-in-left");
+      setTimeout(() => {
+        setPage((prev) => prev - 1);
+        setFadeClass("fade-out-right");
+      }, 300);
     }
   };
 
@@ -42,7 +51,8 @@ const News = () => {
           <FiArrowRight onClick={nextPageHandler} className="cursor-pointer" />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ${fadeClass}`}>
         {data?.latest_news &&
           data?.latest_news
             .slice((page - 1) * newsPages, page * newsPages)

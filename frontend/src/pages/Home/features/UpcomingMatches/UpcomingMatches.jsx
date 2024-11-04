@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import upcomingMatches from "../../../../utils/upcomingMatches.json";
 import UpcomingMatchCard from "./UpcomingMatchCard";
-import { FiArrowLeft } from "react-icons/fi";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
   const [matchPage, setMatchPage] = useState(4);
+  const [fadeClass, setFadeClass] = useState("");
 
   const nextPageHandler = () => {
     if (upcomingMatches.length > page * matchPage) {
-      setPage((prev) => prev + 1);
+      setFadeClass("fade-in-right");
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        setFadeClass("fade-out-left");
+      }, 300);
     }
   };
 
   const prevPageHandler = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
+      setFadeClass("fade-in-left");
+      setTimeout(() => {
+        setPage((prev) => prev - 1);
+        setFadeClass("fade-out-right");
+      }, 300);
     }
   };
 
@@ -41,7 +49,8 @@ const UpcomingMatches = () => {
           <FiArrowRight onClick={nextPageHandler} className="cursor-pointer" />
         </div>
       </div>
-      <div className="my-6 mx-0 gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div
+        className={`my-6 mx-0 gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${fadeClass}`}>
         {upcomingMatches &&
           upcomingMatches
             .slice((page - 1) * matchPage, page * matchPage)
