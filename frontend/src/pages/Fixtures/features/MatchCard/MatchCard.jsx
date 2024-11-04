@@ -1,7 +1,7 @@
 import React from "react";
 import league from "../../../../images/league.png";
-import manCity from "../../../../images/Club.png"; // Replace with Real Madrid logo
-import manUnited from "../../../../images/Club4.png"; // Replace with Juventus logo
+import manCity from "../../../../images/Club.png";
+import manUnited from "../../../../images/Club4.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 

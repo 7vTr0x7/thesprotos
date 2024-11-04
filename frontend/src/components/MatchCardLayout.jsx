@@ -1,6 +1,6 @@
 import React from "react";
 
-const MatchCard = ({ match }) => {
+const MatchCardLayout = ({ match }) => {
   return (
     <>
       <div className="bg-[#151515] rounded-lg flex flex-col items-center">
@@ -45,4 +45,4 @@ const MatchCard = ({ match }) => {
   );
 };
 
-export default MatchCard;
+export default MatchCardLayout;
