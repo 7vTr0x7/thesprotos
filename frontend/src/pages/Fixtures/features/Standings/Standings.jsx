@@ -11,10 +11,11 @@ const Standings = ({ league }) => {
 
   return (
     <>
-      <div className=" bg-[#222222] mb-6 md:mb-10 rounded-lg shadow-lg py-4 md:py-7 px-3 md:px-7 max-w-full mx-auto">
-        <p className="text-gray-50 text-lg md:text-xl font-semibold text-center md:text-left mb-4">
+      <div className="bg-[#222222] my-10 rounded-lg shadow-lg py-7 w-full">
+        <p className="text-gray-50 text-xl font-semibold mb-3 px-5 md:px-7">
           Standings
         </p>
+
         <StandingsCard stats={stats} />
       </div>
     </>

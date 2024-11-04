@@ -62,7 +62,7 @@ function NewsGrid() {
           </div>
         )}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 mx-3 ${fadeClass}`}>
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8  ${fadeClass}`}>
           {latest_news
             .slice((page - 1) * itemsPerPage, page * itemsPerPage)
             .map((news, index) => (

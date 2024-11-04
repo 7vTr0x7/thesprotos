@@ -18,7 +18,7 @@ const LiveMatchCard = ({ match }) => {
           <p className="font-semibold text-sm text-center truncate">
             {match?.team1?.name}
           </p>
-          <div className="flex items-center justify-center bg-[#222222] p-5 rounded-full w-24 h-24 my-3">
+          <div className="flex items-center justify-center bg-[#222222] p-5 rounded-full w-20 h-20 my-3">
             <img
               alt={match?.team1?.name}
               src={match?.team1?.logo_url}
@@ -48,7 +48,7 @@ const LiveMatchCard = ({ match }) => {
           <p className="font-semibold text-sm text-center truncate">
             {match?.team2?.name}
           </p>
-          <div className="flex items-center justify-center bg-[#222222] p-5 rounded-full w-24 h-24 my-3">
+          <div className="flex items-center justify-center bg-[#222222] p-5 rounded-full w-20 h-20 my-3">
             <img
               alt={match?.team2?.name}
               src={match?.team2?.logo_url}
