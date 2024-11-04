@@ -25,7 +25,7 @@ const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
         <MdKeyboardArrowRight />
       </div>
       <div className="mb-4 mt-2">
-        <div className="text-gray-500 mx-28 flex md:w-5/12 w-6/12  justify-between">
+        <div className="text-gray-500 md:px-28 px-10 flex md:w-5/12 w-full  justify-between">
           <p>Player</p>
           <p>Position</p>
         </div>

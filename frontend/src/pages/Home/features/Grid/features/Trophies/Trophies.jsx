@@ -7,16 +7,25 @@ const Trophies = () => {
   const [page, setPage] = useState(1);
 
   const [trophiesPerPage, setTrophiesPerPage] = useState(5);
+  const [fadeClass, setFadeClass] = useState("");
 
   const nextPageHandler = () => {
     if (data?.trophies?.length > page * trophiesPerPage) {
-      setPage((prev) => prev + 1);
+      setFadeClass("fade-in-right");
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        setFadeClass("fade-out-left");
+      }, 300);
     }
   };
 
   const prevPageHandler = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
+      setFadeClass("fade-in-left");
+      setTimeout(() => {
+        setPage((prev) => prev - 1);
+        setFadeClass("fade-out-right");
+      }, 300);
     }
   };
 
@@ -49,7 +58,8 @@ const Trophies = () => {
           />
         </div>
       </div>
-      <div className="my-4 mx-0 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+      <div
+        className={`my-4 mx-0 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 ${fadeClass}`}>
         {data?.trophies &&
           data.trophies
             .slice((page - 1) * trophiesPerPage, page * trophiesPerPage)

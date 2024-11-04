@@ -13,7 +13,7 @@ const Stats = ({ match, status }) => {
         <Goals status={status} />
       )}
       {status === "complete" && (
-        <FeaturedPlayerCard data={data} status={status} />
+        <FeaturedPlayerCard player={data} status={status} />
       )}
     </div>
   );

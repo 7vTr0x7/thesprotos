@@ -10,8 +10,8 @@ const PlayerCard = ({ players }) => {
             className={`w-full  px-10 ${
               index % 2 === 1 ? "bg-[#151515]" : "bg-[#222222]"
             }`}>
-            <div className="flex items-center py-7 justify-between md:w-6/12 w-9/12">
-              <div className="flex items-center gap-7">
+            <div className="flex items-center py-7 justify-between md:w-6/12 w-full">
+              <div className="flex items-center md:gap-7 gap-3">
                 <p className=" font-normal">{player.number}</p>
                 <p className=" font-normal">{player.name}</p>
               </div>

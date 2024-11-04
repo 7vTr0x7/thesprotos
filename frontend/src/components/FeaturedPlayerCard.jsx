@@ -14,7 +14,7 @@ const FeaturedPlayerCard = ({ player, status }) => {
         <img
           className="rounded-full h-[110px] w-[110px] sm:h-[100px] sm:w-[100px] md:h-[110px] md:w-[110px]"
           alt={player?.name}
-          src={player.imageUrl}
+          src={player?.imageUrl}
         />
       </div>
       <div className="py-2">

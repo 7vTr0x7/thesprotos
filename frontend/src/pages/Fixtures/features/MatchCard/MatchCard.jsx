@@ -29,12 +29,12 @@ const MatchCard = ({ match, view }) => {
           view ? "md:gap-14" : "md:gap-8"
         }`}>
         <div
-          className={`flex gap-2 flex-1 items-center justify-center ${
+          className={`flex flex-col-reverse md:flex-row gap-2 flex-1 items-center justify-center ${
             view
               ? "md:flex-col-reverse md:justify-end md:items-end"
               : "md:items-center md:justify-end"
           }`}>
-          <p className={`text-sm md:text-2xl font-semibold text-center `}>
+          <p className={`text-xs md:text-2xl font-semibold text-center `}>
             {match?.team1?.name || match?.team1}
           </p>
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
@@ -59,7 +59,7 @@ const MatchCard = ({ match, view }) => {
         )}
 
         <div
-          className={`flex gap-2 flex-1 items-center justify-center ${
+          className={`flex flex-col md:flex-row gap-2 flex-1 items-center justify-center ${
             view
               ? "md:flex-col md:justify-start md:items-start"
               : "md:items-center md:justify-start"
@@ -71,8 +71,7 @@ const MatchCard = ({ match, view }) => {
               className="h-10 sm:h-10 md:h-16 max-w-[2.5rem] md:max-w-none"
             />
           </div>
-          <p
-            className={`text-sm sm:text-sm md:text-2xl font-semibold text-center `}>
+          <p className={`text-xs md:text-2xl font-semibold text-center `}>
             {match?.team2?.name || match?.team2}
           </p>
         </div>
