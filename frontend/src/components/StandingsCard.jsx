@@ -3,7 +3,7 @@ import React from "react";
 const StandingsCard = ({ stats }) => {
   return (
     <>
-      <div className="grid grid-cols-12 text-gray-400 mt-5 px-3 md:px-5">
+      <div className="grid grid-cols-12 text-gray-400 mt-5 px-5 md:px-7">
         <p className="col-span-5 font-medium">Club</p>
         <div className="col-span-7 flex justify-between items-center space-x-2 text-xs  md:text-base">
           <p>P</p>
@@ -20,7 +20,7 @@ const StandingsCard = ({ stats }) => {
         stats.map((stat, index) => (
           <div
             key={stat.club}
-            className={`grid grid-cols-12 py-3 px-3 md:px-5 mt-3 text-gray-50  ${
+            className={`grid grid-cols-12 py-3 px-5 md:px-7 mt-3 text-gray-50  ${
               index % 2 === 0 && "bg-[#151515]"
             }`}>
             <div className="col-span-5 text-gray-50 flex gap-3 font-medium text-sm md:text-base">

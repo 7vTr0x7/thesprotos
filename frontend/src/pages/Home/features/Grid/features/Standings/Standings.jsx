@@ -12,14 +12,17 @@ const Standings = () => {
   }, [league]);
 
   return (
-    <div className="bg-[#222222] my-10 rounded-lg shadow-lg py-7 px-5 md:px-7 max-w-full mx-auto">
-      <p className="text-gray-50 text-xl font-semibold">Standings</p>
-
-      <CustomDropdown
-        setLeague={setLeague}
-        league={league}
-        options={standings?.leagues?.leagues || []}
-      />
+    <div className="bg-[#222222] my-10 rounded-lg shadow-lg py-7  max-w-full">
+      <p className="text-gray-50 text-xl font-semibold mb-3 px-5 md:px-7">
+        Standings
+      </p>
+      <div className="px-5 md:px-7">
+        <CustomDropdown
+          setLeague={setLeague}
+          league={league}
+          options={standings?.leagues?.leagues || []}
+        />
+      </div>
       <StandingsCard stats={stats} />
     </div>
   );
