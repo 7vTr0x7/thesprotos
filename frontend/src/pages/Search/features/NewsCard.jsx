@@ -1,9 +1,14 @@
 import React from "react";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="col-span-1 p-4 rounded-lg">
+    <div
+      className="col-span-1 p-4 rounded-lg"
+      onClick={() => navigate(`/news/${news.category}`, { state: { news } })}>
       <div>
         <img
           alt={news.category}

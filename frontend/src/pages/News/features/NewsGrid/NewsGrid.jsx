@@ -16,7 +16,7 @@ function NewsGrid() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.matchMedia("(max-width: 640px)").matches);
-      setPage(1); // Reset to the first page on resize
+      setPage(1);
     };
 
     handleResize();
