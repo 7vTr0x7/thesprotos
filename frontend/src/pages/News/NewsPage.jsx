@@ -17,7 +17,7 @@ const NewsPage = () => {
           <Breadcrumbs />
         </div>
 
-        <div className="px-4 md:px-8 lg:px-16 pt-6 pb-16 bg-black w-full">
+        <div className=" md:px-8 lg:px-16 pt-6 pb-16 bg-black w-full">
           <NewsGrid />
         </div>
       </>

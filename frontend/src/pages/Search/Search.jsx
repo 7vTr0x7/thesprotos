@@ -5,15 +5,21 @@ import data from "../../utils/players.json";
 import news from "../../utils/news.json";
 import Player from "./features/Player";
 import NewsCard from "./features/NewsCard";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <SearchNav />
       <div className="bg-black min-h-screen px-6 sm:px-12 md:px-20 lg:px-28 xl:px-44 py-12">
         <div className="flex justify-between items-center text-gray-50">
           <p className="text-2xl font-semibold">Players</p>
-          <HiOutlineArrowRight className="text-2xl" />
+          <HiOutlineArrowRight
+            className="text-2xl"
+            onClick={() => navigate(`/players`)}
+          />
         </div>
 
         <div className="mt-7 flex flex-wrap gap-5">
@@ -24,7 +30,10 @@ const Search = () => {
 
         <div className="flex justify-between items-center text-gray-50 mt-10">
           <p className="text-2xl font-semibold">News</p>
-          <HiOutlineArrowRight className="text-2xl" />
+          <HiOutlineArrowRight
+            className="text-2xl"
+            onClick={() => navigate(`/news`)}
+          />
         </div>
 
         <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
