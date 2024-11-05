@@ -20,6 +20,7 @@ const UpcomingMatches = () => {
       }
 
       const data = await res.json();
+      console.log(data);
       if (data.success) {
         setUpcomingMatches(data.upcomingMatches);
       }
