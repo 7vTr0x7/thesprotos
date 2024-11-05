@@ -2,6 +2,7 @@ import express from "express";
 import { initializeDatabase } from "./db/db.connection.js";
 import cors from "cors";
 import adminRoutes from "./routes/admin.js";
+import userRoutes from "./routes/user.js";
 
 const app = express();
 app.use(express.json);
@@ -14,6 +15,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/api/admin", adminRoutes);
+app.use("/api/user", userRoutes);
 
 initializeDatabase();
 
