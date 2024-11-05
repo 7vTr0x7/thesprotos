@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const sendCookies = (admin, res) => {
+export const sendCookies = (admin, res, message) => {
   const token = jwt.sign({ _id: admin._id }, process.env.JWT_SECRET);
 
   return res
