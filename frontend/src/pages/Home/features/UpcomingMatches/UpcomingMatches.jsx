@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import upcomingMatches from "../../../../utils/upcomingMatches.json";
+
 import UpcomingMatchCard from "./UpcomingMatchCard";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
@@ -7,6 +7,30 @@ const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
   const [matchPage, setMatchPage] = useState(4);
   const [fadeClass, setFadeClass] = useState("");
+  const [upcomingMatches, setUpcomingMatches] = useState([]);
+
+  const getUpcomingMatchData = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:4000/api/user/upcoming-matches"
+      );
+
+      if (!res.ok) {
+        console.log("Failed to get data");
+      }
+
+      const data = await res.json();
+      if (data.success) {
+        setUpcomingMatches(data.upcomingMatches);
+      }
+    } catch (error) {
+      console.log("failed to get UpcomingMatch Data", error);
+    }
+  };
+
+  useEffect(() => {
+    getUpcomingMatchData();
+  }, []);
 
   const nextPageHandler = () => {
     if (upcomingMatches.length > page * matchPage) {

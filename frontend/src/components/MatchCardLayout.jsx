@@ -18,14 +18,14 @@ const MatchCardLayout = ({ match }) => {
       <div className="flex flex-col items-center text-center font-semibold">
         <div className="py-6">
           <p>{match?.FT && "FT"}</p>
-          {match?.score ? (
+          {match?.time ? (
+            <p className="text-xl py-4">{match?.time}</p>
+          ) : (
             <div className="text-xl py-4 flex md:gap-4 gap-7">
               <p>{match?.score?.team1}</p>
               <p>-</p>
               <p>{match?.score?.team2}</p>
             </div>
-          ) : (
-            <p className="text-xl py-4">{match?.time}</p>
           )}
         </div>
       </div>
