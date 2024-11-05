@@ -3,6 +3,7 @@ import { initializeDatabase } from "./db/db.connection.js";
 import cors from "cors";
 import adminRoutes from "./routes/admin.js";
 import userRoutes from "./routes/user.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use(cookieParser());
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
