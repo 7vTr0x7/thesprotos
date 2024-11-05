@@ -42,7 +42,7 @@ const Trophies = () => {
   }, []);
 
   return (
-    <div className="bg-[#151515] mb-6 py-5 px-4 sm:px-6 lg:px-7 rounded-lg">
+    <div className="bg-[#151515] mb-10 py-5 px-4 sm:px-6 lg:px-7 rounded-lg">
       <div className="flex justify-between items-center mb-4">
         <p className="text-lg sm:text-xl font-semibold text-gray-100">
           Trophies
