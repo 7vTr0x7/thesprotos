@@ -8,7 +8,7 @@ const UserForm = () => {
   };
 
   return (
-    <div className="bg-[#151515]  md:rounded-l-lg  px-6 py-6 sm:px-10 sm:py-8">
+    <div className="bg-[#151515]  md:rounded-l-lg rounded-t-lg px-6 py-6 sm:px-10 sm:py-8">
       <p className="text-gray-50 font-semibold text-2xl sm:text-3xl">
         Get in <span className="text-yellow-400">Touch</span>
       </p>
