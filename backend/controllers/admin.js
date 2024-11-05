@@ -16,9 +16,14 @@ export const registerAdmin = async (req, res) => {
       sendCookies(admin, res, "Register Successfully");
     }
   } catch (error) {
-    res.status(500).json(`Failed to register Admin`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to register Admin",
+      error: error.message,
+    });
   }
 };
+
 export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -39,7 +44,11 @@ export const adminLogin = async (req, res) => {
       }
     }
   } catch (error) {
-    res.status(500).json(`Failed to login Admin`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to login Admin",
+      error: error.message,
+    });
   }
 };
 
@@ -58,9 +67,14 @@ export const addUpcomingMatch = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json(`Failed to add Upcoming Match`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Upcoming Match",
+      error: error.message,
+    });
   }
 };
+
 export const addMultipleUpcomingMatches = async (req, res) => {
   try {
     const upcomingMatch = await UpcomingMatch.insertMany(req.body);
@@ -76,6 +90,10 @@ export const addMultipleUpcomingMatches = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json(`Failed to add Multiple Upcoming Matches`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Upcoming Matches",
+      error: error.message,
+    });
   }
 };
