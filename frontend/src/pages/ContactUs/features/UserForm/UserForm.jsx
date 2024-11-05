@@ -30,7 +30,7 @@ const UserForm = () => {
         />
         <button
           type="submit"
-          className="bg-yellow-400 w-full rounded-md mt-4 text-center py-2 text-xs font-semibold uppercase"
+          className="bg-yellow-400 text-black w-full rounded-md mt-4 text-center py-2 text-xs font-semibold uppercase"
           onClick={submitHandler}>
           Send
         </button>
