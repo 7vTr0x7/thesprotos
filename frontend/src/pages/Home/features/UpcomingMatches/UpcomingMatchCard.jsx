@@ -20,7 +20,7 @@ const UpcomingMatchCard = ({ match }) => {
         <MatchCard match={match} />
       </div>
       {match?.status === "Complete" && (
-        <div className="flex gap-2 justify-center items-center text-gray-700 text-center text-xs whitespace-nowrap ">
+        <div className="flex gap-2 justify-center items-center text-[#4f4f4f] text-center text-xs whitespace-nowrap ">
           <p
             className="cursor-pointer pl-5"
             onClick={() =>
