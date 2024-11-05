@@ -1,4 +1,4 @@
-import { UpcomingMatch } from "../models/UpcomingMatch.model";
+import { UpcomingMatch } from "../models/UpcomingMatch.model.js";
 
 export const addUpcomingMatch = async (req, res) => {
   try {

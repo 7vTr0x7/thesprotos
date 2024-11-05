@@ -1,5 +1,5 @@
 import express from "express";
-import { addUpcomingMatch } from "../controllers/admin";
+import { addUpcomingMatch } from "../controllers/admin.js";
 
 const router = express.Router();
 
