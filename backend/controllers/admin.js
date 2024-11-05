@@ -10,7 +10,7 @@ export const registerAdmin = async (req, res) => {
     if (admin) {
       res.status(404).json({ success: false, message: "admin already exists" });
     } else {
-      const hashedPass = await bcrypt.hash(password, 20);
+      const hashedPass = await bcrypt.hash(password, 10);
 
       admin = await Admin.create({ email, password: hashedPass });
       sendCookies(admin, res, "Register Successfully");
@@ -28,6 +28,7 @@ export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
     const admin = await Admin.findOne({ email }).select("+password");
+
     if (!admin) {
       res
         .status(404)
