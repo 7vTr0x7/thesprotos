@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const LeagueCard = ({ league }) => {
   return (
-    <div className="col-span-1 bg-[#222222] p-4 rounded-lg md:w-auto w-[140px]">
+    <div className="col-span-1 bg-[#222222] p-4 rounded-lg md:w-auto w-[180px]">
       <div>
         <img alt={league.league} src={leagueImg} className="md:h-auto h-20" />
       </div>
