@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const adminSchema = new mongoose.Schema({
+const AdminSchema = new mongoose.Schema({
   email: {
     type: string,
     required: true,
@@ -13,4 +13,4 @@ const adminSchema = new mongoose.Schema({
   },
 });
 
-export const admin = mongoose.model("admin", adminSchema);
+export const Admin = mongoose.model("Admin", AdminSchema);
