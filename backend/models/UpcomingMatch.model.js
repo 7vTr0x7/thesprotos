@@ -16,7 +16,10 @@ const UpcomingMatchSchema = new mongoose.Schema({
   status: { type: String, required: true },
   time: { type: String },
   FT: { type: Boolean, default: true },
-  score: { team1: Number, team2: Number },
+  score: {
+    team1: { type: Number, default: 0 },
+    team2: { type: Number, default: 0 },
+  },
 });
 
 export const UpcomingMatch = mongoose.model(
