@@ -12,7 +12,7 @@ const UserForm = () => {
       <p className="text-gray-50 font-semibold text-2xl sm:text-3xl">
         Get in <span className="text-yellow-400">Touch</span>
       </p>
-      <form className="mt-6 sm:mt-7 mb-8">
+      <form className="mt-6 sm:mt-7 mb-8 text-white">
         <input
           type="text"
           placeholder="Name*"
