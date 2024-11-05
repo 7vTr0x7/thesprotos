@@ -2,6 +2,7 @@ import express from "express";
 import {
   addMultipleUpcomingMatches,
   addUpcomingMatch,
+  registerAdmin,
 } from "../controllers/admin.js";
 
 const router = express.Router();

@@ -1,6 +1,6 @@
 import { UpcomingMatch } from "../models/UpcomingMatch.model.js";
 import bcrypt from "bcrypt";
-import { Admin } from "./../models/Admin.model";
+import { Admin } from "./../models/Admin.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -12,6 +12,7 @@ export const registerAdmin = async (req, res) => {
       const hashedPass = await bcrypt.hash(password, 20);
 
       admin = await Admin.create({ email, password: hashedPass });
+      sendCookies(admin, res);
     }
   } catch (error) {
     res.status(500).json(`Failed to register Admin`, error);
