@@ -17,12 +17,14 @@ const PlayerCard = ({ player }) => {
         )
       }>
       <img alt={player.name} src={image} className="rounded-t-lg w-full" />
-      <div className="flex md:flex-row flex-col justify-between items-center px-4 py-2">
+      <div className="flex md:flex-row  justify-between items-center px-4 py-2">
         <div>
-          <p className="text-gray-50 font-semibold text-xl">{player.name}</p>
+          <p className="text-gray-50 font-semibold text-sm md:text-xl">
+            {player.name}
+          </p>
           <p className="text-gray-50 m-0 text-xs">{player.country}</p>
         </div>
-        <p className="text-gray-50 font-bold text-2xl md:text-5xl">
+        <p className="text-gray-50 font-bold text-xl md:text-4xl">
           {player.number}
         </p>
       </div>

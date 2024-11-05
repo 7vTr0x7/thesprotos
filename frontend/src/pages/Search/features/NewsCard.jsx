@@ -7,7 +7,7 @@ const NewsCard = ({ news }) => {
 
   return (
     <div
-      className="col-span-1 p-4 rounded-lg"
+      className="col-span-1 p-4 rounded-lg cursor-pointer"
       onClick={() => navigate(`/news/${news.category}`, { state: { news } })}>
       <div>
         <img
@@ -16,10 +16,10 @@ const NewsCard = ({ news }) => {
           className="w-full h-auto rounded-md"
         />
       </div>
-      <p className="text-lg text-gray-50 mt-3 font-semibold line-clamp-2">
+      <p className="text-lg text-gray-50 mt-3 font-semibold line-clamp-2  ">
         {news.title}
       </p>
-      <HiOutlineArrowLongRight className="text-3xl text-gray-50 mt-2 hover:text-yellow-400 transition-colors duration-200 cursor-pointer" />
+      <HiOutlineArrowLongRight className="text-3xl text-gray-50 mt-2 hover:text-yellow-400 transition-colors duration-200" />
     </div>
   );
 };

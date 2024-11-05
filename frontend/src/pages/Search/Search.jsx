@@ -17,7 +17,7 @@ const Search = () => {
         <div className="flex justify-between items-center text-gray-50">
           <p className="text-2xl font-semibold">Players</p>
           <HiOutlineArrowRight
-            className="text-2xl"
+            className="text-2xl cursor-pointer"
             onClick={() => navigate(`/players`)}
           />
         </div>
@@ -31,7 +31,7 @@ const Search = () => {
         <div className="flex justify-between items-center text-gray-50 mt-10">
           <p className="text-2xl font-semibold">News</p>
           <HiOutlineArrowRight
-            className="text-2xl"
+            className="text-2xl cursor-pointer"
             onClick={() => navigate(`/news`)}
           />
         </div>
