@@ -6,7 +6,7 @@ import { sendCookies } from "../utils/features.js";
 export const registerAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
-    let admin = await admin.findOne({ email });
+    let admin = await Admin.findOne({ email });
     if (admin) {
       res.status(404).json({ success: false, message: "admin already exists" });
     } else {
