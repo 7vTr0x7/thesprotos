@@ -12,5 +12,6 @@ router.get("/upcoming-matches", getUpcomingMatches);
 router.get("/banner", getBanner);
 router.get("/sponsor", getSponsor);
 router.get("/star-performers", getStarPerformers);
+router.get("/trophies", getTrophies);
 
 export default router;
