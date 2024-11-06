@@ -24,12 +24,15 @@ const UpcomingMatches = () => {
       }
 
       const data = await res.json();
-      console.log(data);
+
       if (data.success) {
         setUpcomingMatches(data.upcomingMatches);
+        const liveMatch = data.upcomingMatches.find(
+          (match) => match.status === "Live"
+        );
       }
     } catch (error) {
-      console.log("failed to get UpcomingMatch Data", error);
+      console.log("failed to get UpcomingMatch Data", error.message);
     }
   };
 
