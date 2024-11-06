@@ -1,5 +1,6 @@
 import { Banner } from "../models/Banner.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
+import { StarPerformers } from "../models/StarPerformers.model.js";
 import { UpcomingMatch } from "./../models/UpcomingMatch.model.js";
 
 export const getUpcomingMatches = async (req, res) => {
@@ -66,6 +67,29 @@ export const getSponsor = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add sponsor",
+      error: error.message,
+    });
+  }
+};
+
+export const getStarPerformers = async (req, res) => {
+  try {
+    const starPerformers = await StarPerformers.find();
+    if (starPerformers.length > 0) {
+      res.json({
+        success: true,
+        starPerformers,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "starPerformers  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add starPerformers",
       error: error.message,
     });
   }
