@@ -36,7 +36,7 @@ export const getBanner = async (req, res) => {
     } else {
       res.status(404).json({
         success: true,
-        message: "Banner match not found",
+        message: "Banner not found",
       });
     }
   } catch (error) {
@@ -59,7 +59,7 @@ export const getSponsor = async (req, res) => {
     } else {
       res.status(404).json({
         success: true,
-        message: "sponsor match not found",
+        message: "sponsor  not found",
       });
     }
   } catch (error) {
