@@ -4,6 +4,7 @@ import UpcomingMatchCard from "./UpcomingMatchCard";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { setLiveMatch } from "../../../../app/slices/liveMatchSlice";
+import { setNextMatch } from "../../../../app/slices/nextMatchSlice";
 
 const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
@@ -36,6 +37,7 @@ const UpcomingMatches = () => {
         );
 
         dispatch(setLiveMatch(liveMatch));
+        dispatch(setNextMatch(data.upcomingMatches[0]));
       }
     } catch (error) {
       console.log("failed to get UpcomingMatch Data", error.message);
