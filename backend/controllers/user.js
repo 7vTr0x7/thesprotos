@@ -1,3 +1,4 @@
+import { Banner } from "../models/Banner.model.js";
 import { UpcomingMatch } from "./../models/UpcomingMatch.model.js";
 
 export const getUpcomingMatches = async (req, res) => {
@@ -15,6 +16,33 @@ export const getUpcomingMatches = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json(`Failed to get upcoming matches`);
+    res.status(500).json({
+      success: false,
+      message: "Failed to get Upcoming Matches",
+      error: error.message,
+    });
+  }
+};
+
+export const getBanner = async (req, res) => {
+  try {
+    const banner = await Banner.find();
+    if (banner) {
+      res.json({
+        success: true,
+        banner,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "Banner match not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Banner",
+      error: error.message,
+    });
   }
 };

@@ -111,7 +111,7 @@ export const addBanner = async (req, res) => {
     } else {
       res.status(404).json({
         success: true,
-        message: "Upcoming match not found",
+        message: "Banner match not found",
       });
     }
   } catch (error) {
