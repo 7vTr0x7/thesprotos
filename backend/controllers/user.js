@@ -1,4 +1,5 @@
 import { Banner } from "../models/Banner.model.js";
+import { Sponsor } from "../models/Sponsor.model.js";
 import { UpcomingMatch } from "./../models/UpcomingMatch.model.js";
 
 export const getUpcomingMatches = async (req, res) => {
@@ -42,6 +43,29 @@ export const getBanner = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add Banner",
+      error: error.message,
+    });
+  }
+};
+
+export const getSponsor = async (req, res) => {
+  try {
+    const sponsor = await Sponsor.find();
+    if (sponsor) {
+      res.json({
+        success: true,
+        sponsor,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "sponsor match not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add sponsor",
       error: error.message,
     });
   }

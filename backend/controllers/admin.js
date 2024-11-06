@@ -126,22 +126,22 @@ export const addBanner = async (req, res) => {
 
 export const addSponsor = async (req, res) => {
   try {
-    const banner = await Sponsor.create(req.body);
-    if (banner) {
+    const sponsor = await Sponsor.create(req.body);
+    if (sponsor) {
       res.json({
         success: true,
-        banner,
+        sponsor,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "Banner match not found",
+        message: "sponsor match not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to add Banner",
+      message: "Failed to add sponsor",
       error: error.message,
     });
   }
