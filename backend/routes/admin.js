@@ -2,6 +2,7 @@ import express from "express";
 import {
   addBanner,
   addMultipleUpcomingMatches,
+  addSponsor,
   addUpcomingMatch,
   adminLogin,
   registerAdmin,
@@ -20,5 +21,6 @@ router.post(
   addMultipleUpcomingMatches
 );
 router.post("/add/banner", isAuthenticated, addBanner);
+router.post("/add/sponsor", isAuthenticated, addSponsor);
 
 export default router;
