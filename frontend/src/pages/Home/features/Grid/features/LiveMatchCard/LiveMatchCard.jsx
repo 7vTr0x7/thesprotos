@@ -40,7 +40,7 @@ const LiveMatchCard = ({ match }) => {
             {match?.stadium}
           </p>
           <p className="text-center font-normal mt-2 bg-red-800 px-4 rounded-xl  flex justify-center whitespace-nowrap text-sm text-black">
-            {match?.live && "• Live"}
+            {match?.status === "Live" && "• Live"}
           </p>
         </div>
 

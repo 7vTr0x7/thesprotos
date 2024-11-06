@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 
 import UpcomingMatchCard from "./UpcomingMatchCard";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { setLiveMatch } from "../../../../app/slices/liveMatchSlice";
 
 const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
   const [matchPage, setMatchPage] = useState(4);
   const [fadeClass, setFadeClass] = useState("");
   const [upcomingMatches, setUpcomingMatches] = useState([]);
+
+  const dispatch = useDispatch();
 
   const getUpcomingMatchData = async () => {
     try {
@@ -30,6 +34,8 @@ const UpcomingMatches = () => {
         const liveMatch = data.upcomingMatches.find(
           (match) => match.status === "Live"
         );
+
+        dispatch(setLiveMatch(liveMatch));
       }
     } catch (error) {
       console.log("failed to get UpcomingMatch Data", error.message);
