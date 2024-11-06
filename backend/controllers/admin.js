@@ -2,6 +2,7 @@ import { UpcomingMatch } from "../models/UpcomingMatch.model.js";
 import bcrypt from "bcrypt";
 import { Admin } from "./../models/Admin.model.js";
 import { sendCookies } from "../utils/features.js";
+import { Banner } from "../models/Banner.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -94,6 +95,29 @@ export const addMultipleUpcomingMatches = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add Upcoming Matches",
+      error: error.message,
+    });
+  }
+};
+
+export const addBanner = async (req, res) => {
+  try {
+    const banner = await Banner.create(req.body);
+    if (banner) {
+      res.json({
+        success: true,
+        banner,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "Upcoming match not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Banner",
       error: error.message,
     });
   }
