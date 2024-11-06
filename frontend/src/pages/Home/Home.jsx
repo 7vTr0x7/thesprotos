@@ -12,7 +12,7 @@ import { setUpcomingMatch } from "../../app/slices/upcomingMatchesSlice";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const getUpcomingMatchData = async () => {
+  const getMatchesData = async () => {
     try {
       const res = await fetch(
         "http://localhost:4000/api/user/upcoming-matches",
@@ -48,7 +48,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getUpcomingMatchData();
+    getMatchesData();
   }, []);
 
   return (
