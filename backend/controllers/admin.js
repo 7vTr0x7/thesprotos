@@ -122,3 +122,26 @@ export const addBanner = async (req, res) => {
     });
   }
 };
+
+export const addSponsor = async (req, res) => {
+  try {
+    const banner = await Sponsor.create(req.body);
+    if (banner) {
+      res.json({
+        success: true,
+        banner,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "Banner match not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Banner",
+      error: error.message,
+    });
+  }
+};
