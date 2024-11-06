@@ -3,6 +3,7 @@ import {
   addBanner,
   addMultipleUpcomingMatches,
   addSponsor,
+  addStarPerformer,
   addUpcomingMatch,
   adminLogin,
   registerAdmin,
@@ -20,6 +21,13 @@ router.post(
   isAuthenticated,
   addMultipleUpcomingMatches
 );
+router.post("/add/star-performers", isAuthenticated, addStarPerformer);
+router.post(
+  "/add/multiple/star-performers",
+  isAuthenticated,
+  addMultipleStarPerformers
+);
+
 router.post("/add/banner", isAuthenticated, addBanner);
 router.post("/add/sponsor", isAuthenticated, addSponsor);
 

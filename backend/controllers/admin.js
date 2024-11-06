@@ -4,6 +4,7 @@ import { Admin } from "./../models/Admin.model.js";
 import { sendCookies } from "../utils/features.js";
 import { Banner } from "../models/Banner.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
+import { StarPerformers } from "../models/StarPerformers.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -142,6 +143,52 @@ export const addSponsor = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add sponsor",
+      error: error.message,
+    });
+  }
+};
+
+export const addStarPerformer = async (req, res) => {
+  try {
+    const starPerformer = await StarPerformers.create(req.body);
+    if (starPerformer) {
+      res.json({
+        success: true,
+        starPerformer,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "starPerformer not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add starPerformer ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultipleStarPerformers = async (req, res) => {
+  try {
+    const starPerformers = await StarPerformers.insertMany(req.body);
+    if (starPerformers.length > 0) {
+      res.json({
+        success: true,
+        starPerformers,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "starPerformers match not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add starPerformers",
       error: error.message,
     });
   }
