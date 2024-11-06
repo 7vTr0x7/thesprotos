@@ -3,6 +3,7 @@ import {
   getBanner,
   getSponsor,
   getStarPerformers,
+  getTrophies,
   getUpcomingMatches,
 } from "../controllers/user.js";
 
