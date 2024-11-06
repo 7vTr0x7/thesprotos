@@ -21,7 +21,6 @@ const StarPerformers = () => {
 
       if (data.success) {
         setPlayers(data?.starPerformers);
-        console.log(data);
       }
     } catch (error) {
       console.log("failed to get Star performers Data", error.message);

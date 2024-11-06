@@ -9,6 +9,33 @@ const Trophies = () => {
   const [trophiesPerPage, setTrophiesPerPage] = useState(5);
   const [fadeClass, setFadeClass] = useState("");
 
+  const [trophies, setTrophies] = useState([]);
+
+  const getTrophiesData = async () => {
+    try {
+      const res = await fetch("http://localhost:4000/api/user/trophies", {
+        method: "GET",
+        credentials: "include",
+      });
+
+      if (!res.ok) {
+        console.log("Failed to get data");
+      }
+
+      const data = await res.json();
+
+      if (data.success) {
+        setTrophies(data?.trophies);
+      }
+    } catch (error) {
+      console.log("failed to get Trophies Data", error.message);
+    }
+  };
+
+  useEffect(() => {
+    getTrophiesData();
+  }, []);
+
   const nextPageHandler = () => {
     if (data?.trophies?.length > page * trophiesPerPage) {
       setFadeClass("fade-in-right");
@@ -60,8 +87,8 @@ const Trophies = () => {
       </div>
       <div
         className={`my-4 mx-0 gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 ${fadeClass}`}>
-        {data?.trophies &&
-          data.trophies
+        {trophies &&
+          trophies
             .slice((page - 1) * trophiesPerPage, page * trophiesPerPage)
             .map((trophy) => <TrophyCard key={trophy.name} trophy={trophy} />)}
       </div>
