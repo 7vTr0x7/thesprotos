@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-import UpcomingMatchCard from "./UpcomingMatchCard";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { useDispatch } from "react-redux";
-import { setLiveMatch } from "../../../../app/slices/liveMatchSlice";
-import { setNextMatch } from "../../../../app/slices/nextMatchSlice";
+import UpcomingMatchCard from "./UpcomingMatchCard";
+import { useSelector } from "react-redux";
 
 const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
   const [matchPage, setMatchPage] = useState(4);
   const [fadeClass, setFadeClass] = useState("");
 
-  const upcomingMatches = {};
+  const upcomingMatches = useSelector(
+    (state) => state.upcomingMatch.upcomingMatch
+  );
 
   const nextPageHandler = () => {
     if (upcomingMatches.length > page * matchPage) {
@@ -46,24 +46,31 @@ const UpcomingMatches = () => {
   }, []);
 
   return (
-    <div className="bg-black pt-12 pb-3 px-4 sm:px-6 lg:px-14">
-      <div className="flex justify-between items-center">
-        <p className="text-2xl font-semibold text-gray-100">Upcoming Matches</p>
-        <div className="text-gray-300 flex gap-3 text-[20px]">
-          <FiArrowLeft onClick={prevPageHandler} className="cursor-pointer" />
-          <FiArrowRight onClick={nextPageHandler} className="cursor-pointer" />
+    upcomingMatches.length > 0 && (
+      <div className="bg-black pt-12 pb-3 px-4 sm:px-6 lg:px-14">
+        <div className="flex justify-between items-center">
+          <p className="text-2xl font-semibold text-gray-100">
+            Upcoming Matches
+          </p>
+          <div className="text-gray-300 flex gap-3 text-[20px]">
+            <FiArrowLeft onClick={prevPageHandler} className="cursor-pointer" />
+            <FiArrowRight
+              onClick={nextPageHandler}
+              className="cursor-pointer"
+            />
+          </div>
+        </div>
+        <div
+          className={`my-6 mx-0 gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${fadeClass}`}>
+          {upcomingMatches &&
+            upcomingMatches
+              .slice((page - 1) * matchPage, page * matchPage)
+              .map((match) => (
+                <UpcomingMatchCard key={match._id} match={match} />
+              ))}
         </div>
       </div>
-      <div
-        className={`my-6 mx-0 gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${fadeClass}`}>
-        {upcomingMatches &&
-          upcomingMatches
-            .slice((page - 1) * matchPage, page * matchPage)
-            .map((match) => (
-              <UpcomingMatchCard key={match._id} match={match} />
-            ))}
-      </div>
-    </div>
+    )
   );
 };
 

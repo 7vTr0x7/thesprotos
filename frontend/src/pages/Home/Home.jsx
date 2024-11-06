@@ -7,6 +7,7 @@ import News from "./features/News/News";
 import { setNextMatch } from "../../app/slices/nextMatchSlice";
 import { setLiveMatch } from "../../app/slices/liveMatchSlice";
 import { useDispatch } from "react-redux";
+import { setUpcomingMatch } from "../../app/slices/upcomingMatchesSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Home = () => {
       const data = await res.json();
 
       if (data.success) {
+        dispatch(setUpcomingMatch(data.upcomingMatches));
         const liveMatch = data.upcomingMatches.find(
           (match) => match.status === "Live"
         );
