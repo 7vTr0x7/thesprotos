@@ -37,7 +37,12 @@ const UpcomingMatches = () => {
         );
 
         dispatch(setLiveMatch(liveMatch));
-        dispatch(setNextMatch(data.upcomingMatches[0]));
+
+        const nextMatch = data.upcomingMatches.find(
+          (match) => match.status === "Upcoming"
+        );
+
+        dispatch(setNextMatch(nextMatch));
       }
     } catch (error) {
       console.log("failed to get UpcomingMatch Data", error.message);

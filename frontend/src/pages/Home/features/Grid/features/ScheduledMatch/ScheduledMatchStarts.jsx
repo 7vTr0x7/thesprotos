@@ -4,7 +4,7 @@ const ScheduledMatchStarts = ({ match }) => {
   return (
     <div className="text-gray-50">
       <h3 className="text-center font-semibold text-xs md:text-sm my-2 md:my-3">
-        Head-to-Head
+        {match?.timeLeft?.matchType}
       </h3>
       <div className="flex justify-between text-xs font-semibold mt-3 px-2 md:px-4">
         <p>Wins</p>
