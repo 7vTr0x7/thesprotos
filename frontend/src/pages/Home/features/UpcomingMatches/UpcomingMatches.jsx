@@ -14,6 +14,7 @@ const UpcomingMatches = () => {
       const res = await fetch(
         "http://localhost:4000/api/user/upcoming-matches",
         {
+          method: "GET",
           credentials: "include",
         }
       );
