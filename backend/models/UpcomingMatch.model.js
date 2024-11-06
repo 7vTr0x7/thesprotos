@@ -20,6 +20,10 @@ const UpcomingMatchSchema = new mongoose.Schema({
     team1: { type: Number, default: 0 },
     team2: { type: Number, default: 0 },
   },
+  pens: {
+    team1: { type: Number, default: 0 },
+    team2: { type: Number, default: 0 },
+  },
   timeLeft: {
     daysLeft: { type: Number, required: true },
     hoursLeft: { type: Number, required: true },
