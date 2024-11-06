@@ -1,12 +1,13 @@
 import React from "react";
-import OngoingMatchInfo from "./OngoingMatchInfo";
 import OngoingMatchStats from "./OngoingMatchStats";
 
+import { useSelector } from "react-redux";
 import match from "../../../../utils/ongoingMatch.json";
-import liveMatch from "../../../../utils/LiveMatch.json";
 import LiveMatchCard from "../../../Home/features/Grid/features/LiveMatchCard/LiveMatchCard";
 
 const OngoingMatchCard = ({ text }) => {
+  const liveMatch = useSelector((state) => state.liveMatch.liveMatch);
+
   return (
     <div className="bg-[#151515] rounded-lg md:w-4/12 w-full mb-2 h-full flex  px-2 flex-col shadow-lg ">
       <div className="relative text-center flex justify-center">
