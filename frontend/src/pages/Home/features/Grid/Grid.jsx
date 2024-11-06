@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom";
 
 const Grid = () => {
   const navigate = useNavigate();
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="bg-black pb-4 grid grid-cols-12 gap-5 px-4 sm:px-6 md:px-10 lg:px-14">
@@ -32,7 +35,7 @@ const Grid = () => {
             <p className="text-gray-50 text-xl md:text-2xl">Next Match</p>
             <div
               className="text-gray-50 text-xs md:text-sm flex gap-1 items-center cursor-pointer"
-              onClick={() => navigate(`/fixtures`)}>
+              onClick={handleClick}>
               <p>All Matches</p>
               <MdKeyboardArrowRight className="text-gray-50 text-lg md:text-xl " />
             </div>

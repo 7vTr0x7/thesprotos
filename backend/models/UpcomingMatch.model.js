@@ -20,6 +20,37 @@ const UpcomingMatchSchema = new mongoose.Schema({
     team1: { type: Number, default: 0 },
     team2: { type: Number, default: 0 },
   },
+  match: {
+    daysLeft: { type: Number, required: true },
+    hoursLeft: { type: Number, required: true },
+    location: { type: String, required: true },
+    matchType: { type: String, required: true },
+  },
+  headToHead: {
+    played: { type: Number, required: true },
+    wins: {
+      team1: { type: Number, required: true },
+      team2: { type: Number, required: true },
+    },
+    homeWins: {
+      team1: { type: Number, required: true },
+      team2: { type: Number, required: true },
+    },
+    awayWins: {
+      team1: { type: Number, required: true },
+      team2: { type: Number, required: true },
+    },
+  },
+  previousResult: {
+    team1: {
+      name: { type: String, required: true },
+      score: { type: Number, required: true },
+    },
+    team2: {
+      name: { type: String, required: true },
+      score: { type: Number, required: true },
+    },
+  },
 });
 
 export const UpcomingMatch = mongoose.model(
