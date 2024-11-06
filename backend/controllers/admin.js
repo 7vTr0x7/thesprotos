@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import { Admin } from "./../models/Admin.model.js";
 import { sendCookies } from "../utils/features.js";
 import { Banner } from "../models/Banner.model.js";
+import { Sponsor } from "../models/Sponsor.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
