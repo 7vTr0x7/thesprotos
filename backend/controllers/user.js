@@ -28,7 +28,7 @@ export const getUpcomingMatches = async (req, res) => {
 export const getBanner = async (req, res) => {
   try {
     const banner = await Banner.find();
-    if (banner) {
+    if (banner.length > 0) {
       res.json({
         success: true,
         banner,
@@ -51,7 +51,7 @@ export const getBanner = async (req, res) => {
 export const getSponsor = async (req, res) => {
   try {
     const sponsor = await Sponsor.find();
-    if (sponsor) {
+    if (sponsor.length > 0) {
       res.json({
         success: true,
         sponsor,
