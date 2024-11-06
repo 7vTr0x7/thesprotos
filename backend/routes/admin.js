@@ -2,9 +2,11 @@ import express from "express";
 import {
   addBanner,
   addMultipleStarPerformers,
+  addMultipleTrophies,
   addMultipleUpcomingMatches,
   addSponsor,
   addStarPerformer,
+  addTrophy,
   addUpcomingMatch,
   adminLogin,
   registerAdmin,
@@ -22,12 +24,16 @@ router.post(
   isAuthenticated,
   addMultipleUpcomingMatches
 );
+
 router.post("/add/star-performers", isAuthenticated, addStarPerformer);
 router.post(
   "/add/multiple/star-performers",
   isAuthenticated,
   addMultipleStarPerformers
 );
+
+router.post("/add/trophy", isAuthenticated, addTrophy);
+router.post("/add/multiple/trophies", isAuthenticated, addMultipleTrophies);
 
 router.post("/add/banner", isAuthenticated, addBanner);
 router.post("/add/sponsor", isAuthenticated, addSponsor);

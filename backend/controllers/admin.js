@@ -5,6 +5,7 @@ import { sendCookies } from "../utils/features.js";
 import { Banner } from "../models/Banner.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
+import { Trophies } from "../models/Trophies.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -182,13 +183,59 @@ export const addMultipleStarPerformers = async (req, res) => {
     } else {
       res.status(404).json({
         success: true,
-        message: "starPerformers match not found",
+        message: "starPerformers  not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
       message: "Failed to add starPerformers",
+      error: error.message,
+    });
+  }
+};
+
+export const addTrophy = async (req, res) => {
+  try {
+    const trophy = await Trophies.create(req.body);
+    if (trophy) {
+      res.json({
+        success: true,
+        trophy,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "trophy not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add trophy ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultipleTrophies = async (req, res) => {
+  try {
+    const trophies = await Trophies.insertMany(req.body);
+    if (trophies.length > 0) {
+      res.json({
+        success: true,
+        trophies,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "trophies  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add trophies",
       error: error.message,
     });
   }
