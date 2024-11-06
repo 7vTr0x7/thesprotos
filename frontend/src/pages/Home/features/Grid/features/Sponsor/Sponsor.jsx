@@ -19,10 +19,9 @@ const Sponsor = ({ text }) => {
 
       if (data.success) {
         setSponsor(data?.sponsor[0]?.imageUrl);
-        console.log(data);
       }
     } catch (error) {
-      console.log("failed to get UpcomingMatch Data", error.message);
+      console.log("failed to get Sponsor Data", error.message);
     }
   };
 
