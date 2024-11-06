@@ -19,7 +19,7 @@ const UpcomingMatchCard = ({ match }) => {
       <div className="mt-6 grid grid-cols-3">
         <MatchCard match={match} />
       </div>
-      {match?.status === "Complete" && (
+      {match?.status === "Live" && (
         <div className="flex gap-2 justify-center items-center text-[#4f4f4f] text-center text-xs whitespace-nowrap ">
           <p
             className="cursor-pointer pl-5"
