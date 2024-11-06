@@ -2,6 +2,7 @@ import express from "express";
 import {
   getBanner,
   getSponsor,
+  getStarPerformers,
   getUpcomingMatches,
 } from "../controllers/user.js";
 
