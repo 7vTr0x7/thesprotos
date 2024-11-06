@@ -10,48 +10,8 @@ const UpcomingMatches = () => {
   const [page, setPage] = useState(1);
   const [matchPage, setMatchPage] = useState(4);
   const [fadeClass, setFadeClass] = useState("");
-  const [upcomingMatches, setUpcomingMatches] = useState([]);
 
-  const dispatch = useDispatch();
-
-  const getUpcomingMatchData = async () => {
-    try {
-      const res = await fetch(
-        "http://localhost:4000/api/user/upcoming-matches",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
-
-      if (!res.ok) {
-        console.log("Failed to get data");
-      }
-
-      const data = await res.json();
-
-      if (data.success) {
-        setUpcomingMatches(data.upcomingMatches);
-        const liveMatch = data.upcomingMatches.find(
-          (match) => match.status === "Live"
-        );
-
-        dispatch(setLiveMatch(liveMatch));
-
-        const nextMatch = data.upcomingMatches.find(
-          (match) => match.status === "Upcoming"
-        );
-
-        dispatch(setNextMatch(nextMatch));
-      }
-    } catch (error) {
-      console.log("failed to get UpcomingMatch Data", error.message);
-    }
-  };
-
-  useEffect(() => {
-    getUpcomingMatchData();
-  }, []);
+  const upcomingMatches = {};
 
   const nextPageHandler = () => {
     if (upcomingMatches.length > page * matchPage) {
