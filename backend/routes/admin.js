@@ -1,6 +1,7 @@
 import express from "express";
 import {
   addBanner,
+  addMultipleStarPerformers,
   addMultipleUpcomingMatches,
   addSponsor,
   addStarPerformer,
