@@ -20,10 +20,9 @@ const UpcomingMatchSchema = new mongoose.Schema({
     team1: { type: Number, default: 0 },
     team2: { type: Number, default: 0 },
   },
-  match: {
+  timeLeft: {
     daysLeft: { type: Number, required: true },
     hoursLeft: { type: Number, required: true },
-    location: { type: String, required: true },
     matchType: { type: String, required: true },
   },
   headToHead: {
