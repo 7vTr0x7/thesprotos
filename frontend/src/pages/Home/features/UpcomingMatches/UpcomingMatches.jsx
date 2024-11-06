@@ -12,7 +12,10 @@ const UpcomingMatches = () => {
   const getUpcomingMatchData = async () => {
     try {
       const res = await fetch(
-        "http://localhost:4000/api/user/upcoming-matches"
+        "http://localhost:4000/api/user/upcoming-matches",
+        {
+          credentials: "include",
+        }
       );
 
       if (!res.ok) {
