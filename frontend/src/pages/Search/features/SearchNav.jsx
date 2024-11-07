@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
 import logo from "../../../images/logo.png";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../../app/slices/searchSlice";
 
 const SearchNav = () => {
+  const [searchedText, setSearchedText] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const debounceTimeout = useRef(null);
+
+  useEffect(() => {
+    if (searchedText.trim() === "") {
+      dispatch(setSearch(searchedText));
+      return;
+    }
+
+    if (debounceTimeout.current) {
+      clearTimeout(debounceTimeout.current);
+    }
+
+    debounceTimeout.current = setTimeout(() => {
+      dispatch(setSearch(searchedText));
+    }, 300);
+
+    return () => {
+      clearTimeout(debounceTimeout.current);
+    };
+  }, [searchedText, dispatch]);
 
   return (
     <header
@@ -25,6 +50,8 @@ const SearchNav = () => {
           <input
             type="text"
             placeholder="Search league, clubs, news"
+            value={searchedText}
+            onChange={(e) => setSearchedText(e.target.value)}
             className="bg-transparent focus:outline-none text-base w-full placeholder-gray-400"
           />
         </div>
