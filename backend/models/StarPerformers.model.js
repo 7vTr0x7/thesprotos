@@ -5,6 +5,10 @@ const StarPerformersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
   achievement: {
     type: String,
     required: true,
