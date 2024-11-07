@@ -35,13 +35,23 @@ const ScheduledMatchStarts = ({ match }) => {
         <p className="text-center font-semibold text-xs md:text-sm">
           Previous Result
         </p>
-        <div className="flex justify-between mt-2 text-xs md:text-sm px-2 md:px-4">
+        <div className="flex justify-between items-center mt-2 text-xs md:text-sm px-2 md:px-4">
           <p>{match.previousResult.team1.name}</p>
+          <img
+            alt={match.previousResult.team1.name}
+            src={match.team1.logo_url}
+            className="h-8"
+          />
           <div className="flex justify-center gap-2">
             <p>{match.previousResult.team1.score}</p>
             <div className="h-6 w-[1px] bg-gray-600" />
             <p>{match.previousResult.team2.score}</p>
           </div>
+          <img
+            alt={match.previousResult.team2.name}
+            src={match.team2.logo_url}
+            className="h-8"
+          />
           <p>{match.previousResult.team2.name}</p>
         </div>
       </div>
