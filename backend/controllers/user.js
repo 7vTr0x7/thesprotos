@@ -1,4 +1,5 @@
 import { Banner } from "../models/Banner.model.js";
+import { Blog } from "../models/Blogs.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 import { Player } from "../models/Player.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
@@ -162,6 +163,29 @@ export const getPlayers = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add players",
+      error: error.message,
+    });
+  }
+};
+
+export const getBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+    if (blogs.length > 0) {
+      res.json({
+        success: true,
+        blogs,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "blogs  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add blogs",
       error: error.message,
     });
   }

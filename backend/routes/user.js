@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getBanner,
+  getBlogs,
   getFeaturedPlayer,
   getPlayers,
   getSponsor,
@@ -18,5 +19,6 @@ router.get("/star-performers", getStarPerformers);
 router.get("/trophies", getTrophies);
 router.get("/featured-player", getFeaturedPlayer);
 router.get("/players", getPlayers);
+router.get("/blogs", getBlogs);
 
 export default router;
