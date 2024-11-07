@@ -8,6 +8,10 @@ const FeaturedPlayerSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
   },
+  club: {
+    type: String,
+    required: true,
+  },
   stats: {
     goals: {
       type: String,
