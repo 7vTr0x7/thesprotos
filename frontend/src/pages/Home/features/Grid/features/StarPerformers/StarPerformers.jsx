@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const StarPerformers = () => {
   const [players, setPlayers] = useState([]);
 
-  const getSponsorData = async () => {
+  const getStarPerformersData = async () => {
     try {
       const res = await fetch(
         "http://localhost:4000/api/user/star-performers",
@@ -28,7 +28,7 @@ const StarPerformers = () => {
   };
 
   useEffect(() => {
-    getSponsorData();
+    getStarPerformersData();
   }, []);
 
   return (
@@ -56,10 +56,19 @@ const StarPerformers = () => {
             className={`grid grid-cols-12 mt-4 text-gray-50 text-xs md:text-sm lg:text-base py-3 px-4 md:px-6 ${
               index % 2 === 0 ? "bg-[#151515]" : "bg-transparent"
             }`}>
-            <p className="col-span-3 ">{player.name}</p>
-            <p className="col-span-3 ">{player.achievement}</p>
-            <p className="col-span-3  ">{player.tournament}</p>
-            <div className="flex gap-4 justify-end col-span-3">
+            <div className="col-span-3 flex gap-2 items-center">
+              <img
+                alt={player.name}
+                src={player.imageUrl}
+                className="md:h-8 h-5 rounded-full"
+              />
+              <p>{player.name}</p>
+            </div>
+            <p className="col-span-3 flex items-center">{player.achievement}</p>
+            <p className="col-span-3   flex items-center">
+              {player.tournament}
+            </p>
+            <div className="flex gap-4 justify-end items-center col-span-3">
               <p>{player.goals}</p>
               <p>{player.assists}</p>
               <p>{player.matches_played}</p>
