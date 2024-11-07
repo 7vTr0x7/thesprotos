@@ -362,22 +362,22 @@ export const addBlog = async (req, res) => {
 
 export const addMultipleStandings = async (req, res) => {
   try {
-    const Standings = await Standings.insertMany(req.body);
-    if (Standings.length > 0) {
+    const standingsData = await Standings.insertMany(req.body);
+    if (standingsData.length > 0) {
       res.json({
         success: true,
-        Standings,
+        standingsData,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "Standings  not found",
+        message: "StandingsData  not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to add Standings",
+      message: "Failed to add StandingsData",
       error: error.message,
     });
   }

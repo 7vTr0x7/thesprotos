@@ -194,22 +194,22 @@ export const getBlogs = async (req, res) => {
 
 export const getStandings = async (req, res) => {
   try {
-    const standings = await Standings.find();
-    if (standings.length > 0) {
+    const standingsData = await Standings.find();
+    if (standingsData.length > 0) {
       res.json({
         success: true,
-        standings,
+        standingsData,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "standings  not found",
+        message: "standingsData  not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to add standings",
+      message: "Failed to add standingsData",
       error: error.message,
     });
   }
