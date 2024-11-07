@@ -12,7 +12,6 @@ const LeagueCard = ({ league }) => {
       <div className="flex justify-between text-gray-50 items-center gap-3 mt-2 mx-1 text-sm  md:text-lg md:font-semibold">
         <p>{league.league}</p>
         <Link
-          state={{ league }}
           to={`/league/${encodeURIComponent(
             `${league.league.replace(/\s+/g, "-")}`
           )}`}>

@@ -41,7 +41,7 @@ const LeaguePage = () => {
           <LeagueStats activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3  bg-black">
-          <RenderLeagueStats activeTab={activeTab} league={"Premier League"} />
+          <RenderLeagueStats activeTab={activeTab} league={league.league} />
         </div>
       </>
       <Footer />
