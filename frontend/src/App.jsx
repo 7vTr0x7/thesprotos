@@ -15,7 +15,12 @@ import { setLiveMatch } from "./app/slices/liveMatchSlice";
 import { setUpcomingMatch } from "./app/slices/upcomingMatchesSlice";
 import { useDispatch } from "react-redux";
 import { setBlogs } from "./app/slices/blogsSlice";
-import { fetchBlogsData, fetchMatchesData } from "./utils/apis";
+import {
+  fetchBlogsData,
+  fetchMatchesData,
+  fetchPlayersData,
+} from "./utils/apis";
+import { setPlayers } from "./app/slices/playerSlice";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
@@ -46,6 +51,10 @@ const App = () => {
         const blogData = await fetchBlogsData(apiUrl);
         if (blogData.success) {
           dispatch(setBlogs(blogData.blogs));
+        }
+        const playersData = await fetchPlayersData(apiUrl);
+        if (playersData.success) {
+          dispatch(setPlayers(playersData.players));
         }
       } catch (error) {
         console.error("Data fetching failed", error.message);

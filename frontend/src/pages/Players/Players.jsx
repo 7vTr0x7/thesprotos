@@ -1,41 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Breadcrumbs from "./../../components/Breadcrumbs";
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 
-import { useDispatch } from "react-redux";
-import { setPlayers } from "../../app/slices/playerSlice";
+import { useSelector } from "react-redux";
 import PlayerCard from "./PlayerCard/PlayerCard";
 
 const positions = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
 
 const Players = () => {
-  const [players, setPlayersData] = useState(null);
-
-  const getPlayers = async () => {
-    try {
-      const res = await fetch("http://localhost:4000/api/user/players", {
-        method: "GET",
-        credentials: "include",
-      });
-
-      if (!res.ok) {
-        console.log("Failed to get data");
-      }
-
-      const data = await res.json();
-
-      if (data.success) {
-        setPlayersData(data?.players);
-      }
-    } catch (error) {
-      console.log("failed to get players Data", error.message);
-    }
-  };
-
-  useEffect(() => {
-    getPlayers();
-  }, []);
+  const players = useSelector((state) => state.players.players);
 
   return (
     <>

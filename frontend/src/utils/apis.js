@@ -16,3 +16,11 @@ export const fetchBlogsData = async (apiUrl) => {
   if (!res.ok) throw new Error("Failed to get data");
   return res.json();
 };
+export const fetchPlayersData = async (apiUrl) => {
+  const res = await fetch(`${apiUrl}/api/user/players`, {
+    method: "GET",
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error("Failed to get data");
+  return res.json();
+};
