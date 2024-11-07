@@ -20,7 +20,7 @@ const FeaturedPlayerCard = ({ player, status }) => {
       <div className="py-2">
         <p className="text-center text-xl font-semibold">{player?.name}</p>
         <p className="text-center text-sm mt-1 text-gray-400 font-semibold">
-          {player.team}
+          {player?.club}
         </p>
       </div>
       <hr className="h-[1px] bg-gray-400 border-0 my-2" />
