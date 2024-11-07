@@ -19,8 +19,10 @@ import {
   fetchBlogsData,
   fetchMatchesData,
   fetchPlayersData,
+  fetchStandingsData,
 } from "./utils/apis";
 import { setPlayers } from "./app/slices/playerSlice";
+import { setStandings } from "./app/slices/standingsSlice";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
@@ -55,6 +57,10 @@ const App = () => {
         const playersData = await fetchPlayersData(apiUrl);
         if (playersData.success) {
           dispatch(setPlayers(playersData.players));
+        }
+        const standings = await fetchStandingsData(apiUrl);
+        if (standings.success) {
+          dispatch(setStandings(standings.standingsData));
         }
       } catch (error) {
         console.error("Data fetching failed", error.message);

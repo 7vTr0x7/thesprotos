@@ -1,6 +1,7 @@
 import React from "react";
 
 const StandingsCard = ({ stats }) => {
+  const standings = [...stats].sort((a, b) => a.position - b.position);
   return (
     <>
       <div className="grid grid-cols-12 text-gray-400 mt-5 pr-4 pl-4 md:px-7">
@@ -16,24 +17,30 @@ const StandingsCard = ({ stats }) => {
         </div>
       </div>
 
-      {stats &&
-        stats.map((stat, index) => (
+      {standings &&
+        standings.map((standing, index) => (
           <div
-            key={stat.club}
+            key={standing.club}
             className={`grid grid-cols-12 py-4 px-4 md:px-7 mt-3 text-gray-50 ${
               index % 2 === 0 ? "bg-[#151515]" : ""
             }`}>
-            <div className="col-span-5 text-gray-50 flex gap-2 md:gap-3 font-medium text-xs md:text-base">
-              <p>{stat.position}</p> <p>{stat.club}</p>
+            <div className="col-span-5 text-gray-50 flex gap-2 md:gap-3 items-center font-medium text-xs md:text-base">
+              <p>{standing.position}</p>{" "}
+              <img
+                alt={standing.club}
+                src={standing.imageUrl}
+                className="md:h-8 h-6"
+              />{" "}
+              <p>{standing.club}</p>
             </div>
             <div className="col-span-7 flex justify-between items-center space-x-1 text-xs md:text-sm">
-              <p>{stat.P}</p>
-              <p>{stat.W}</p>
-              <p>{stat.D}</p>
-              <p>{stat.L}</p>
-              <p>{stat.Goals}</p>
+              <p>{standing.played}</p>
+              <p>{standing.won}</p>
+              <p>{standing.drawn}</p>
+              <p>{standing.lost}</p>
+              <p>{standing.goals}</p>
               <div className="flex gap-[1px] bg-gray-700">
-                {stat.last5.map((game, idx) => (
+                {standing.last5.map((game, idx) => (
                   <span
                     key={idx}
                     className={`h-4 w-4 rounded-sm text-xs flex items-center justify-center ${
@@ -47,7 +54,7 @@ const StandingsCard = ({ stats }) => {
                   </span>
                 ))}
               </div>
-              <p>{stat.Pts}</p>
+              <p>{standing.points}</p>
             </div>
           </div>
         ))}

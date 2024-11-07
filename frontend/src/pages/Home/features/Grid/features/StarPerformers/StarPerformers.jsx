@@ -52,7 +52,7 @@ const StarPerformers = () => {
 
         {players.map((player, index) => (
           <div
-            key={player.name}
+            key={player._id}
             className={`grid grid-cols-12 mt-4 text-gray-50 text-xs md:text-sm lg:text-base py-3 px-4 md:px-6 ${
               index % 2 === 0 ? "bg-[#151515]" : "bg-transparent"
             }`}>

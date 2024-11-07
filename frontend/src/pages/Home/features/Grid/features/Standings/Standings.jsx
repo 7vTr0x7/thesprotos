@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import standings from "../../../../../../utils/standings.json";
+import data from "../../../../../../utils/leagues.json";
 import CustomDropdown from "../../../../../../components/CustomDropDown";
 import StandingsCard from "../../../../../../components/StandingsCard";
+import { useSelector } from "react-redux";
 
 const Standings = () => {
-  const [league, setLeague] = useState(standings?.leagues?.leagues[0]);
-  const [stats, setStats] = useState(standings?.leagues[league]);
+  const leagues = data.leagues.map((league) => league.league);
+
+  const [league, setLeague] = useState(leagues[1]);
+  const [stats, setStats] = useState([]);
+  const standings = useSelector((state) => state.standings.standings);
 
   useEffect(() => {
-    setStats(standings?.leagues[league]);
+    const filtered = standings.filter((stand) => stand.league === league);
+    setStats(filtered);
   }, [league]);
 
   return (
@@ -20,10 +25,16 @@ const Standings = () => {
         <CustomDropdown
           setLeague={setLeague}
           league={league}
-          options={standings?.leagues?.leagues || []}
+          options={leagues}
         />
       </div>
-      <StandingsCard stats={stats} />
+      {stats && stats.length > 0 ? (
+        <StandingsCard stats={stats} />
+      ) : (
+        <p className="text-gray-50 text-sm text-center mb-3 px-5 md:px-7">
+          No Standings Found
+        </p>
+      )}
     </div>
   );
 };

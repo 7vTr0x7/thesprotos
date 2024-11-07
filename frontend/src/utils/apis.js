@@ -24,3 +24,12 @@ export const fetchPlayersData = async (apiUrl) => {
   if (!res.ok) throw new Error("Failed to get data");
   return res.json();
 };
+
+export const fetchStandingsData = async (apiUrl) => {
+  const res = await fetch(`${apiUrl}/api/user/standings`, {
+    method: "GET",
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error("Failed to get data");
+  return res.json();
+};

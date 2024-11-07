@@ -5,6 +5,7 @@ import upcomingMatchReducer from "./slices/upcomingMatchesSlice";
 import playersReducer from "./slices/playerSlice";
 import blogsReducer from "./slices/blogsSlice";
 import searchReducer from "./slices/searchSlice";
+import standingsReducer from "./slices/standingsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     players: playersReducer,
     blogs: blogsReducer,
     search: searchReducer,
+    standings: standingsReducer,
   },
 });
