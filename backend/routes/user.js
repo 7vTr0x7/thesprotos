@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getBanner,
+  getFeaturedPlayer,
   getSponsor,
   getStarPerformers,
   getTrophies,
