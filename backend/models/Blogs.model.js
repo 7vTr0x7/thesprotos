@@ -13,6 +13,11 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  introductionPara: {
+    type: String,
+    required: true,
+  },
+
   description: {
     type: String,
     required: true,

@@ -8,6 +8,7 @@ import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 import { Player } from "../models/Player.model.js";
+import { Blog } from "../models/Blogs.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -307,6 +308,52 @@ export const addPlayer = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add player ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultipleBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.insertMany(req.body);
+    if (blogs.length > 0) {
+      res.json({
+        success: true,
+        blogs,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "blogs  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add blogs",
+      error: error.message,
+    });
+  }
+};
+
+export const addBlog = async (req, res) => {
+  try {
+    const blog = await Blog.create(req.body);
+    if (blog) {
+      res.json({
+        success: true,
+        blog,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "blog not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add blog ",
       error: error.message,
     });
   }

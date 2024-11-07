@@ -1,7 +1,9 @@
 import express from "express";
 import {
   addBanner,
+  addBlog,
   addFeaturedPlayer,
+  addMultipleBlogs,
   addMultiplePlayers,
   addMultipleStarPerformers,
   addMultipleTrophies,
@@ -44,5 +46,8 @@ router.post("/add/featured-player", isAuthenticated, addFeaturedPlayer);
 
 router.post("/add/player", isAuthenticated, addPlayer);
 router.post("/add/multiple/players", isAuthenticated, addMultiplePlayers);
+
+router.post("/add/blog", isAuthenticated, addBlog);
+router.post("/add/multiple/blogs", isAuthenticated, addMultipleBlogs);
 
 export default router;
