@@ -5,6 +5,10 @@ const StandingsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
   position: {
     type: Number,
     required: true,
