@@ -14,50 +14,46 @@ import { setNextMatch } from "./app/slices/nextMatchSlice";
 import { setLiveMatch } from "./app/slices/liveMatchSlice";
 import { setUpcomingMatch } from "./app/slices/upcomingMatchesSlice";
 import { useDispatch } from "react-redux";
+import { setBlogs } from "./app/slices/blogsSlice";
+import { fetchBlogsData, fetchMatchesData } from "./utils/apis";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
 const App = () => {
   const dispatch = useDispatch();
-
-  const getMatchesData = async () => {
-    try {
-      const res = await fetch(
-        "http://localhost:4000/api/user/upcoming-matches",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
-
-      if (!res.ok) {
-        console.log("Failed to get data");
-      }
-
-      const data = await res.json();
-
-      if (data.success) {
-        dispatch(setUpcomingMatch(data.upcomingMatches));
-        const liveMatch = data.upcomingMatches.find(
-          (match) => match.status === "Live"
-        );
-
-        dispatch(setLiveMatch(liveMatch));
-
-        const nextMatch = data.upcomingMatches.find(
-          (match) => match.status === "Upcoming"
-        );
-
-        dispatch(setNextMatch(nextMatch));
-      }
-    } catch (error) {
-      console.log("failed to get UpcomingMatch Data", error.message);
-    }
-  };
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    getMatchesData();
-  }, []);
+    const getData = async () => {
+      try {
+        const matchData = await fetchMatchesData(apiUrl);
+        if (matchData.success) {
+          dispatch(setUpcomingMatch(matchData.upcomingMatches));
+          dispatch(
+            setLiveMatch(
+              matchData.upcomingMatches.find((match) => match.status === "Live")
+            )
+          );
+          dispatch(
+            setNextMatch(
+              matchData.upcomingMatches.find(
+                (match) => match.status === "Upcoming"
+              )
+            )
+          );
+        }
+
+        const blogData = await fetchBlogsData(apiUrl);
+        if (blogData.success) {
+          dispatch(setBlogs(blogData.blogs));
+        }
+      } catch (error) {
+        console.error("Data fetching failed", error.message);
+      }
+    };
+
+    getData();
+  }, [dispatch, apiUrl]);
 
   return (
     <div>
