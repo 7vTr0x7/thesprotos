@@ -45,9 +45,11 @@ const FeaturedPlayerCard = ({ player, status }) => {
         <button className="px-2 py-1 flex items-center gap-1 text-xs">
           <p
             onClick={() =>
-              navigate(`/players/${player.name.replace(/\s+/g, "-")}`, {
-                state: { player: player },
-              })
+              navigate(
+                `/players/${encodeURIComponent(
+                  player.name.replace(/\s+/g, "-")
+                )}`
+              )
             }>
             View Profile
           </p>

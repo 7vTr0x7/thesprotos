@@ -34,7 +34,13 @@ const TeamPlayedFor = ({ player }) => {
                   <p className="font-semibold text-xs md:text-sm">
                     {team.teamName}
                   </p>
-                  <p className="text-xs text-gray-400">{team.startDate}</p>
+                  <p className="text-xs text-gray-400">
+                    {new Date(team.startDate).toLocaleDateString("en-GB", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
                 </div>
               </div>
               <div className="grid grid-cols-4 gap-4 md:gap-8 w-1/3 text-center text-gray-500 text-xs md:text-sm">

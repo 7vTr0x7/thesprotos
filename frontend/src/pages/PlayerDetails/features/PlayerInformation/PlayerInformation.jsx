@@ -7,7 +7,16 @@ const PlayerInformation = ({ player }) => {
       <div className=" bg-[#222222] mt-5 rounded-lg  text-gray-50 text-semibold">
         <div className="flex items-center justify-between py-4  px-5  ">
           <p>Date of Birth</p>
-          <p>{player?.playerProfile?.dateOfBirth}</p>
+          <p>
+            {new Date(player?.playerProfile?.dateOfBirth).toLocaleDateString(
+              "en-GB",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )}
+          </p>
         </div>
         <div className="flex items-center justify-between py-4 px-5 bg-[#151515]">
           <p>Preferred Foot</p>

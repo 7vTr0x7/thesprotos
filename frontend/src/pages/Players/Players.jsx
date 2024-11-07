@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Breadcrumbs from "./../../components/Breadcrumbs";
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 
-import data from "../../utils/playersData.json"; // Your updated data
+import { useDispatch } from "react-redux";
+import { setPlayers } from "../../app/slices/playerSlice";
 import PlayerCard from "./PlayerCard/PlayerCard";
 
+const positions = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+
 const Players = () => {
+  const [players, setPlayersData] = useState(null);
+
+  const getPlayers = async () => {
+    try {
+      const res = await fetch("http://localhost:4000/api/user/players", {
+        method: "GET",
+        credentials: "include",
+      });
+
+      if (!res.ok) {
+        console.log("Failed to get data");
+      }
+
+      const data = await res.json();
+
+      if (data.success) {
+        setPlayersData(data?.players);
+      }
+    } catch (error) {
+      console.log("failed to get players Data", error.message);
+    }
+  };
+
+  useEffect(() => {
+    getPlayers();
+  }, []);
+
   return (
     <>
       <Header />
@@ -18,13 +48,17 @@ const Players = () => {
           <Breadcrumbs />
         </div>
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
-          {data.map((position) => (
-            <div key={position.name}>
-              <p className="text-xl text-gray-50 font-semibold">{`${position.name}s`}</p>
+          {positions.map((position) => (
+            <div key={position}>
+              <p className="text-xl text-gray-50 font-semibold">{`${position}s`}</p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4  my-4">
-                {position.players.map((player) => (
-                  <PlayerCard key={player.name} player={player} />
-                ))}
+                {players &&
+                  players.length > 0 &&
+                  players
+                    .filter((player) => player.position === position)
+                    .map((player) => (
+                      <PlayerCard key={player.name} player={player} />
+                    ))}
               </div>
             </div>
           ))}

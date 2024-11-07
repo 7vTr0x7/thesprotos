@@ -12,11 +12,14 @@ const PlayerCard = ({ player }) => {
         navigate(
           `/players/${encodeURIComponent(
             `${player.name.replace(/\s+/g, "-")}`
-          )}`,
-          { state: { player } }
+          )}`
         )
       }>
-      <img alt={player.name} src={image} className="rounded-t-lg w-full" />
+      <img
+        alt={player.name}
+        src={player.imageUrl}
+        className="rounded-t-lg w-full"
+      />
       <div className="flex md:flex-row  justify-between items-center px-4 py-2">
         <div>
           <p className="text-gray-50 font-semibold text-sm md:text-xl">

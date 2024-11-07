@@ -2,9 +2,11 @@ import express from "express";
 import {
   addBanner,
   addFeaturedPlayer,
+  addMultiplePlayers,
   addMultipleStarPerformers,
   addMultipleTrophies,
   addMultipleUpcomingMatches,
+  addPlayer,
   addSponsor,
   addStarPerformer,
   addTrophy,
@@ -39,5 +41,8 @@ router.post("/add/multiple/trophies", isAuthenticated, addMultipleTrophies);
 router.post("/add/banner", isAuthenticated, addBanner);
 router.post("/add/sponsor", isAuthenticated, addSponsor);
 router.post("/add/featured-player", isAuthenticated, addFeaturedPlayer);
+
+router.post("/add/player", isAuthenticated, addPlayer);
+router.post("/add/multiple/players", isAuthenticated, addMultiplePlayers);
 
 export default router;

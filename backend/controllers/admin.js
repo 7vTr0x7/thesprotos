@@ -7,6 +7,7 @@ import { Sponsor } from "../models/Sponsor.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
+import { Player } from "../models/Player.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -245,6 +246,52 @@ export const addMultipleTrophies = async (req, res) => {
 export const addFeaturedPlayer = async (req, res) => {
   try {
     const player = await FeaturedPlayer.create(req.body);
+    if (player) {
+      res.json({
+        success: true,
+        player,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "player not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add player ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultiplePlayers = async (req, res) => {
+  try {
+    const players = await Player.insertMany(req.body);
+    if (players.length > 0) {
+      res.json({
+        success: true,
+        players,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "players  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add players",
+      error: error.message,
+    });
+  }
+};
+
+export const addPlayer = async (req, res) => {
+  try {
+    const player = await Player.create(req.body);
     if (player) {
       res.json({
         success: true,

@@ -14,20 +14,20 @@ const Breadcrumbs = () => {
         breadcrumbPath += `/${path}`;
         const isLast = index === pathnames.length - 1;
 
-        const formattedPath = path.replace(/-/g, " ");
+        const formattedPath = decodeURIComponent(path.replace(/\s+/g, "-"));
+        const displayPath = `${formattedPath
+          .charAt(0)
+          .toUpperCase()}${formattedPath.slice(1)}`;
 
         return isLast ? (
           <span key={breadcrumbPath}>
             {" "}
-            /{" "}
-            <span className="font-semibold">{`${formattedPath
-              .charAt(0)
-              .toUpperCase()}${formattedPath.slice(1)}`}</span>
+            / <span className="font-semibold">{displayPath}</span>
           </span>
         ) : (
           <span key={breadcrumbPath}>
             {" "}
-            / <Link to={breadcrumbPath}>{formattedPath}</Link>
+            / <Link to={breadcrumbPath}>{displayPath}</Link>
           </span>
         );
       })}
