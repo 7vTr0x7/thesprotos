@@ -1,7 +1,5 @@
 import React from "react";
 
-import playerImg from "../../../../images/image.png";
-
 const PlayerProfile = ({ player }) => {
   return (
     <div className="my-8">
