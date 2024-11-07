@@ -35,10 +35,7 @@ const PlayerProfileSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  flagImageUrl: {
-    type: String,
-    required: true,
-  },
+
   preferredFoot: {
     type: String,
     enum: ["Left", "Right", "Both"],
@@ -113,6 +110,10 @@ const recentFixtures = new mongoose.Schema({
 
 const PlayerSchema = new mongoose.Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  flagImageUrl: {
     type: String,
     required: true,
   },
