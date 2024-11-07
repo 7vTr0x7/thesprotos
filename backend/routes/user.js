@@ -5,6 +5,7 @@ import {
   getFeaturedPlayer,
   getPlayers,
   getSponsor,
+  getStandings,
   getStarPerformers,
   getTrophies,
   getUpcomingMatches,
@@ -20,5 +21,6 @@ router.get("/trophies", getTrophies);
 router.get("/featured-player", getFeaturedPlayer);
 router.get("/players", getPlayers);
 router.get("/blogs", getBlogs);
+router.get("/standings", getStandings);
 
 export default router;

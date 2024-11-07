@@ -3,6 +3,7 @@ import { Blog } from "../models/Blogs.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 import { Player } from "../models/Player.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
+import { Standings } from "../models/Standings.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
 import { UpcomingMatch } from "./../models/UpcomingMatch.model.js";
@@ -186,6 +187,29 @@ export const getBlogs = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add blogs",
+      error: error.message,
+    });
+  }
+};
+
+export const getStandings = async (req, res) => {
+  try {
+    const standings = await Standings.find();
+    if (standings.length > 0) {
+      res.json({
+        success: true,
+        standings,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "standings  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add standings",
       error: error.message,
     });
   }
