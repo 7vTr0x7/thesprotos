@@ -9,10 +9,7 @@ const TeamStatsSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  flagImageUrl: {
-    type: String,
-    required: true,
-  },
+
   stats: {
     played: {
       type: Number,
@@ -36,6 +33,10 @@ const TeamStatsSchema = new mongoose.Schema({
 const PlayerProfileSchema = new mongoose.Schema({
   dateOfBirth: {
     type: Date,
+    required: true,
+  },
+  flagImageUrl: {
+    type: String,
     required: true,
   },
   preferredFoot: {
