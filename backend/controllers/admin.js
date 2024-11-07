@@ -9,6 +9,7 @@ import { Trophies } from "../models/Trophies.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 import { Player } from "../models/Player.model.js";
 import { Blog } from "../models/Blogs.model.js";
+import { Standings } from "../models/Standings.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -354,6 +355,52 @@ export const addBlog = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add blog ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultipleStandings = async (req, res) => {
+  try {
+    const Standings = await Standings.insertMany(req.body);
+    if (Standings.length > 0) {
+      res.json({
+        success: true,
+        Standings,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "Standings  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Standings",
+      error: error.message,
+    });
+  }
+};
+
+export const addStanding = async (req, res) => {
+  try {
+    const Standing = await Standings.create(req.body);
+    if (Standing) {
+      res.json({
+        success: true,
+        Standing,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "Standing not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add Standing ",
       error: error.message,
     });
   }

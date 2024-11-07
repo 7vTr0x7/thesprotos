@@ -5,11 +5,13 @@ import {
   addFeaturedPlayer,
   addMultipleBlogs,
   addMultiplePlayers,
+  addMultipleStandings,
   addMultipleStarPerformers,
   addMultipleTrophies,
   addMultipleUpcomingMatches,
   addPlayer,
   addSponsor,
+  addStanding,
   addStarPerformer,
   addTrophy,
   addUpcomingMatch,
@@ -49,5 +51,8 @@ router.post("/add/multiple/players", isAuthenticated, addMultiplePlayers);
 
 router.post("/add/blog", isAuthenticated, addBlog);
 router.post("/add/multiple/blogs", isAuthenticated, addMultipleBlogs);
+
+router.post("/add/standing", isAuthenticated, addStanding);
+router.post("/add/multiple/standings", isAuthenticated, addMultipleStandings);
 
 export default router;
