@@ -6,6 +6,7 @@ import { Banner } from "../models/Banner.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
+import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -236,6 +237,29 @@ export const addMultipleTrophies = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add trophies",
+      error: error.message,
+    });
+  }
+};
+
+export const addFeaturedPlayer = async (req, res) => {
+  try {
+    const player = await FeaturedPlayer.create(req.body);
+    if (player) {
+      res.json({
+        success: true,
+        player,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "player not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add player ",
       error: error.message,
     });
   }
