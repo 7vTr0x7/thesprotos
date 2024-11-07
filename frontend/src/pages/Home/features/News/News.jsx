@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import data from "../../../../utils/news.json";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import NewsCard from "./features/NewsCard";
+import { useSelector } from "react-redux";
 
 const News = () => {
   const [page, setPage] = useState(1);
   const [newsPages, setNewsPages] = useState(3);
   const [fadeClass, setFadeClass] = useState("");
+
+  const news = useSelector((state) => state.blogs.blogs);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,7 +24,7 @@ const News = () => {
   }, []);
 
   const nextPageHandler = () => {
-    if (data?.latest_news.length > page * newsPages) {
+    if (news.length > page * newsPages) {
       setFadeClass("fade-in-right");
       setTimeout(() => {
         setPage((prev) => prev + 1);
@@ -53,8 +56,8 @@ const News = () => {
       </div>
       <div
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ${fadeClass}`}>
-        {data?.latest_news &&
-          data?.latest_news
+        {news &&
+          news
             .slice((page - 1) * newsPages, page * newsPages)
             .map((news) => <NewsCard key={news._id} news={news} />)}
       </div>

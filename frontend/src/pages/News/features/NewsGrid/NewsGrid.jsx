@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import data from "../../../../utils/news.json";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import NewsCard from "../../../Home/features/News/features/NewsCard";
 import NewsBanner from "../NewsBanner/NewsBanner";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
 
 function NewsGrid() {
-  const { latest_news } = data;
   const [page, setPage] = useState(1);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 640);
-  const itemsPerPage = isMobileView ? 1 : latest_news.length;
   const [fadeClass, setFadeClass] = useState("");
+
+  const news = useSelector((state) => state.blogs.blogs);
+  const itemsPerPage = isMobileView ? 1 : news.length;
 
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ function NewsGrid() {
   }, []);
 
   const nextPageHandler = () => {
-    if (latest_news.length > page * itemsPerPage) {
+    if (news.length > page * itemsPerPage) {
       setFadeClass("fade-in-right");
       setTimeout(() => {
         setPage((prev) => prev + 1);
@@ -63,7 +64,7 @@ function NewsGrid() {
         )}
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8  ${fadeClass}`}>
-          {latest_news
+          {news
             .slice((page - 1) * itemsPerPage, page * itemsPerPage)
             .map((news, index) => (
               <div

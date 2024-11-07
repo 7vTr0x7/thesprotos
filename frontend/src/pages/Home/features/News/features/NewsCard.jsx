@@ -25,14 +25,20 @@ const NewsCard = ({ news, newsPage }) => {
           <p className="bg-yellow-400 text-black rounded-xl px-2 sm:px-4 ">
             {news.category}
           </p>
-          <p>{news.date}</p>
+          <p>
+            {new Date(news.date).toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
         </div>
         <p className="text-xl sm:text-xl font-semibold text-gray-50 mt-3">
           {news.title.length > 50
             ? `${news.title.slice(0, 50)}...`
             : news.title}
         </p>
-        <p className="text-sm text-gray-50 mt-2">{news.description}</p>
+        <p className="text-sm text-gray-50 mt-2">{news.introductionPara}</p>
       </div>
     </div>
   );
