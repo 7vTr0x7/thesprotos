@@ -9,6 +9,10 @@ const StandingsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  league: {
+    type: String,
+    required: true,
+  },
   position: {
     type: Number,
     required: true,
