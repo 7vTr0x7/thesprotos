@@ -25,7 +25,14 @@ const PlayerCard = ({ player }) => {
           <p className="text-gray-50 font-semibold text-sm md:text-xl">
             {player.name}
           </p>
-          <p className="text-gray-50 m-0 text-xs">{player.country}</p>
+          <div className="flex gap-2 items-center">
+            <img
+              alt={player.country}
+              src={player.flagImageUrl}
+              className="h-2"
+            />
+            <p className="text-gray-50 m-0 text-xs">{player.country}</p>
+          </div>
         </div>
         <p className="text-gray-50 font-bold text-xl md:text-4xl">
           {player.number}
