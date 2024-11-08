@@ -4,15 +4,14 @@ import FeaturedPlayerCard from "../../../../../../components/FeaturedPlayerCard"
 const FeaturedPlayer = () => {
   const [featuredPlayer, setFeaturedPlayer] = useState(null);
 
-  const getFeaturedPlayer = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getFeaturedPlayer = async (apiUrl) => {
     try {
-      const res = await fetch(
-        "http://localhost:4000/api/user/featured-player",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`${apiUrl}/api/user/featured-player`, {
+        method: "GET",
+        credentials: "include",
+      });
 
       if (!res.ok) {
         console.log("Failed to get data");
@@ -29,7 +28,7 @@ const FeaturedPlayer = () => {
   };
 
   useEffect(() => {
-    getFeaturedPlayer();
+    getFeaturedPlayer(apiUrl);
   }, []);
 
   return (

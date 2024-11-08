@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 const StarPerformers = () => {
   const [players, setPlayers] = useState([]);
 
-  const getStarPerformersData = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getStarPerformersData = async (apiUrl) => {
     try {
-      const res = await fetch(
-        "http://localhost:4000/api/user/star-performers",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`${apiUrl}/api/user/star-performers`, {
+        method: "GET",
+        credentials: "include",
+      });
 
       if (!res.ok) {
         console.log("Failed to get data");
@@ -28,7 +27,7 @@ const StarPerformers = () => {
   };
 
   useEffect(() => {
-    getStarPerformersData();
+    getStarPerformersData(apiUrl);
   }, []);
 
   return (

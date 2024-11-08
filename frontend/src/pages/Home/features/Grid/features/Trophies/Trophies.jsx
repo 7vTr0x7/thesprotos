@@ -10,9 +10,11 @@ const Trophies = () => {
 
   const [trophies, setTrophies] = useState([]);
 
-  const getTrophiesData = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getTrophiesData = async (apiUrl) => {
     try {
-      const res = await fetch("http://localhost:4000/api/user/trophies", {
+      const res = await fetch(`${apiUrl}/api/user/trophies`, {
         method: "GET",
         credentials: "include",
       });
@@ -32,7 +34,7 @@ const Trophies = () => {
   };
 
   useEffect(() => {
-    getTrophiesData();
+    getTrophiesData(apiUrl);
   }, []);
 
   const nextPageHandler = () => {

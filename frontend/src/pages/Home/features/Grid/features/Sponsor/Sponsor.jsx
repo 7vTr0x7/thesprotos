@@ -4,9 +4,11 @@ import { useState } from "react";
 const Sponsor = ({ text }) => {
   const [sponsor, setSponsor] = useState("");
 
-  const getSponsorData = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getSponsorData = async (apiUrl) => {
     try {
-      const res = await fetch("http://localhost:4000/api/user/sponsor", {
+      const res = await fetch(`${apiUrl}/api/user/sponsor`, {
         method: "GET",
         credentials: "include",
       });
@@ -26,7 +28,7 @@ const Sponsor = ({ text }) => {
   };
 
   useEffect(() => {
-    getSponsorData();
+    getSponsorData(apiUrl);
   }, []);
 
   return (

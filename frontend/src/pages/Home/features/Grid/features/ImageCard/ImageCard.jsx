@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 const ImageCard = () => {
   const [banner, setBanner] = useState([]);
 
-  const getBannerData = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getBannerData = async (apiUrl) => {
     try {
-      const res = await fetch("http://localhost:4000/api/user/banner", {
+      const res = await fetch(`${apiUrl}/api/user/banner`, {
         method: "GET",
         credentials: "include",
       });
@@ -25,7 +27,7 @@ const ImageCard = () => {
   };
 
   useEffect(() => {
-    getBannerData();
+    getBannerData(apiUrl);
   }, []);
 
   return (

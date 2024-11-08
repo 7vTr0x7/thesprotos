@@ -13,9 +13,11 @@ const PlayerDetails = () => {
   const params = useParams();
   const name = params.player.replace("-", " ");
 
-  const getPlayers = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const getPlayers = async (apiUrl) => {
     try {
-      const res = await fetch("http://localhost:4000/api/user/players", {
+      const res = await fetch(`${apiUrl}/api/user/players`, {
         method: "GET",
         credentials: "include",
       });
@@ -35,8 +37,9 @@ const PlayerDetails = () => {
   };
 
   useEffect(() => {
-    getPlayers();
+    getPlayers(apiUrl);
   }, []);
+
   const player = Array.isArray(players)
     ? players.find((play) => play.name === name)
     : {};
