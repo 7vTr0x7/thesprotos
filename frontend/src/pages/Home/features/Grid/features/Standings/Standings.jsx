@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import data from "../../../../../../utils/leagues.json";
+import { useSelector } from "react-redux";
 import CustomDropdown from "../../../../../../components/CustomDropDown";
 import StandingsCard from "../../../../../../components/StandingsCard";
-import { useSelector } from "react-redux";
 
 const Standings = () => {
-  const leagues = data.leagues.map((league) => league.league);
+  const leagues = useSelector((state) => state.leagues.leagues).map(
+    (league) => league.league
+  );
 
   const [league, setLeague] = useState(leagues[0]);
   const [stats, setStats] = useState([]);

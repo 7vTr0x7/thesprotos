@@ -6,7 +6,9 @@ import MatchCard from "../MatchCard/MatchCard";
 
 const Results = () => {
   const results = useSelector((state) => state.results.results);
-  const leagues = results.map((result) => result.competition);
+  const leagues = useSelector((state) => state.leagues.leagues).map(
+    (league) => league.league
+  );
 
   const [league, setLeague] = useState(leagues[0]);
 

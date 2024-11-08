@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { useSelector } from "react-redux";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import CustomDropdown from "../../components/CustomDropDown";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import FixturesNav from "./features/FixturesNav/FixturesNav";
 import RenderContent from "./features/RenderContent/RenderContent";
-import CustomDropdown from "../../components/CustomDropDown";
-import standings from "../../utils/standings.json";
 const Fixtures = () => {
   const [activeTab, setActiveTab] = useState("fixtures");
-  const [league, setLeague] = useState(standings?.leagues?.leagues[0]);
+
+  const leagues = useSelector((state) => state.leagues.leagues).map(
+    (league) => league.league
+  );
+
+  const [league, setLeague] = useState(leagues[0]);
 
   return (
     <>
@@ -29,7 +34,7 @@ const Fixtures = () => {
             <CustomDropdown
               setLeague={setLeague}
               league={league}
-              options={standings?.leagues?.leagues || []}
+              options={leagues || []}
             />
           )}
         </div>
