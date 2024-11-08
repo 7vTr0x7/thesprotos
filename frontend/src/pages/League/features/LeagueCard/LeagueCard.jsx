@@ -14,7 +14,8 @@ const LeagueCard = ({ league }) => {
         <Link
           to={`/league/${encodeURIComponent(
             `${league.league.replace(/\s+/g, "-")}`
-          )}`}>
+          )}`}
+          state={{ league }}>
           <BsArrowRight className="text-xl " />
         </Link>
       </div>

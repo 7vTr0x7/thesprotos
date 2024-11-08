@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const Standings = () => {
   const leagues = data.leagues.map((league) => league.league);
 
-  const [league, setLeague] = useState(leagues[1]);
+  const [league, setLeague] = useState(leagues[0]);
   const [stats, setStats] = useState([]);
   const standings = useSelector((state) => state.standings.standings);
 

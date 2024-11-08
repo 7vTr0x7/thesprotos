@@ -22,9 +22,9 @@ const CustomDropdown = ({ options, setLeague, league }) => {
 
       {isOpen && (
         <div className="absolute left-0 right-0 bg-[#1e1e1e] rounded-lg shadow-lg mt-2 max-h-60 overflow-y-auto border border-gray-700 z-10">
-          {options.map((option) => (
+          {options.map((option, index) => (
             <div
-              key={option}
+              key={option._id || index}
               onClick={() => handleSelect(option)}
               className="px-4 py-2 text-gray-100 cursor-pointer hover:bg-[#333] transition-colors">
               {option}
