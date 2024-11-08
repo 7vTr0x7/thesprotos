@@ -31,10 +31,7 @@ router.post("/add/match", addMatch);
 router.post("/add/multiple/matches", addMultipleMatches);
 
 router.post("/add/star-performers", addStarPerformer);
-router.post(
-  "/add/multiple/star-performers",,
-  addMultipleStarPerformers
-);
+router.post("/add/multiple/star-performers", addMultipleStarPerformers);
 
 router.post("/add/trophy", addTrophy);
 router.post("/add/multiple/trophies", addMultipleTrophies);
