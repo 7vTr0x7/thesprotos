@@ -7,6 +7,7 @@ import { Sponsor } from "../models/Sponsor.model.js";
 import { Standings } from "../models/Standings.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
+import { User } from "../models/User.model.js";
 import { Match } from "./../models/Match.model.js";
 
 export const getMatches = async (req, res) => {
@@ -234,6 +235,29 @@ export const getLeagues = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add leagues",
+      error: error.message,
+    });
+  }
+};
+
+export const addContactUs = async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+    if (user) {
+      res.json({
+        success: true,
+        user,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "user  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add user",
       error: error.message,
     });
   }
