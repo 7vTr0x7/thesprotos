@@ -35,10 +35,25 @@ const FeaturedPlayerSchema = new mongoose.Schema({
   },
 });
 
+const playerSchema = new mongoose.Schema({
+  number: {
+    type: Number,
+  },
+  name: {
+    type: String,
+  },
+  imageUrl: {
+    type: String,
+  },
+  position: {
+    type: String,
+  },
+});
+
 const MatchSchema = new mongoose.Schema({
   competition: { type: String, required: true },
   league_logo_url: { type: String },
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   month: { type: String, required: true },
   stadium: { type: String, required: true },
   team1: {
@@ -100,6 +115,9 @@ const MatchSchema = new mongoose.Schema({
   },
   featuredPlayer: {
     type: FeaturedPlayerSchema,
+  },
+  teamLineup: {
+    type: [playerSchema],
   },
 });
 
