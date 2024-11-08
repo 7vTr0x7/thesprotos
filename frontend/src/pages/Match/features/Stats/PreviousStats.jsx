@@ -1,7 +1,6 @@
 import React from "react";
 
 const PreviousStats = ({ match, status }) => {
-  console.log(match);
   return (
     <div
       className={`text-gray-50 bg-[#151515] px-4 py-4  rounded-lg shadow-md mb-4 md:mb-0 ${

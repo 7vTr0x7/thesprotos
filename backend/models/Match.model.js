@@ -71,6 +71,10 @@ const MatchSchema = new mongoose.Schema({
     team1: { type: Number, default: 0 },
     team2: { type: Number, default: 0 },
   },
+  penalties: {
+    type: Boolean,
+    default: false,
+  },
   pens: {
     team1: { type: Number, default: 0 },
     team2: { type: Number, default: 0 },
@@ -112,6 +116,12 @@ const MatchSchema = new mongoose.Schema({
     team2: {
       type: [GoalsSchema],
     },
+  },
+  bestDefender: {
+    type: String,
+  },
+  bestMidfielder: {
+    type: String,
   },
   featuredPlayer: {
     type: FeaturedPlayerSchema,

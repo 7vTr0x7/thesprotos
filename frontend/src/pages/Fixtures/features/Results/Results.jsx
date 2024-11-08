@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
-import results from "../../../../utils/results.json";
+import { useSelector } from "react-redux";
 import CustomDropdown from "../../../../components/CustomDropDown";
 import MatchCard from "../MatchCard/MatchCard";
-import { useSelector } from "react-redux";
 
 const Results = () => {
   const results = useSelector((state) => state.results.results);
-
   const leagues = results.map((result) => result.competition);
 
   const [league, setLeague] = useState(leagues[0]);
 
-  const months = results
-    .filter((match) => match.competition === league)
-    .map((match) => match.month);
+  const months = [
+    ...new Set(
+      results
+        .filter((match) => match.competition === league)
+        .map((match) => match.month)
+    ),
+  ].sort((a, b) => b.localeCompare(a));
 
   const matches = results.filter((result) => result.competition === league);
 
@@ -36,9 +38,9 @@ const Results = () => {
               </p>
 
               {matches &&
-                matches?.map((match) => (
-                  <MatchCard match={match} key={match._id} />
-                ))}
+                matches
+                  .filter((match) => match.month === month)
+                  .map((match) => <MatchCard match={match} key={match._id} />)}
             </div>
           ))
         ) : (

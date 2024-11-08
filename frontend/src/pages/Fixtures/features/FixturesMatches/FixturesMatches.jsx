@@ -5,9 +5,13 @@ import { useSelector } from "react-redux";
 const FixturesMatches = () => {
   const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
 
-  const months = matches
-    .filter((match) => match.status === "Upcoming")
-    .map((match) => match.month);
+  const months = [
+    ...new Set(
+      matches
+        .filter((match) => match.status === "Upcoming")
+        .map((match) => match.month)
+    ),
+  ].sort((a, b) => b.localeCompare(a));
 
   return (
     <>

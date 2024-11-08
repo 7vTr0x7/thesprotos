@@ -7,8 +7,8 @@ const FeaturedPlayerCard = ({ player, status }) => {
 
   return (
     <div
-      className={` bg-[#151515] text-gray-50 rounded-lg shadow-lg pt-5 pb-3 w-full ${
-        status ? "md:w-9/12" : "md:w-full"
+      className={` bg-[#151515] text-gray-50 rounded-lg shadow-lg pt-5 pb-3 ${
+        status ? "" : "md:w-full w-full "
       }`}>
       <div className="flex justify-center">
         <img

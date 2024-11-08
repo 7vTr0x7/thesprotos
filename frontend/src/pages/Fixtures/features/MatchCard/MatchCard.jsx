@@ -80,7 +80,7 @@ const MatchCard = ({ match, view }) => {
           </p>
         </div>
       </div>
-      {!view && match?.pens && (
+      {!view && match?.penalties && (
         <div className="flex justify-center items-center gap-1 mt-2 text-gray-100 cursor-pointer">
           <p className="text-sm md:text-lg">
             PENS {match?.pens?.team1} - {match?.pens?.team2}

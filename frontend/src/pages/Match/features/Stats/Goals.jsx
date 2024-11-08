@@ -2,9 +2,8 @@ import React from "react";
 import data from "../../../../utils/goals.json";
 import { FaFutbol } from "react-icons/fa";
 
-const Goals = ({ status }) => {
-  const { goals } = data;
-
+const Goals = ({ status, goals }) => {
+  console.log(goals);
   return (
     <div
       className={`text-gray-50 bg-[#151515]  px-6 py-6 rounded-lg shadow-md mb-4 md:mb-0 ${

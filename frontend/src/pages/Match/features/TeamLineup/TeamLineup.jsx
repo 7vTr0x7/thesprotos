@@ -8,7 +8,6 @@ import PlayerCard from "../PlayersCard/PlayerCard";
 const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
   const [lineup, setLineup] = useState([]);
 
-  console.log(activeTeam);
   useEffect(() => {
     if (match.team1.name === activeTeam) {
       setLineup(match.teamLineup.team1.lineup);

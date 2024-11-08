@@ -1,10 +1,13 @@
 import React from "react";
-import match from "../../../../../../utils/completeMatch.json";
+import { useSelector } from "react-redux";
+import LiveMatchCard from "../LiveMatchCard/LiveMatchCard";
 import CompletedMatchPlayerStats from "./CompletedMatchPlayerStats";
 import CompletedMatchStats from "./CompletedMatchStats";
-import LiveMatchCard from "../LiveMatchCard/LiveMatchCard";
 
 const CompletedMatchCard = ({ text }) => {
+  const results = useSelector((state) => state.results.results);
+  const match = results.find((result) => result.status === "Completed");
+
   return (
     <div className="w-full flex flex-col">
       <div className="bg-[#151515] rounded-lg px-4 pb-6 shadow-lg text-white">
@@ -20,7 +23,7 @@ const CompletedMatchCard = ({ text }) => {
         <hr className="h-[1px] bg-gray-500 border-0 my-2" />
         <CompletedMatchStats match={match} />
       </div>
-      <CompletedMatchPlayerStats />
+      <CompletedMatchPlayerStats match={match} />
     </div>
   );
 };
