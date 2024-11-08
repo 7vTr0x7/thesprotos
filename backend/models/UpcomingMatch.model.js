@@ -4,6 +4,7 @@ const UpcomingMatchSchema = new mongoose.Schema({
   competition: { type: String, required: true },
   league_logo_url: { type: String },
   date: { type: String, required: true },
+  month: { type: String, required: true },
   stadium: { type: String, required: true },
   team1: {
     name: { type: String, required: true },
