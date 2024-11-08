@@ -14,7 +14,7 @@ const Breadcrumbs = () => {
         breadcrumbPath += `/${path}`;
         const isLast = index === pathnames.length - 1;
 
-        const formattedPath = decodeURIComponent(path.replace(/\s+/g, "-"));
+        const formattedPath = decodeURIComponent(path.replace(/-/g, " "));
         const displayPath = `${formattedPath
           .charAt(0)
           .toUpperCase()}${formattedPath.slice(1)}`;

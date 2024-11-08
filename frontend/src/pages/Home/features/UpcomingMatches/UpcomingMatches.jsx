@@ -52,13 +52,18 @@ const UpcomingMatches = () => {
           <p className="text-2xl font-semibold text-gray-100">
             Upcoming Matches
           </p>
-          <div className="text-gray-300 flex gap-3 text-[20px]">
-            <FiArrowLeft onClick={prevPageHandler} className="cursor-pointer" />
-            <FiArrowRight
-              onClick={nextPageHandler}
-              className="cursor-pointer"
-            />
-          </div>
+          {upcomingMatches && upcomingMatches.length > 4 && (
+            <div className="text-gray-300 flex gap-3 text-[20px]">
+              <FiArrowLeft
+                onClick={prevPageHandler}
+                className="cursor-pointer"
+              />
+              <FiArrowRight
+                onClick={nextPageHandler}
+                className="cursor-pointer"
+              />
+            </div>
+          )}
         </div>
         <div
           className={`my-6 mx-0 gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${fadeClass}`}>
