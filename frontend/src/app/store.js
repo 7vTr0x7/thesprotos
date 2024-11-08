@@ -6,6 +6,7 @@ import playersReducer from "./slices/playerSlice";
 import blogsReducer from "./slices/blogsSlice";
 import searchReducer from "./slices/searchSlice";
 import standingsReducer from "./slices/standingsSlice";
+import resultsReducer from "./slices/resultsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     blogs: blogsReducer,
     search: searchReducer,
     standings: standingsReducer,
+    results: resultsReducer,
   },
 });

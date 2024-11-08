@@ -3,15 +3,20 @@ import React, { useState } from "react";
 import results from "../../../../utils/results.json";
 import CustomDropdown from "../../../../components/CustomDropDown";
 import MatchCard from "../MatchCard/MatchCard";
+import { useSelector } from "react-redux";
 
 const Results = () => {
-  const [league, setLeague] = useState(results?.leagues[0]?.name);
+  const results = useSelector((state) => state.results.results);
 
-  const selectedLeague = results?.leagues.find((leag) => leag.name === league);
+  const leagues = results.map((result) => result.competition);
 
-  const months = selectedLeague.months;
+  const [league, setLeague] = useState(leagues[0]);
 
-  const options = results?.leagues.map((league) => league.name);
+  const months = results
+    .filter((match) => match.competition === league)
+    .map((match) => match.month);
+
+  const matches = results.filter((result) => result.competition === league);
 
   return (
     <>
@@ -19,22 +24,28 @@ const Results = () => {
         <CustomDropdown
           league={league}
           setLeague={setLeague}
-          options={options}
+          options={leagues}
         />
       </div>
       <div className="my-4">
-        {months &&
+        {months.length > 0 ? (
           months.map((month) => (
-            <div key={month.id}>
+            <div key={month}>
               <p className="text-gray-50 text-lg sm:text-xl my-2 sm:my-4">
-                {month?.month}
+                {month}
               </p>
 
-              {month?.matches?.map((match) => (
-                <MatchCard match={match} key={match.id} />
-              ))}
+              {matches &&
+                matches?.map((match) => (
+                  <MatchCard match={match} key={match._id} />
+                ))}
             </div>
-          ))}
+          ))
+        ) : (
+          <p className="text-gray-50 text-sm text-center my-2 sm:my-4">
+            No match found
+          </p>
+        )}
       </div>
     </>
   );

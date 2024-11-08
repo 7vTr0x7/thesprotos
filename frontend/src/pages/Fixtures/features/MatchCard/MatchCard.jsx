@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 import league from "../../../../images/league.png";
 
 const MatchCard = ({ match, view }) => {
-  console.log(match);
   return (
     <div className="relative rounded-lg mb-3 md:py-8 py-5 bg-[#151515] px-3">
       <div className="absolute left-5 top-5">
         <img alt="league" src={league} className="h-10 md:h-14" />
       </div>
-      {match?.status === "live" && (
+      {match?.status === "Live" && (
         <p className="absolute right-3 top-3 px-3 rounded-xl bg-red-700  text-gray-50 ">
-          • live
+          • Live
         </p>
       )}
       <div className="flex justify-center text-gray-50 mb-3">

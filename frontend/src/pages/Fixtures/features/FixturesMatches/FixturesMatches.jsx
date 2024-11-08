@@ -1,19 +1,27 @@
 import React from "react";
-import matches from "../../../../utils/fixtures.json";
 import MatchCard from "../MatchCard/MatchCard";
+import { useSelector } from "react-redux";
 
 const FixturesMatches = () => {
+  const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
+
+  const months = matches
+    .filter((match) => match.status === "Upcoming")
+    .map((match) => match.month);
+
   return (
     <>
-      {matches &&
-        matches.map((event) => (
-          <div key={event?.id}>
+      {months &&
+        months.map((month, index) => (
+          <div key={index}>
             <p className="text-gray-50 text-lg sm:text-xl mb-2 md:mb-4">
-              {event?.month}
+              {month}
             </p>
-            {event?.matches.map((match) => (
-              <MatchCard match={match} key={match.id} />
-            ))}
+            {matches &&
+              matches
+                .filter((match) => match.status === "Upcoming")
+                .filter((match) => match.month === month)
+                .map((match) => <MatchCard match={match} key={match._id} />)}
           </div>
         ))}
     </>

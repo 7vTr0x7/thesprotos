@@ -23,6 +23,7 @@ import {
 } from "./utils/apis";
 import { setPlayers } from "./app/slices/playerSlice";
 import { setStandings } from "./app/slices/standingsSlice";
+import { setResults } from "./app/slices/resultsSlice";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
@@ -40,6 +41,14 @@ const App = () => {
               matchData.matches.filter(
                 (match) =>
                   match.status === "Upcoming" || match.status === "Live"
+              )
+            )
+          );
+          dispatch(
+            setResults(
+              matchData.matches.filter(
+                (match) =>
+                  match.status === "Live" || match.status === "Completed"
               )
             )
           );
