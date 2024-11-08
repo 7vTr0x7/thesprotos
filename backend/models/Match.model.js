@@ -61,10 +61,10 @@ const MatchSchema = new mongoose.Schema({
     team2: { type: Number, default: 0 },
   },
   timeLeft: {
-    daysLeft: { type: Number, required: true },
-    hoursLeft: { type: Number, required: true },
-    matchType: { type: String, required: true },
+    daysLeft: { type: Number },
+    hoursLeft: { type: Number },
   },
+  matchType: { type: String, required: true },
   headToHead: {
     played: { type: Number, required: true },
     wins: {

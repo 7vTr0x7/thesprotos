@@ -3,17 +3,17 @@ import {
   getBanner,
   getBlogs,
   getFeaturedPlayer,
+  getMatches,
   getPlayers,
   getSponsor,
   getStandings,
   getStarPerformers,
   getTrophies,
-  getUpcomingMatches,
 } from "../controllers/user.js";
 
 const router = express.Router();
 
-router.get("/upcoming-matches", getUpcomingMatches);
+router.get("/matches", getMatches);
 router.get("/banner", getBanner);
 router.get("/sponsor", getSponsor);
 router.get("/star-performers", getStarPerformers);

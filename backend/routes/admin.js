@@ -3,18 +3,18 @@ import {
   addBanner,
   addBlog,
   addFeaturedPlayer,
+  addMatch,
   addMultipleBlogs,
+  addMultipleMatches,
   addMultiplePlayers,
   addMultipleStandings,
   addMultipleStarPerformers,
   addMultipleTrophies,
-  addMultipleUpcomingMatches,
   addPlayer,
   addSponsor,
   addStanding,
   addStarPerformer,
   addTrophy,
-  addUpcomingMatch,
   adminLogin,
   registerAdmin,
 } from "../controllers/admin.js";
@@ -25,12 +25,8 @@ const router = express.Router();
 router.post("/register", registerAdmin);
 router.post("/login", adminLogin);
 
-router.post("/add/upcoming-match", isAuthenticated, addUpcomingMatch);
-router.post(
-  "/add/multiple/upcoming-matches",
-  isAuthenticated,
-  addMultipleUpcomingMatches
-);
+router.post("/add/match", isAuthenticated, addMatch);
+router.post("/add/multiple/matches", isAuthenticated, addMultipleMatches);
 
 router.post("/add/star-performers", isAuthenticated, addStarPerformer);
 router.post(
