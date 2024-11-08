@@ -1,4 +1,4 @@
-import { UpcomingMatch } from "../models/UpcomingMatch.model.js";
+import { Match } from "../models/Match.model.js";
 import bcrypt from "bcrypt";
 import { Admin } from "./../models/Admin.model.js";
 import { sendCookies } from "../utils/features.js";
@@ -61,47 +61,47 @@ export const adminLogin = async (req, res) => {
   }
 };
 
-export const addUpcomingMatch = async (req, res) => {
+export const addMatch = async (req, res) => {
   try {
-    const upcomingMatch = await UpcomingMatch.create(req.body);
-    if (upcomingMatch) {
+    const match = await Match.create(req.body);
+    if (match) {
       res.json({
         success: true,
-        upcomingMatch,
+        match,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "Upcoming match not found",
+        message: " match not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to add Upcoming Match",
+      message: "Failed to add  match",
       error: error.message,
     });
   }
 };
 
-export const addMultipleUpcomingMatches = async (req, res) => {
+export const addMultipleMatches = async (req, res) => {
   try {
-    const upcomingMatch = await UpcomingMatch.insertMany(req.body);
-    if (upcomingMatch) {
+    const matches = await Match.insertMany(req.body);
+    if (matches.length > 0) {
       res.json({
         success: true,
-        upcomingMatch,
+        matches,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "Upcoming match not found",
+        message: " matches not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to add Upcoming Matches",
+      message: "Failed to add  matches",
       error: error.message,
     });
   }

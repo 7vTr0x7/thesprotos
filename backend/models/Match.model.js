@@ -1,6 +1,41 @@
 import mongoose from "mongoose";
 
-const UpcomingMatchSchema = new mongoose.Schema({
+const GoalsSchema = new mongoose.Schema({
+  player: {
+    type: String,
+  },
+  assist: {
+    type: String,
+  },
+});
+
+const FeaturedPlayerSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  imageUrl: {
+    type: String,
+  },
+  club: {
+    type: String,
+  },
+  stats: {
+    goals: {
+      type: String,
+    },
+    assists: {
+      type: String,
+    },
+    rank: {
+      type: String,
+    },
+  },
+  position: {
+    type: String,
+  },
+});
+
+const MatchSchema = new mongoose.Schema({
   competition: { type: String, required: true },
   league_logo_url: { type: String },
   date: { type: String, required: true },
@@ -55,9 +90,17 @@ const UpcomingMatchSchema = new mongoose.Schema({
       score: { type: Number, required: true },
     },
   },
+  goals: {
+    team1: {
+      type: [GoalsSchema],
+    },
+    team2: {
+      type: [GoalsSchema],
+    },
+  },
+  featuredPlayer: {
+    type: FeaturedPlayerSchema,
+  },
 });
 
-export const UpcomingMatch = mongoose.model(
-  "UpcomingMatch",
-  UpcomingMatchSchema
-);
+export const Match = mongoose.model("Match", MatchSchema);

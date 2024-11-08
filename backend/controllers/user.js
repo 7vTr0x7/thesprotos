@@ -6,26 +6,26 @@ import { Sponsor } from "../models/Sponsor.model.js";
 import { Standings } from "../models/Standings.model.js";
 import { StarPerformers } from "../models/StarPerformers.model.js";
 import { Trophies } from "../models/Trophies.model.js";
-import { UpcomingMatch } from "./../models/UpcomingMatch.model.js";
+import { Match } from "./../models/Match.model.js";
 
-export const getUpcomingMatches = async (req, res) => {
+export const getMatches = async (req, res) => {
   try {
-    const upcomingMatches = await UpcomingMatch.find();
-    if (upcomingMatches.length > 0) {
+    const matches = await Match.find();
+    if (matches.length > 0) {
       res.json({
         success: true,
-        upcomingMatches,
+        matches,
       });
     } else {
       res.status(404).json({
         success: true,
-        message: "Upcoming matches not found",
+        message: " matches not found",
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Failed to get Upcoming Matches",
+      message: "Failed to get  matches",
       error: error.message,
     });
   }
