@@ -18,6 +18,7 @@ import {
   addStarPerformer,
   addTrophy,
   adminLogin,
+  getUsers,
   registerAdmin,
 } from "../controllers/admin.js";
 // import { isAuthenticated } from "../middlewares/auth.js";
@@ -51,5 +52,7 @@ router.post("/add/multiple/standings", addMultipleStandings);
 
 router.post("/add/league", addLeague);
 router.post("/add/multiple/leagues", addMultipleLeagues);
+
+router.post("/get/all/users", getUsers);
 
 export default router;

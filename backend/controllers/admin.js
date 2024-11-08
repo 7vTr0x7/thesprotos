@@ -11,6 +11,7 @@ import { Player } from "../models/Player.model.js";
 import { Blog } from "../models/Blogs.model.js";
 import { Standings } from "../models/Standings.model.js";
 import { League } from "../models/League.model.js";
+import { User } from "../models/User.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -448,6 +449,29 @@ export const addLeague = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add league ",
+      error: error.message,
+    });
+  }
+};
+
+export const getUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    if (users.length > 0) {
+      res.json({
+        success: true,
+        users,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "users not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add users ",
       error: error.message,
     });
   }
