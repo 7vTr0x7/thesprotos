@@ -1,6 +1,5 @@
-// api.js
 export const fetchMatchesData = async (apiUrl) => {
-  const res = await fetch(`${apiUrl}/api/user/upcoming-matches`, {
+  const res = await fetch(`${apiUrl}/api/user/matches`, {
     method: "GET",
     credentials: "include",
   });

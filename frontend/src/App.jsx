@@ -35,17 +35,22 @@ const App = () => {
       try {
         const matchData = await fetchMatchesData(apiUrl);
         if (matchData.success) {
-          dispatch(setUpcomingMatch(matchData.upcomingMatches));
+          dispatch(
+            setUpcomingMatch(
+              matchData.matches.filter(
+                (match) =>
+                  match.status === "Upcoming" || match.status === "Live"
+              )
+            )
+          );
           dispatch(
             setLiveMatch(
-              matchData.upcomingMatches.find((match) => match.status === "Live")
+              matchData.matches.find((match) => match.status === "Live")
             )
           );
           dispatch(
             setNextMatch(
-              matchData.upcomingMatches.find(
-                (match) => match.status === "Upcoming"
-              )
+              matchData.matches.find((match) => match.status === "Upcoming")
             )
           );
         }
