@@ -1,6 +1,7 @@
 import { Banner } from "../models/Banner.model.js";
 import { Blog } from "../models/Blogs.model.js";
 import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
+import { League } from "../models/League.model.js";
 import { Player } from "../models/Player.model.js";
 import { Sponsor } from "../models/Sponsor.model.js";
 import { Standings } from "../models/Standings.model.js";
@@ -210,6 +211,29 @@ export const getStandings = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add standingsData",
+      error: error.message,
+    });
+  }
+};
+
+export const getLeagues = async (req, res) => {
+  try {
+    const leagues = await League.find();
+    if (leagues.length > 0) {
+      res.json({
+        success: true,
+        leagues,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "leagues  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add leagues",
       error: error.message,
     });
   }
