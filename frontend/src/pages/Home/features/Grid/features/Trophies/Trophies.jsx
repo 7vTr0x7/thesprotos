@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import data from "../../../../../../utils/trophies.json";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import TrophyCard from "./TrophyCard";
 
@@ -37,7 +36,7 @@ const Trophies = () => {
   }, []);
 
   const nextPageHandler = () => {
-    if (data?.trophies?.length > page * trophiesPerPage) {
+    if (trophies?.length > page * trophiesPerPage) {
       setFadeClass("fade-in-right");
       setTimeout(() => {
         setPage((prev) => prev + 1);

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import data from "../../../../utils/news.json";
+import React, { useEffect, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import NewsCard from "./features/NewsCard";
 import { useSelector } from "react-redux";
+import NewsCard from "./features/NewsCard";
 
 const News = () => {
   const [page, setPage] = useState(1);

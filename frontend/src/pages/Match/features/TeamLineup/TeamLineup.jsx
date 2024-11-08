@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import TeamNav from "../TeamNav/TeamNav";
-import teamData from "../../../../utils/teamData.json";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import PlayerCard from "../PlayersCard/PlayerCard";
+import TeamNav from "../TeamNav/TeamNav";
 
 const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
   const [lineup, setLineup] = useState([]);

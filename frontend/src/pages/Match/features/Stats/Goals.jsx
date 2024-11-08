@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../../../../utils/goals.json";
 import { FaFutbol } from "react-icons/fa";
 
 const Goals = ({ status, goals }) => {
