@@ -28,7 +28,11 @@ const LeaguePage = () => {
         </div>
         <div className="px-4 flex  md:justify-between flex-wrap  md:px-20 lg:px-32 py-3 md:pt-14 text-gray-50  bg-black">
           <div className="flex md:gap-8 gap-4 mb-20">
-            <img alt={league.league} src={leagueImg} className="md:h-36" />
+            <img
+              alt={league.league}
+              src={league.logo_url}
+              className="md:h-36 rounded-md"
+            />
             <div>
               <p className="font-bold text-3xl">{league.league}</p>
               <p className="text-gray-500 text-sm mt-2">{`${new Date(
