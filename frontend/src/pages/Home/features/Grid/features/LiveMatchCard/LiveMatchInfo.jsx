@@ -3,7 +3,9 @@ import LiveMatchCard from "./LiveMatchCard";
 import { useSelector } from "react-redux";
 
 const LiveMatchInfo = () => {
-  const match = useSelector((state) => state.liveMatch.liveMatch);
+  const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
+
+  const match = matches.find((m) => m.status === "Live");
 
   return (
     <div className="">

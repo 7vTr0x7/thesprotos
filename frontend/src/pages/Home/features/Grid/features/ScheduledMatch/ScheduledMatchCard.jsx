@@ -1,11 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import ScheduledMatchInfo from "./ScheduledMatchInfo";
 import ScheduledMatchStarts from "./ScheduledMatchStarts";
-import matchData from "../../../../../../utils/nextMatch.json";
-import { useSelector } from "react-redux";
 
 const ScheduledMatchCard = () => {
-  const match = useSelector((state) => state.nextMatch.nextMatch);
+  const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
+
+  const match = matches.find((m) => m.status === "Upcoming");
 
   return (
     <>

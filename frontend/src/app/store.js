@@ -10,8 +10,6 @@ import resultsReducer from "./slices/resultsSlice";
 
 export const store = configureStore({
   reducer: {
-    liveMatch: liveMatchReducer,
-    nextMatch: nextMatchReducer,
     upcomingMatch: upcomingMatchReducer,
     players: playersReducer,
     blogs: blogsReducer,

@@ -52,16 +52,6 @@ const App = () => {
               )
             )
           );
-          dispatch(
-            setLiveMatch(
-              matchData.matches.find((match) => match.status === "Live")
-            )
-          );
-          dispatch(
-            setNextMatch(
-              matchData.matches.find((match) => match.status === "Upcoming")
-            )
-          );
         }
 
         const blogData = await fetchBlogsData(apiUrl);
