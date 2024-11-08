@@ -18,7 +18,7 @@ const MatchCardLayout = ({ match }) => {
       <div className="flex flex-col items-center text-center font-semibold">
         <div className="py-6">
           <p>{match?.FT && "FT"}</p>
-          {match?.time ? (
+          {match?.status === "Upcoming" ? (
             <p className="text-xl py-4">{match?.time}</p>
           ) : (
             <div className="text-xl py-4 flex md:gap-4 gap-7">
