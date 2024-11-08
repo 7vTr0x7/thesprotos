@@ -5,7 +5,7 @@ const LiveMatchCard = ({ match }) => {
     <div className="relative rounded-lg bg-[#151515]">
       {!match?.FT && (
         <div className="absolute top-0 left-0 right-0 flex flex-col justify-center items-center text-gray-400">
-          <p>{match.competition}</p>
+          <p>{match?.competition}</p>
           <hr className="w-6/12 h-[2px] bg-red-500 border-0 dark:bg-red-50 mb-4" />{" "}
         </div>
       )}

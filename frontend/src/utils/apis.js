@@ -32,3 +32,11 @@ export const fetchStandingsData = async (apiUrl) => {
   if (!res.ok) throw new Error("Failed to get data");
   return res.json();
 };
+export const fetchLeagues = async (apiUrl) => {
+  const res = await fetch(`${apiUrl}/api/user/leagues`, {
+    method: "GET",
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error("Failed to get data");
+  return res.json();
+};

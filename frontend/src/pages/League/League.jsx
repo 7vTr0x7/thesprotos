@@ -3,12 +3,11 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-import data from "../../utils/leagues.json";
+import { useSelector } from "react-redux";
 import LeagueCard from "./features/LeagueCard/LeagueCard";
 
 const League = () => {
-  const { leagues } = data;
-
+  const leagues = useSelector((state) => state.leagues.leagues);
   return (
     <>
       <Header />

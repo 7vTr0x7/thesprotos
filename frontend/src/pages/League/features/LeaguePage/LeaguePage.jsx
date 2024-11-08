@@ -27,15 +27,19 @@ const LeaguePage = () => {
           <Breadcrumbs />
         </div>
         <div className="px-4 flex  md:justify-between flex-wrap  md:px-20 lg:px-32 py-3 md:pt-14 text-gray-50  bg-black">
-          <div className="flex md:gap-8 gap-4 mb-4">
+          <div className="flex md:gap-8 gap-4 mb-20">
             <img alt={league.league} src={leagueImg} className="md:h-36" />
             <div>
               <p className="font-bold text-3xl">{league.league}</p>
-              <p className="text-gray-500 text-sm mt-2">{`${league.start_date} to ${league.end_date}`}</p>
+              <p className="text-gray-500 text-sm mt-2">{`${new Date(
+                league.start_date
+              ).toLocaleDateString()} to ${new Date(
+                league.end_date
+              ).toLocaleDateString()}`}</p>
               <p className="text-gray-500 text-sm">{`${league.views} views`}</p>
             </div>
           </div>
-          <OngoingMatchCard />
+          <OngoingMatchCard league={league.league} />
         </div>
         <div className="relative px-4 sm:px-8 md:px-16 lg:px-32 py-3 bg-black">
           <LeagueStats activeTab={activeTab} setActiveTab={setActiveTab} />

@@ -18,10 +18,12 @@ import Players from "./pages/Players/Players";
 import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
 import {
   fetchBlogsData,
+  fetchLeagues,
   fetchMatchesData,
   fetchPlayersData,
   fetchStandingsData,
 } from "./utils/apis";
+import { setLeagues } from "./app/slices/leaguesSlice";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 
@@ -63,6 +65,10 @@ const App = () => {
         const standings = await fetchStandingsData(apiUrl);
         if (standings.success) {
           dispatch(setStandings(standings.standingsData));
+        }
+        const leagues = await fetchLeagues(apiUrl);
+        if (leagues.success) {
+          dispatch(setLeagues(leagues.leagues));
         }
       } catch (error) {
         console.error("Data fetching failed", error.message);
