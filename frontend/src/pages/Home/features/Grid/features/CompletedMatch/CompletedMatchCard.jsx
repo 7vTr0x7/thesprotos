@@ -16,7 +16,7 @@ const CompletedMatchCard = ({ text }) => {
             {text ? text : match?.status}
           </p>
           <p className="text-red-600 absolute right-0">
-            {match.live && "• Live"}
+            {match?.live && "• Live"}
           </p>
         </div>
         <LiveMatchCard match={match} />

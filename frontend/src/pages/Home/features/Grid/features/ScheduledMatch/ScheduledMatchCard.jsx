@@ -6,11 +6,11 @@ import ScheduledMatchStarts from "./ScheduledMatchStarts";
 const ScheduledMatchCard = () => {
   const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
 
-  const match = matches.find((m) => m.status === "Upcoming");
+  const match = matches.find((m) => m?.status === "Upcoming");
 
   return (
     <>
-      {match.status === "Upcoming" && (
+      {match?.status === "Upcoming" && (
         <div className="bg-[#151515] rounded-lg w-full p-4 mb-4 flex flex-col shadow-lg ">
           <div className="bg-[#151515] rounded-lg p-4">
             <ScheduledMatchInfo match={match} />

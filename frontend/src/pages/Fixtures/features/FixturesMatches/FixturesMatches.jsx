@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 const FixturesMatches = ({ league }) => {
   const matchesData = useSelector((state) => state.upcomingMatch.upcomingMatch);
   const [matches, setMatches] = useState(matchesData);
-  console.log(league);
   const months = [
     ...new Set(
       matches
