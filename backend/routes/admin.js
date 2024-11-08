@@ -27,33 +27,32 @@ const router = express.Router();
 router.post("/register", registerAdmin);
 router.post("/login", adminLogin);
 
-router.post("/add/match", isAuthenticated, addMatch);
-router.post("/add/multiple/matches", isAuthenticated, addMultipleMatches);
+router.post("/add/match", addMatch);
+router.post("/add/multiple/matches", addMultipleMatches);
 
-router.post("/add/star-performers", isAuthenticated, addStarPerformer);
+router.post("/add/star-performers", addStarPerformer);
 router.post(
-  "/add/multiple/star-performers",
-  isAuthenticated,
+  "/add/multiple/star-performers",,
   addMultipleStarPerformers
 );
 
-router.post("/add/trophy", isAuthenticated, addTrophy);
-router.post("/add/multiple/trophies", isAuthenticated, addMultipleTrophies);
+router.post("/add/trophy", addTrophy);
+router.post("/add/multiple/trophies", addMultipleTrophies);
 
-router.post("/add/banner", isAuthenticated, addBanner);
-router.post("/add/sponsor", isAuthenticated, addSponsor);
-router.post("/add/featured-player", isAuthenticated, addFeaturedPlayer);
+router.post("/add/banner", addBanner);
+router.post("/add/sponsor", addSponsor);
+router.post("/add/featured-player", addFeaturedPlayer);
 
-router.post("/add/player", isAuthenticated, addPlayer);
-router.post("/add/multiple/players", isAuthenticated, addMultiplePlayers);
+router.post("/add/player", addPlayer);
+router.post("/add/multiple/players", addMultiplePlayers);
 
-router.post("/add/blog", isAuthenticated, addBlog);
-router.post("/add/multiple/blogs", isAuthenticated, addMultipleBlogs);
+router.post("/add/blog", addBlog);
+router.post("/add/multiple/blogs", addMultipleBlogs);
 
-router.post("/add/standing", isAuthenticated, addStanding);
-router.post("/add/multiple/standings", isAuthenticated, addMultipleStandings);
+router.post("/add/standing", addStanding);
+router.post("/add/multiple/standings", addMultipleStandings);
 
-router.post("/add/league", isAuthenticated, addLeague);
-router.post("/add/multiple/leagues", isAuthenticated, addMultipleLeagues);
+router.post("/add/league", addLeague);
+router.post("/add/multiple/leagues", addMultipleLeagues);
 
 export default router;
