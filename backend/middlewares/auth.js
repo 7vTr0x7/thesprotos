@@ -1,5 +1,5 @@
 // import jwt from "jsonwebtoken";
-// import { Admin } from "../models/Admin.model.js";
+// import { Admin } from "../models/AdminModel.model.js";
 
 // export const isAuthenticated = async (req, res, next) => {
 //   const { token } = req?.cookies;
