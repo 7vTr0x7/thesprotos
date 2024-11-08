@@ -1,29 +1,27 @@
 import React, { lazy, Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { setBlogs } from "./app/slices/blogsSlice";
+import { setPlayers } from "./app/slices/playerSlice";
+import { setResults } from "./app/slices/resultsSlice";
+import { setStandings } from "./app/slices/standingsSlice";
+import { setUpcomingMatch } from "./app/slices/upcomingMatchesSlice";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Fixtures from "./pages/Fixtures/Fixtures";
 import League from "./pages/League/League";
 import LeaguePage from "./pages/League/features/LeaguePage/LeaguePage";
 import Match from "./pages/Match/Match";
 import NewsPage from "./pages/News/NewsPage";
+import NewsDetails from "./pages/News/features/NewsDetails.jsx/NewsDetails";
 import PlayerDetails from "./pages/PlayerDetails/PlayerDetails";
 import Players from "./pages/Players/Players";
 import ShimmerUI from "./pages/ShimmerUI/ShimmerUI";
-import NewsDetails from "./pages/News/features/NewsDetails.jsx/NewsDetails";
-import { setNextMatch } from "./app/slices/nextMatchSlice";
-import { setLiveMatch } from "./app/slices/liveMatchSlice";
-import { setUpcomingMatch } from "./app/slices/upcomingMatchesSlice";
-import { useDispatch } from "react-redux";
-import { setBlogs } from "./app/slices/blogsSlice";
 import {
   fetchBlogsData,
   fetchMatchesData,
   fetchPlayersData,
   fetchStandingsData,
 } from "./utils/apis";
-import { setPlayers } from "./app/slices/playerSlice";
-import { setStandings } from "./app/slices/standingsSlice";
-import { setResults } from "./app/slices/resultsSlice";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
 

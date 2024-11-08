@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import liveMatchReducer from "./slices/liveMatchSlice";
-import nextMatchReducer from "./slices/nextMatchSlice";
-import upcomingMatchReducer from "./slices/upcomingMatchesSlice";
-import playersReducer from "./slices/playerSlice";
 import blogsReducer from "./slices/blogsSlice";
+import playersReducer from "./slices/playerSlice";
+import resultsReducer from "./slices/resultsSlice";
 import searchReducer from "./slices/searchSlice";
 import standingsReducer from "./slices/standingsSlice";
-import resultsReducer from "./slices/resultsSlice";
+import upcomingMatchReducer from "./slices/upcomingMatchesSlice";
 
 export const store = configureStore({
   reducer: {
