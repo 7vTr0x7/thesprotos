@@ -1,11 +1,10 @@
 import React from "react";
-import league from "../../../../images/league.png";
-import manCity from "../../../../images/Club.png";
-import manUnited from "../../../../images/Club4.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import league from "../../../../images/league.png";
 
 const MatchCard = ({ match, view }) => {
+  console.log(match);
   return (
     <div className="relative rounded-lg mb-3 md:py-8 py-5 bg-[#151515] px-3">
       <div className="absolute left-5 top-5">
@@ -18,9 +17,15 @@ const MatchCard = ({ match, view }) => {
       )}
       <div className="flex justify-center text-gray-50 mb-3">
         <div className="text-center">
-          <p className="md:text-[1rem] text-sm">{match?.date}</p>
+          <p className="md:text-[1rem] text-sm">
+            {new Date(match?.date).toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
           <p className="mt-1 md:text-[1rem] text-sm">
-            {match?.venue || match?.location}
+            {match?.stadium || match?.location}
           </p>
         </div>
       </div>
@@ -40,21 +45,21 @@ const MatchCard = ({ match, view }) => {
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
             <img
               alt={match?.team1?.name}
-              src={manCity}
+              src={match?.team1?.logo_url}
               className="h-10 sm:h-10 md:h-16 max-w-[2.5rem] md:max-w-none"
             />
           </div>
         </div>
 
-        {match?.time ? (
+        {match?.status === "Upcoming" ? (
           <p className="text-sm sm:text-xl font-semibold text-center flex-shrink-0">
             {match?.time}
           </p>
         ) : (
-          <div className="flex gap-2 text-lg sm:text-xl font-semibold text-center flex-shrink-0">
-            <p>{match?.team1_score}</p>
+          <div className="flex gap-5 text-lg sm:text-xl font-semibold text-center flex-shrink-0">
+            <p>{match?.score?.team1}</p>
             <p>-</p>
-            <p>{match?.team2_score}</p>
+            <p>{match?.score?.team2}</p>
           </div>
         )}
 
@@ -67,7 +72,7 @@ const MatchCard = ({ match, view }) => {
           <div className="border border-yellow-400 bg-black p-2 sm:p-3 md:p-4 rounded-full flex justify-center items-center">
             <img
               alt={match?.team2?.name}
-              src={manUnited}
+              src={match?.team2?.logo_url}
               className="h-10 sm:h-10 md:h-16 max-w-[2.5rem] md:max-w-none"
             />
           </div>
@@ -76,9 +81,11 @@ const MatchCard = ({ match, view }) => {
           </p>
         </div>
       </div>
-      {!view && match?.penalty && (
+      {!view && match?.pens && (
         <div className="flex justify-center items-center gap-1 mt-2 text-gray-100 cursor-pointer">
-          <p className="text-sm md:text-lg">PENS {match?.penalty}</p>
+          <p className="text-sm md:text-lg">
+            PENS {match?.pens?.team1} - {match?.pens?.team2}
+          </p>
         </div>
       )}
       {!view && (

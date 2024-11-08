@@ -10,11 +10,11 @@
         "time": "19:00 PM",
         "team1": {
           "name": "Real Madrid",
-          "logo": "Real Madrid logo"
+          "logo_url": "Real Madrid logo"
         },
         "team2": {
           "name": "Juventus",
-          "logo": "Juventus logo"
+          "logo_url": "Juventus logo"
         },
         "venue": "Bloomfield Road"
       },
@@ -25,11 +25,11 @@
         "time": "17:00 PM",
         "team1": {
           "name": "Barcelona",
-          "logo": "Barcelona logo"
+          "logo_url": "Barcelona logo"
         },
         "team2": {
           "name": "Liverpool",
-          "logo": "Liverpool logo"
+          "logo_url": "Liverpool logo"
         },
         "venue": "St. James' Park, Newcastle"
       }
@@ -47,11 +47,11 @@
         "time": "16:00 PM",
         "team1": {
           "name": "PSG",
-          "logo": "PSG logo"
+          "logo_url": "PSG logo"
         },
         "team2": {
           "name": "Bayern Munich",
-          "logo": "Bayern Munich logo"
+          "logo_url": "Bayern Munich logo"
         },
         "venue": "Stamford Bridge"
       },
@@ -62,11 +62,11 @@
         "time": "15:00 PM",
         "team1": {
           "name": "Chelsea",
-          "logo": "Chelsea logo"
+          "logo_url": "Chelsea logo"
         },
         "team2": {
           "name": "Inter Milan",
-          "logo": "Inter Milan logo"
+          "logo_url": "Inter Milan logo"
         },
         "venue": "Anfield"
       }
@@ -83,11 +83,11 @@
         "time": "19:00 PM",
         "team1": {
           "name": "TheSprotos",
-          "logo": "Real Madrid logo"
+          "logo_url": "Real Madrid logo"
         },
         "team2": {
           "name": "Man City",
-          "logo": "Juventus logo"
+          "logo_url": "Juventus logo"
         },
         "venue": "Bloomfield Road"
       },
@@ -98,11 +98,11 @@
         "time": "17:00 PM",
         "team1": {
           "name": "Barcelona",
-          "logo": "Barcelona logo"
+          "logo_url": "Barcelona logo"
         },
         "team2": {
           "name": "Liverpool",
-          "logo": "Liverpool logo"
+          "logo_url": "Liverpool logo"
         },
         "venue": "St. James' Park, Newcastle"
       }
@@ -119,11 +119,11 @@
         "time": "19:00 PM",
         "team1": {
           "name": "Blackpool",
-          "logo": "Real Madrid logo"
+          "logo_url": "Real Madrid logo"
         },
         "team2": {
           "name": "TheSprotos",
-          "logo": "Juventus logo"
+          "logo_url": "Juventus logo"
         },
         "venue": "Bloomfield Road"
       },
@@ -134,11 +134,11 @@
         "time": "17:00 PM",
         "team1": {
           "name": "Barcelona",
-          "logo": "Barcelona logo"
+          "logo_url": "Barcelona logo"
         },
         "team2": {
           "name": "Liverpool",
-          "logo": "Liverpool logo"
+          "logo_url": "Liverpool logo"
         },
         "venue": "St. James' Park, Newcastle"
       }

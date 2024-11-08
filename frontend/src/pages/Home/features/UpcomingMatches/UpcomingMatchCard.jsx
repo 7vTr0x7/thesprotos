@@ -13,7 +13,13 @@ const UpcomingMatchCard = ({ match }) => {
         <img alt={match?.competition} src={league} className="h-16" />
       </div>
       <div className="text-center text-xs">
-        <p>{match?.date}</p>
+        <p>
+          {new Date(match.date).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
         <p>{match?.stadium}</p>
       </div>
       <div className="mt-6 grid grid-cols-3">

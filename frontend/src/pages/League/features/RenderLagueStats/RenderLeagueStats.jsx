@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import StandingsCard from "./../../../../components/StandingsCard";
 
-import standings from "../../../../utils/standings.json";
-import FixturesMatches from "../../../Fixtures/features/FixturesMatches/FixturesMatches";
 import { useSelector } from "react-redux";
+import FixturesMatches from "../../../Fixtures/features/FixturesMatches/FixturesMatches";
 
 const RenderLeagueStats = ({ activeTab, league }) => {
   const [stats, setStats] = useState([]);

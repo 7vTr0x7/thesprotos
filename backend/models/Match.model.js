@@ -117,7 +117,18 @@ const MatchSchema = new mongoose.Schema({
     type: FeaturedPlayerSchema,
   },
   teamLineup: {
-    type: [playerSchema],
+    team1: {
+      name: {
+        type: String,
+      },
+      lineup: [playerSchema],
+    },
+    team2: {
+      name: {
+        type: String,
+      },
+      lineup: [playerSchema],
+    },
   },
 });
 

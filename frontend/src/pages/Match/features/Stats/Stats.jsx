@@ -3,8 +3,6 @@ import FeaturedPlayerCard from "../../../../components/FeaturedPlayerCard";
 import Goals from "./Goals";
 import PreviousStats from "./PreviousStats";
 
-import data from "../../../../utils/featuredPlayer.json";
-
 const Stats = ({ match, status }) => {
   return (
     <div className="flex flex-col md:flex-row md:gap-4 mx-6 my-6 gap-3 ">
@@ -13,7 +11,7 @@ const Stats = ({ match, status }) => {
         <Goals status={status} />
       )}
       {status === "complete" && (
-        <FeaturedPlayerCard player={data} status={status} />
+        <FeaturedPlayerCard player={match.featuredPlayer} status={status} />
       )}
     </div>
   );

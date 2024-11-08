@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TeamNav from "../TeamNav/TeamNav";
 import teamData from "../../../../utils/teamData.json";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -6,7 +6,16 @@ import { Link } from "react-router-dom";
 import PlayerCard from "../PlayersCard/PlayerCard";
 
 const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
-  const team = teamData.teams.find((team) => team.name === activeTeam);
+  const [lineup, setLineup] = useState([]);
+
+  console.log(activeTeam);
+  useEffect(() => {
+    if (match.team1.name === activeTeam) {
+      setLineup(match.teamLineup.team1.lineup);
+    } else if (match.team2.name === activeTeam) {
+      setLineup(match.teamLineup.team2.lineup);
+    }
+  }, [activeTeam]);
 
   return (
     <div className="relative">
@@ -25,12 +34,12 @@ const TeamLineup = ({ activeTeam, setActiveTeam, match }) => {
         <MdKeyboardArrowRight />
       </div>
       <div className="mb-4 mt-2">
-        <div className="text-gray-500 md:px-20 px-10 flex md:w-7/12 w-full  justify-between">
+        <div className="text-gray-500 md:px-24 px-10 flex md:w-7/12 w-full  justify-between">
           <p>Player</p>
           <p>Position</p>
         </div>
         <div className="text-gray-500 mx-4 my-2">
-          <PlayerCard players={team.players} />
+          <PlayerCard players={lineup} />
         </div>
       </div>
     </div>
