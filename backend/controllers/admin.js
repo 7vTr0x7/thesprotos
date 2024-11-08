@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { Admin } from "../models/Admin.model.js";
+import { Admin } from "../models/AdminModel.model.js";
 import { Match } from "../models/Match.model.js";
 import { sendCookies } from "../utils/features.js";
 import { Banner } from "../models/Banner.model.js";
