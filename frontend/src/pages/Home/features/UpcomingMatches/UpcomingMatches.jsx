@@ -52,7 +52,7 @@ const UpcomingMatches = () => {
           <p className="text-2xl font-semibold text-gray-100">
             Upcoming Matches
           </p>
-          {upcomingMatches && upcomingMatches.length > 4 && (
+          {upcomingMatches && upcomingMatches.length > matchPage && (
             <div className="text-gray-300 flex gap-3 text-[20px]">
               <FiArrowLeft
                 onClick={prevPageHandler}
