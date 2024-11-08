@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Breadcrumbs from "../../components/Breadcrumbs";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import MatchCard from "../Fixtures/features/MatchCard/MatchCard";
 import MatchNav from "./features/MatchNav/MatchNav";
-import TeamNav from "./features/TeamNav/TeamNav";
 import RenderMatchInfo from "./features/RenderMatchInfo/RenderMatchInfo";
 
 const Match = () => {

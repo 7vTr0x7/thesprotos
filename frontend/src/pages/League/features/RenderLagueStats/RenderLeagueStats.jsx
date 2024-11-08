@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const RenderLeagueStats = ({ activeTab, league }) => {
   const [stats, setStats] = useState([]);
   const standings = useSelector((state) => state.standings.standings);
-  console.log(league);
   useEffect(() => {
     const filtered = standings.filter((stand) => stand.league === league);
     setStats(filtered);
