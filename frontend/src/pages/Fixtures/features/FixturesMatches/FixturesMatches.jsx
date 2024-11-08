@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MatchCard from "../MatchCard/MatchCard";
 import { useSelector } from "react-redux";
 
-const FixturesMatches = () => {
-  const matches = useSelector((state) => state.upcomingMatch.upcomingMatch);
-
+const FixturesMatches = ({ league }) => {
+  const matchesData = useSelector((state) => state.upcomingMatch.upcomingMatch);
+  const [matches, setMatches] = useState(matchesData);
+  console.log(league);
   const months = [
     ...new Set(
       matches
@@ -13,9 +14,15 @@ const FixturesMatches = () => {
     ),
   ].sort((a, b) => b.localeCompare(a));
 
+  useEffect(() => {
+    if (league) {
+      setMatches(matchesData.filter((match) => match.competition === league));
+    }
+  }, [league]);
+
   return (
     <>
-      {months &&
+      {months.length > 0 ? (
         months.map((month, index) => (
           <div key={index}>
             <p className="text-gray-50 text-lg sm:text-xl mb-2 md:mb-4">
@@ -27,7 +34,12 @@ const FixturesMatches = () => {
                 .filter((match) => match.month === month)
                 .map((match) => <MatchCard match={match} key={match._id} />)}
           </div>
-        ))}
+        ))
+      ) : (
+        <p className="text-gray-50 text-sm text-center mb-2 md:mb-4">
+          No Fixtures Found
+        </p>
+      )}
     </>
   );
 };

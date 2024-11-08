@@ -11,6 +11,7 @@ const RenderLeagueStats = ({ activeTab, league }) => {
     const filtered = standings.filter((stand) => stand.league === league);
     setStats(filtered);
   }, [league]);
+
   return (
     <>
       {activeTab === "standings" && (
@@ -24,7 +25,7 @@ const RenderLeagueStats = ({ activeTab, league }) => {
           )}
         </div>
       )}
-      {activeTab === "fixtures" && <FixturesMatches />}
+      {activeTab === "fixtures" && <FixturesMatches league={league} />}
     </>
   );
 };
