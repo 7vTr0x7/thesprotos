@@ -53,6 +53,6 @@ router.post("/add/multiple/standings", addMultipleStandings);
 router.post("/add/league", addLeague);
 router.post("/add/multiple/leagues", addMultipleLeagues);
 
-router.post("/get/all/users", getUsers);
+router.get("/get/all/users", getUsers);
 
 export default router;
