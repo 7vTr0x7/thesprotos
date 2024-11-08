@@ -48,7 +48,7 @@ const UserForm = () => {
           <MdEmail className="text-gray-50 text-xl" color="white" />
           <div>
             <p className="text-xs text-gray-50">EMAIL</p>
-            <p className="text-xs text-yellow-600">info@thesportos.com</p>
+            <p className="text-xs text-yellow-600">info@scthesprotos.com</p>
           </div>
         </div>
       </div>
