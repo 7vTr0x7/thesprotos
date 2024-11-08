@@ -10,6 +10,7 @@ import { FeaturedPlayer } from "../models/FeaturedPlayer.model.js";
 import { Player } from "../models/Player.model.js";
 import { Blog } from "../models/Blogs.model.js";
 import { Standings } from "../models/Standings.model.js";
+import { League } from "../models/League.model.js";
 
 export const registerAdmin = async (req, res) => {
   try {
@@ -401,6 +402,52 @@ export const addStanding = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to add Standing ",
+      error: error.message,
+    });
+  }
+};
+
+export const addMultipleLeagues = async (req, res) => {
+  try {
+    const leagues = await League.insertMany(req.body);
+    if (leagues.length > 0) {
+      res.json({
+        success: true,
+        leagues,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "leagues  not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add leagues",
+      error: error.message,
+    });
+  }
+};
+
+export const addLeague = async (req, res) => {
+  try {
+    const league = await League.create(req.body);
+    if (league) {
+      res.json({
+        success: true,
+        league,
+      });
+    } else {
+      res.status(404).json({
+        success: true,
+        message: "league not found",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add league ",
       error: error.message,
     });
   }
