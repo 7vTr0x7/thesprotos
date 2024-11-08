@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  addContactUs,
   getBanner,
   getBlogs,
   getFeaturedPlayer,
@@ -24,5 +25,7 @@ router.get("/players", getPlayers);
 router.get("/blogs", getBlogs);
 router.get("/standings", getStandings);
 router.get("/leagues", getLeagues);
+
+router.post("/contact-us", addContactUs);
 
 export default router;
